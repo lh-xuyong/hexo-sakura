@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-07-01T03:30:57.425Z</updated>
+  <updated>2020-07-02T03:17:00.464Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TP5.0的重新学习</title>
+    <link href="/title/"/>
+    <id>/title/</id>
+    <published>2020-07-02T03:17:00.464Z</published>
+    <updated>2020-07-02T03:17:00.464Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;0. Thinkphp官网
+    `http://www.thinkphp.cn`
+
+1. 使用composer安装
+    composer create-project topthink/think=5.0.* tp5 
+        
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>TP5.0的重新学习</title>
@@ -41,6 +69,28 @@
     
       <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Theme-Sakura</title>
+    <link href="/title/"/>
+    <id>/title/</id>
+    <published>2018-12-12T14:16:01.000Z</published>
+    <updated>2020-07-02T03:16:44.704Z</updated>
+    
+    <summary type="html">
+    
+      hexo-sakura主题使用教程
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="web" scheme="/tags/web/"/>
+    
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   

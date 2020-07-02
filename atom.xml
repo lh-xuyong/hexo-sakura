@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>红狼</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/"/>
+  <updated>2020-07-01T03:30:57.425Z</updated>
+  <id>/</id>
+  
+  <author>
+    <name>红狼</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TP5.0的重新学习</title>
+    <link href="/2020/05/09/TP5.0%E7%9A%84%E9%87%8D%E6%96%B0%E5%AD%A6%E4%B9%A0/"/>
+    <id>/2020/05/09/TP5.0的重新学习/</id>
+    <published>2020-05-09T08:11:14.087Z</published>
+    <updated>2020-07-01T03:30:57.425Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;0. Thinkphp官网
+    `http://www.thinkphp.cn`
+
+1. 使用composer安装
+    composer create-project topthink/think=5.0.* tp5 
+        
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Theme-Sakura</title>
+    <link href="/2018/12/12/Hexo-Theme-Sakura/"/>
+    <id>/2018/12/12/Hexo-Theme-Sakura/</id>
+    <published>2018-12-12T14:16:01.000Z</published>
+    <updated>2020-07-02T01:05:04.539Z</updated>
+    
+    <summary type="html">
+    
+      hexo-sakura主题使用教程
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="web" scheme="/tags/web/"/>
+    
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+    
+  </entry>
+  
+</feed>

@@ -837,6 +837,14 @@ table {
 td,th {
     padding:0
 }
+td {
+    padding:2px;
+}
+th{
+    text-align: left;
+    padding:5px;
+    padding-bottom:8px;
+}
 body,button,input,select,textarea {
     color:#404040;
     font-size:15px;
@@ -6312,7 +6320,7 @@ button.botui-actions-buttons-button {
     cursor:pointer
 }
 .changeSkin-gear span:before {
-    content:"切换主题 | Change Skin "
+    content:"切杢主题 | Change Skin "
 }
 @media(max-width:800px) {
     .changeSkin-gear span::before {

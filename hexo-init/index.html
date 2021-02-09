@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Category: 生活 | 红狼</title>
+  <title itemprop="name">hexo | 红狼</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -203,6 +203,13 @@
                         </a>
                       </li>
                     
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
                   </ul>
                 
               </li>
@@ -255,105 +262,190 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/writing.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg);" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      hexo</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon.jpg">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-19<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">生活</h1>
-    <span class="cat-des">
-      <p>live</p>
-    </span>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/title/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><ol>
+<li>安装<code>hexo</code><pre><code>需要先安装npm,git,配置好npm的淘宝镜像
+</code></pre></li>
+<li>生成<code>hexo</code>项目<pre><code>hexo init &lt;folder&gt;
+</code></pre><a id="more"></a></li>
+<li>新建一篇文章<pre><code>hexo new [布局文件] &quot;文章标题&quot; //布局文件默认使用 config.yml 中的 default_layout 参数代替
+</code></pre></li>
+<li>新建一个页面<pre><code>hexo new page &quot;title&quot; 
+参数: 
+ -p : 指定页面路径,如-p about/me
+ -r 如果存在同名文章替换
+ -s 作为文章发布后的文件名和url
+</code></pre></li>
+<li>generate<pre><code>hexo generate 或者 hexo g
+参数: 
+ -d 文件生成后立即部署网站
+ -w 监视文件变动
+ -b 生成过程中如果发生任何未处理的异常则抛出异常
+ -f 强制重新生成文件
+ -c 最大同时生成文件的数量,默认无限制
+</code></pre></li>
+<li>publish<pre><code>hexo publish [布局文件] &lt;filename&gt; 发表草稿
+</code></pre></li>
+<li>server<pre><code>hexo server //启动服务器,hexo 3.0版本将服务器单独分离,先安装server 才能使用
+安装:
+ npm install hexo-server --save
+参数:
+ -p 指定端口,默认4000
+ -s 只使用静态文件
+ -l 启动日志记录
+</code></pre></li>
+<li>deploy<pre><code>hexo deploy //部署网站 简写 hexo d
+参数
+ -g 部署之前预先生成的静态文件
+</code></pre></li>
+<li>render<pre><code>hexo render &lt;file1&gt; [&lt;file2&gt;] ...
+参数
+ -o 设置输出路径
+</code></pre></li>
+<li>migrarte <a href="https://hexo.io/zh-cn/docs/migration" target="_blank" rel="noopener">详细说明</a><pre><code>hexo migrarte &lt;type&gt; //从其他博客迁移内容
+</code></pre></li>
+<li>clean<pre><code>hexo clean //清理缓存文件 (db.json) 和已生成的静态文件(public),更换主题如果不生效,运行此命令
+</code></pre></li>
+<li>list<pre><code>hexo list &lt;type&gt; //列出网站资料
+</code></pre></li>
+<li>version<pre><code>hexo version //显示版本
+</code></pre></li>
+<li>模式<pre><code>安全模式 hexo --safe //不会载入插件和脚本
+调试模式 hexo --debug 终端显示调试信息并记录到debug.log
+简洁模式 hexo --silent 隐藏终端信息
+</code></pre></li>
+<li>自定义配置文件路径<pre><code>hexo server --config custom.yml
+如果加载多个配置文件 hexo会合并成一个文件,并覆盖掉相同的配置
+</code></pre></li>
+<li>显示草稿<pre><code>hexo --draft //显示source/_drafts文件夹中的草稿文章
+</code></pre></li>
+<li>自定义当前工作目录<pre><code>hexo --cwd /path/to/cwd
+</code></pre></li>
+<li>开启server的问题<pre><code>由于hexo更新去除了一些服务,需要自己检测,手动补充
+npm audit fix //检测依赖
+按照提示进行安装
+</code></pre></li>
+</ol>
+<h2 id="hexo-sakura"><a href="#hexo-sakura" class="headerlink" title="hexo-sakura"></a>hexo-sakura</h2><ol>
+<li>文章属性<pre><code>title:标题
+author:作者
+avatar:作者头像(图片链接)
+authorLink:作者链接
+authorAbout:作者相关
+authorDesc:作者描述
+categories:分类
+date:时间
+comments:内容开/关
+tags:标签
+keywords:关键词
+description:文章描述
+photo:文章图片(图片链接)
+</code></pre></li>
+<li>插入B站视频<pre><code>{% bili 24897960 %}
+</code></pre></li>
+</ol>
+
         </div>
-        <img width="150" height="150" src="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/title/">
-    TP5.0的重新学习</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-5-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/title/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <!-- <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDNnull"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDNnull"></li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre full previous">
+          
+            <a href="/TP5.0的重新学习/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                TP5.0的重新学习</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon.jpg" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
 
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/title/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/title/">
-    TP5.0的重新学习</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-5-9</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/title/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
 
- -->
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
@@ -386,7 +478,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 红狼<br>
+      &copy; 2021 红狼<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -526,6 +618,13 @@ $(document).ready(function() {
                 <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
+                  生活
                 </a>
               </li>
             

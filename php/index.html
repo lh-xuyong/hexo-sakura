@@ -1,0 +1,4371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">php基础(初学时的笔记) | 红狼</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "さくら荘その红狼";
+  mashiro_option.author_name = "红狼";
+  mashiro_option.site_url = "https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(10).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(12).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(13).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(14).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(14).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(20).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(21).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <!-- <a href="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg"> -->
+          <a href="#">
+
+          <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/lh-xuyong" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/20164078/" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/bilibili.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_codejpg">
+                  </div>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=1397603034" target="_blank" class="social-github" title="wangyiyun">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">红狼</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg);" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      php基础(初学时的笔记)</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon.jpg">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-8-6<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>[TOC]</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h6 id="1-注意点"><a href="#1-注意点" class="headerlink" title="1.注意点:"></a>1.注意点:</h6><ol>
+<li>文件名扩展名:  php</li>
+<li>文件名 和 文件夹名 一律不准使用 中文</li>
+<li>PHP文件 必须存放在www目录</li>
+</ol>
+<h6 id="2-PHP介绍"><a href="#2-PHP介绍" class="headerlink" title="2.PHP介绍"></a>2.PHP介绍</h6><p><strong>专业名词: 超文本预处理器</strong><br><strong>描述: 一种用来开发动态网站的服务器脚本语言</strong></p>
+<h6 id="3-定界符-声明"><a href="#3-定界符-声明" class="headerlink" title="3.定界符, 声明"></a>3.定界符, 声明</h6><p>&lt;?php   PHP代码   ?&gt;</p>
+<h6 id="4-注释"><a href="#4-注释" class="headerlink" title="4.注释"></a>4.注释</h6><p>​       #      单行注释</p>
+<p>/<em> </em>/     多行注释</p>
+<h6 id="5-echo"><a href="#5-echo" class="headerlink" title="5.echo"></a>5.echo</h6><p>通过语法结构 : echo<br>        格式:  echo 内容         内容: 只有纯数字可以不加引用, 其余都加上引号<br>     作用:  将 内容 交给浏览器<br>        echo ‘老娘们’;<br>        echo 250;<br>        echo ‘<b> 老爷们 </b>‘;</p>
+<h6 id="6-编码"><a href="#6-编码" class="headerlink" title="6.编码"></a>6.编码</h6><ol>
+<li><p>编码</p>
+<p>header(‘内容类型: xxx;  编码设置=编码’);</p>
+</li>
+</ol>
+<p>   header(‘content-type: text/html; charset=utf-8’);<br>    一般会把这个编码声明 放在代码的最前面</p>
+<p>   中国: 早期 gb2312  因为空间浪费问题, 所以产生了后期 GBK<br>   全球通用: utf-8</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p> 变量     variable      简写: var</p>
+<pre><code>1. 定义
+         未知数
+</code></pre><p>​    2. 格式<br>​            \$变量名 = 值<br>​    每生成一个变量, 就会占用一定的内存<br>​            \$a = 100;<br>​            echo \$a;<br>​<br>​    3. 未定义变量<br>​            没有值的变量, 都叫做未定义变量<br>​              echo \$b;</p>
+<p>​     4. 变量命名<br>​             由数字, 字母和下划线组成, 但不能由数字开头<br>​             \$2b = ‘熊二’;<br>​            \$_3B = ‘熊大’;<br>​            echo \$_3B;<br>​<br>​            \$A_a4 = ‘胸大’;<br>​            echo \$A_a4;<br>​<br>​            \$呆萌伐木工 = ‘光头强’;     # 支持中文, 但不推荐<br>​            echo \$呆萌伐木工;</p>
+<ol start="5">
+<li><p>大小写: 严格区分大小写</p>
+<pre><code>\$x = &#39;亚瑟&#39;;
+echo \$x;
+echo \$X;
+</code></pre><h3 id="变量技巧"><a href="#变量技巧" class="headerlink" title="变量技巧"></a>变量技巧</h3><p>变量技巧</p>
+</li>
+</ol>
+<h6 id="1-可变变量"><a href="#1-可变变量" class="headerlink" title="1. 可变变量"></a>1. 可变变量</h6><p>​    <strong>将一个变量的值 的、、87作为另一个变量的名字去使用</strong><br>​    </p>
+<p>​        \$山鸡哥 = ‘陈小春’;<br>​        \$陈小春 = ‘应采儿’;<br>​        \$应采儿 = ‘何文豪’;<br>​<br>     echo \$陈小春;<br>​        echo \$\$\$山鸡哥;<br>​        echo ‘<hr>‘;</p>
+<h6 id="2-引用变量"><a href="#2-引用变量" class="headerlink" title="2.引用变量"></a>2.引用变量</h6><p>​    <strong>传值: 将一个变量A的值  赋给另一个变量B, 变量B会生成一个 新的内存</strong><br>     <strong>传址: 将一个变量A的内存地址 赋给另一个变量B, 变量A 和 B 公用同一个内存</strong></p>
+<p>传值:<br>\$a = 100;<br>\$b = \$a;     # 相当于 \$b = 100, 仅仅是将\$a的值 给了\$b<br>\$b = 500;<br>echo \$a, \$b;</p>
+<p>echo ‘<hr>‘;</p>
+<p><strong>传址: 引用变量</strong></p>
+<p>\$a = 100;<br>\$ b  =  &amp; \$ a;   在变量前加个&amp;;<br>\$b = 800;<br>echo \$a, \$b;</p>
+<h2 id="八种类型"><a href="#八种类型" class="headerlink" title="八种类型"></a>八种类型</h2><p>值: 有8种数据类型<br>     标量<br>             整型     int<br>            浮点型     float<br>             布尔型     bool<br>             字符串     string</p>
+<p>​     复合<br>             数组     array<br>             对象     object</p>
+<p>​    特殊<br>             资源     resource<br>             空         null</p>
+<h3 id="整型（int）"><a href="#整型（int）" class="headerlink" title="整型（int）"></a>整型（int）</h3><p>整型     int<br>    定义: 整数</p>
+<ol>
+<li><p>最大整型</p>
+<p> echo PHP_INT_MAX;</p>
+<pre><code> var_dump( PHP_INT_MAX  );
+ echo &#39;  &#39;;
+</code></pre></li>
+<li><p>如果超过了最大整型?</p>
+<pre><code>  将自动转为 浮点型float
+ \$a = PHP_INT_MAX;
+ \$a = \$a + 1;
+ echo \$a;
+ var_dump( \$a );
+ echo &#39;&lt;hr&gt;&#39;;
+</code></pre></li>
+</ol>
+<ol start="3">
+<li><p>判断是否为整型: is_int()     返回值: true 是整型  | false  不是整型<br>var_dump(  is_int(100)   );</p>
+<pre><code>var_dump(  is_int(100.5)   );
+echo &#39;&lt;hr&gt;&#39;;
+</code></pre><h4 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h4><pre><code>                基数     前缀
+</code></pre><p> 二进制        0-1         0b<br> 八进制         0-7         0<br>十进制         0-9<br> 十六进制     0-9 a-f     0x</p>
+</li>
+</ol>
+<h6 id="任意进制-gt-十进制"><a href="#任意进制-gt-十进制" class="headerlink" title="任意进制 =&gt;十进制"></a>任意进制 =&gt;十进制</h6><p> <strong>基数*进制^位数         从后向前, 个位: 0次方  十位: 1次方  百位: 2次方 …</strong></p>
+<p>例:</p>
+<p><code>a = 0b110;     # 0*2^0 + 1*2^1 + 1*2^2 = 6</code><br>    \$a = 0b0101;<br>    $a = 0b1110;<br>    echo \$a;<br>    echo ‘  ‘;</p>
+<p><code>a = 012;        # 1*8^1 + 2*8^0 = 8 + 2 = 10</code><br>    \$a = 0306;<br>    echo \$a;<br>    echo ‘  ‘;</p>
+<p><code>a=10  b=11  c=12  d=13  e=14  f=15</code><br>        \$a = 0x2b;<br>        \$a = 0x10f;<br>        echo \$a;</p>
+<h6 id="十进制-gt-任意进制"><a href="#十进制-gt-任意进制" class="headerlink" title="十进制 =&gt; 任意进制"></a>十进制 =&gt; 任意进制</h6><p><strong>将 十进制 除以 进制数 取余,  最后将所有余数 倒取余</strong><br>    \$a = 10;     # 二进制: 1010<br>    \$a = 25;     # 二进制: 11001</p>
+<p>​    \$a = 10;     # 八进制: 12<br>​    \$a = 25;     # 八进制: 31<br>​<br>​    \$a = 10;     # 十六进制: a<br>​    \$a = 25;     # 十六进制: 19</p>
+<h3 id="浮点型-float"><a href="#浮点型-float" class="headerlink" title="浮点型(float)"></a>浮点型(float)</h3><p>  浮点型 float  小数</p>
+<ol>
+<li><p>科学计数法</p>
+<pre><code>   XeY = X * 10^Y
+</code></pre><p>2e4 = 2*10^4<br>var_dump( 2e4 );</p>
+</li>
+<li><p>有效位数: 14位 (整数+小数)<br>\$a = 0.1234567890123456789;<br>echo \$a;<br>echo ‘  ‘;</p>
+<p>\$a = 0.001234567890123456789;</p>
+<p>echo \$a;<br>echo ‘  ‘;</p>
+<p>\$a = 123.4567890123456789;</p>
+<p>echo \$a;<br>echo ‘<hr>‘;</p>
+</li>
+<li><p>判断是否为 浮点型: is_float()<br>var_dump( is_float(10) );<br>var_dump( is_float(10.5) );<br>var_dump( is_float(10e5) );</p>
+</li>
+<li><p>浮点运算<br> 小数 转为二进制时, 不一定准确</p>
+<pre><code>== 比较两边的值是否相等
+</code></pre><p> if( 1 + 1 == 2 ){</p>
+<pre><code> echo &#39;Yes&#39;;
+</code></pre><p> }else{</p>
+<pre><code> echo &#39;No&#39;;
+</code></pre><p> }</p>
+<p> echo ‘<hr>‘;</p>
+<p>   0.1 + 0.2 的结果: 0.300000000000000000000000000000000001</p>
+<p> if( 0.1 + 0.2 == 0.3 ){</p>
+<pre><code> echo &#39;Yes&#39;;
+</code></pre><p> }else{</p>
+<pre><code> echo &#39;No&#39;;
+</code></pre><p> }</p>
+</li>
+</ol>
+<h3 id="布尔型-bool"><a href="#布尔型-bool" class="headerlink" title="布尔型(bool)"></a>布尔型(bool)</h3><p>  布尔型 bool</p>
+<pre><code>  1. 值: true / false
+            代表两种极端的状态
+</code></pre><p>​      2. 作用: 用于做判断, 比较 …</p>
+<p>​      3. 判断是否为布尔型: is_bool()<br>        var_dump( is_bool(1) );<br>        var_dump( is_bool(0) );<br>        var_dump( is_bool(true) );<br>        var_dump( is_bool(false) );</p>
+<h6 id="7种与false直接等价"><a href="#7种与false直接等价" class="headerlink" title="7种与false直接等价"></a>7种与false直接等价</h6><p>  <strong>4. 有7种与false等价值, 除了这7种以外, 都认为与true等价:</strong></p>
+<pre><code>   1. false
+   2. 0
+   3. 0.0
+   4. 空 null
+   5. 空字符串 &#39;&#39; 或  零字符串&#39;0&#39;
+   6. 空数组  array()
+   7. 未定义变量
+</code></pre><p>if( false == false ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == 0 ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == 0.0 ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == null ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == ‘’ ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == ‘0’ ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == ‘00’ ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == ‘ ‘ ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == ‘0.0’ ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == array() ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<p>if( false == \$xxxx ){<br>    echo ‘等价 ‘;<br>}else{<br>    echo ‘不等价 ‘;<br>}</p>
+<h3 id="字符串（string）"><a href="#字符串（string）" class="headerlink" title="字符串（string）"></a>字符串（string）</h3><p>  字符串 string</p>
+<ol>
+<li><p>定义: 能够表达任意字母, 数字, 标点, 汉子 … 描述</p>
+</li>
+<li><p>格式:<br> 单引号</p>
+<pre><code>     双引号
+     heredoc结构
+</code></pre><p> \$a = ‘我妈曾说我小时候总喜欢把小弟弟往插座里面插 ‘;<br> var_dump(\$a);</p>
+<pre><code> \$a = &quot;我妈曾说我小时候总喜欢把小弟弟往插座里面插 &quot;;
+</code></pre><p> var_dump(\$a);</p>
+</li>
+</ol>
+<pre><code>              \$a = &lt;&lt;&lt;自定义开始符号
+
+                  字符串内容
+
+      自定义结束符号;
+
+      注意:
+      1) 开始符号 和 结束符号 必须保持一致 (不能含有标点)
+      2) 开始符号 那一行的后面不能有任何字符, 包括空格
+      3) 结束符号 那一行的前面和后面不能由任何字符, 包括空格
+
+      小结:
+      单双引号: 适用于 一行
+      heredoc: 适用于 多行
+</code></pre><p>​<br>​          \$a = &lt;&lt;&lt;老表<br>​          焦了, 叫了<br>​          浇了, 教了<br>​          …<br>​<br>​              <table><br>​              <caption></caption><br>​              <tr><br>​                  <td>123</td><br>​                  <td>123</td><br>​                  <td>123</td><br>​                  <td>123</td><br>​              </tr><br>​          </table></p>
+<p>老表;<br>        echo \$a;</p>
+<h6 id="判断是否为…"><a href="#判断是否为…" class="headerlink" title="判断是否为…"></a>判断是否为…</h6><ol start="3">
+<li>判断是否为字符串: is_string()<br>var_dump( is_string(100) );<br>var_dump( is_string(‘100’) );<br>echo ‘<hr>‘;</li>
+</ol>
+<ol start="4">
+<li><p>判断是否为数字 或 数字字符串: is_numeric()</p>
+<pre><code> var_dump( is_numeric(100) );
+</code></pre><p> var_dump( is_numeric(‘100’) );<br> var_dump( is_numeric(‘abc’) );<br> var_dump( is_numeric(‘10.5’) );<br> var_dump( is_numeric(‘10e5’) );<br> echo ‘<hr>‘;</p>
+</li>
+<li><p>判断是否为标量: is_scalar()</p>
+<pre><code> var_dump( is_scalar(100) );
+</code></pre><p> var_dump( is_scalar(100.5) );<br> var_dump( is_scalar(true) );<br> var_dump( is_scalar(‘asdf’) );<br> var_dump( is_scalar(null) );<br> echo ‘<hr>‘;</p>
+</li>
+<li><p>字符串长度: </p>
+<pre><code>   上限: 2G
+</code></pre><p> var_dump(‘123abc’);<br> var_dump(‘123abc的’);</p>
+<p><strong>常见面试题: 单双引号的区别</strong><br>   单:</p>
+<pre><code>   不识别变量
+   不识别转义字符, 但识别转义 转义字符
+</code></pre></li>
+</ol>
+<p>​      双:<br>          识别变量<br>          识别转义字符</p>
+<p>​      共性:<br>          单双引号不能自插, 可以互插</p>
+<p>​      heredoc结构: 支持变量, 支持转义字符, 支持单双引号</p>
+<p>\$name1 = ‘猪’;<br>\$name2 = ‘熊猫’;<br>\$desc  = ‘猪和熊猫因为脸长得不一样, 命运截然不同, 一个被宠, 一个被桶’;</p>
+<p>\$desc  = ‘\$name1和\$name2因为脸长得不一样, 命运截然不同, 一个被宠, 一个被桶’;<br>\$desc  = “\$name1 和 \$name2 因为脸长得不一样, 命运截然不同, 一个被宠, 一个被桶”;<br>\$desc  = “{\$name1}和{\$name2}因为脸长得不一样, 命运截然不同, 一个被宠, 一个被桶”;<br>          <strong>分析:  {} 避免与{}外的文字冲突, 只识别大括号内的变量名</strong><br>echo \$desc;<br>echo ‘<hr>‘;</p>
+<p>  转义字符:<br>      转义符: \<br>      将普通字符 转化为 特殊字符<br>      将特殊字符 转化为 普通字符<br>  常见:<br>      \n         换行<br>      \r         回车<br>       \t         制表符     Tab<br>       …</p>
+<p>   转义转义字符</p>
+<pre><code>   \&#39;
+   \&quot;
+   \\$
+   \\
+   ...
+</code></pre><p>\$desc  = ‘猪和熊猫因为脸长得不一样, 命运截然不同. \n 一个被宠, 一个被桶’;<br>\$desc  = “猪和熊猫因为脸长得不一样, 命运截然不同. \n 一个被宠, 一个被桶”;<br>\$desc  = ‘猪和熊猫因为脸长得不一样, 命运截然不同. \’ 一个被宠, 一个被桶’;<br>echo \$desc;<br>echo ‘<hr>‘;</p>
+<p>  \$desc  = ‘猪和熊猫因为脸长得不一样, 命运截然不同. ‘ 一个被宠, 一个被桶’;<br>  \$desc  = ‘猪和熊猫因为脸长得不一样, 命运截然不同. “ 一个被宠, 一个被桶’;<br>  \$desc  = “猪和熊猫因为脸长得不一样, 命运截然不同. “ 一个被宠, 一个被桶”;<br>\$desc  = “猪和熊猫因为脸长得不一样, 命运截然不同. ‘ 一个被宠, 一个被桶”;<br>echo \$desc;</p>
+<h3 id="数组（array）"><a href="#数组（array）" class="headerlink" title="数组（array）"></a>数组（array）</h3><p>  数组 array</p>
+<p>  格式:<br>            $数组名[ 键 ] = 值<br>            $数组名 = [ 键1=&gt;值1, 键2=&gt;值2, … ]<br>            $数组名 = array( 键1=&gt;值1, 键2=&gt;值2, … )</p>
+<ol>
+<li><p>定义: 作为容器, 容纳任何数据. 空间大小 视内存决定, 理论上无上限</p>
+</li>
+<li><p>格式:</p>
+<pre><code>   格式1: \$变量名[] = 值
+
+   格式2: \$变量名 = [值1, 值2, 值3, ...]
+
+ 形态:
+     键 =&gt; 值
+
+     键的其余称呼: 下标, 索引, 偏移量
+  键的类型: int / string,     如果填写的不是int/string, 那么PHP强制转为int/string
+     值的类型: 任意类型
+</code></pre><p>格式1:<br>\$girl[] = ‘林志玲’;<br>\$girl[] = ‘迪丽热巴’;<br>\$girl[] = ‘苍井空’;<br>\$girl[] = ‘小泽玛利亚’;</p>
+<pre><code> echo \$girl;         # echo 不适合输出数组
+</code></pre><p>var_dump(\$girl);</p>
+<p>格式2:<br>\$boy = [‘鄂胜’, ‘何文豪’, ‘黄磊’, ‘刘长建’];<br>var_dump(\$boy);</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>操作数组</p>
+<p>   3.1 访问数组, 通过 键 来访问<br> var_dump( \$girl[2]  );<br> echo \$girl[2];</p>
+<p>   3.2 更新数组, 通过 键 来更新</p>
+<pre><code>   如果键 已存在, 那就是更新
+ \$girl[2] = &#39;赵丽颖&#39;;
+ var_dump(\$girl);
+
+        如果键 不存在, 那就是添加
+ \$girl[9] = &#39;范冰冰&#39;;
+ var_dump(\$girl);
+
+ 3.3 删除数组, 通过 键 来删除
+ unset( \$girl[9] );
+ var_dump(\$girl);
+</code></pre><ol start="4">
+<li>判断是否为数组: is_array()</li>
+</ol>
+</li>
+</ol>
+<h3 id="对象（object）"><a href="#对象（object）" class="headerlink" title="对象（object）"></a>对象（object）</h3><p>  对象 object<br>      一切皆对象</p>
+<p>  格式:<br>      \$变量名 = new 类名<br>                 类名: stdClass  目前只要记住这个就可以了<br>\$a = new stdClass;<br>var_dump(\$a);</p>
+<p>  判断是否为对象: is_object()<br>var_dump(  is_object(\$a)  );</p>
+<h3 id="资源（resource）"><a href="#资源（resource）" class="headerlink" title="资源（resource）"></a>资源（resource）</h3><p>  资源 resource<br>      所有的文件 都是资源</p>
+<p>  获取资源的方式之一:</p>
+<pre><code>            打开一个文件, 返回值: 资源
+</code></pre><p>  \$变量名 = fopen(‘文件地址’, ‘r’)</p>
+<p>\$a = fopen(‘./01-array.php’, ‘r’);<br>var_dump(\$a);</p>
+<p>  判断是否为资源<br>var_dump(  is_resource(\$a) );</p>
+<h3 id="空（null）"><a href="#空（null）" class="headerlink" title="空（null）"></a>空（null）</h3><p>  空     null</p>
+<ol>
+<li><p>定义: 划分一个内存, 但是内存中什么都没有 </p>
+</li>
+<li><p>作用: 暂时不知道啥用, 都是为了以后准备的</p>
+<p>\$a = null;</p>
+<p>\$b = null;</p>
+<p>\$b = \$b + 10;     # 没有\$b = null 声明, 那么此处的\$b就会报错<br>echo \$b;<br>echo ‘<hr>‘;</p>
+</li>
+</ol>
+<h6 id="有3种值-直接为null"><a href="#有3种值-直接为null" class="headerlink" title="有3种值 直接为null"></a>有3种值 直接为null</h6><pre><code>   1) 直接赋值 null
+    \$a = null;
+    var_dump(\$a);
+</code></pre><p>​     2) 被删除的变量<br>​        \$b = 100;<br>​        unset(\$b);         # unset() 释放变量, 删除变量<br>​        var_dump(\$b);</p>
+<pre><code>   3) 未定义的变量
+    var_dump(\$c);
+</code></pre><ol start="4">
+<li><p>判断是否为null: is_null()</p>
+<h1 id><a href="#" class="headerlink" title=" "></a> </h1></li>
+</ol>
+<p>## </p>
+<h2 id="三个常见函数"><a href="#三个常见函数" class="headerlink" title="三个常见函数"></a>三个常见函数</h2><p> 一个函数没有返回值时, 强行接收, 则只会接收到 null</p>
+<h6 id="unset"><a href="#unset" class="headerlink" title="unset()"></a>unset()</h6><p>​    释放变量, 释放内存</p>
+<p>​    内存:每定义一个变量, 系统就会分配一个内存给变量<br>​        当内存没有被 任何变量所引用时, 就会自动释放</p>
+<h6 id="empty"><a href="#empty" class="headerlink" title="empty()"></a>empty()</h6><p>​    判断变量是否为空,  如果为空=&gt;返回true<br>                        如果非空=&gt;返回false<br>      且只要与false等价, 那就是空<br>​    \$a = 0;<br>​    \$a = 0.0;<br>​    \$a = false;<br>​      \$a = true;<br>​    \$a = ‘’;<br>​    \$a = ‘0’;<br>​    \$a = array();<br>​    \$a = null;<br>​    var_dump( empty(\$a) );<br>​    var_dump( empty(\$b) );</p>
+<h6 id="isset"><a href="#isset" class="headerlink" title="isset()"></a>isset()</h6><p>​    判断变量是否设置, 如果设置=&gt; 返回true<br>                      如果未设置=&gt; 返回false<br>       只要值直接为 null, 就是未设置 ,( 只有null 和 未定义变量是没有设置过 )</p>
+<p>​    \$a = 0;<br>​    \$a = null;<br>​    \$a = ‘’;<br>​    var_dump( isset(\$a) );<br>​    var_dump( isset(\$b) );</p>
+<h2 id="输出的四种方式"><a href="#输出的四种方式" class="headerlink" title="输出的四种方式"></a>输出的四种方式</h2><p>  请写出有哪几种输出, 并写出他们的区别</p>
+<h6 id="1-echo"><a href="#1-echo" class="headerlink" title="1. echo"></a>1. echo</h6><p>​    <strong>支持int, float, string, resource 的输出</strong><br>​     属于 语法结构, 不是函数<br>​    </p>
+<h6 id="2-print-print"><a href="#2-print-print" class="headerlink" title="2. print | print()"></a>2. print | print()</h6><p>​    <strong>支持 int, float, string, resource的输出</strong><br>​      可语法结构,    </p>
+<p>​      可函数print( )<br>​      返回值: int<br>​<br>​    </p>
+<h6 id="3-print-r"><a href="#3-print-r" class="headerlink" title="3. print_r()"></a>3. print_r()</h6><p>​          <strong>除了bool 和 null不能输出, 其余都可以输出</strong><br>​          函数<br>​          返回值: bool </p>
+<p>当具有大批量数据需要打印时, 可以嵌套 pre标签<br>    echo ‘‘;</p>
+<p> 例:</p>
+<p>​    \$arr = [ ];</p>
+<p>​    for(\$i=0; \$i&lt;50000;\$i++){</p>
+<p>​        \$arr[ ] = \$i;</p>
+<p>​    }</p>
+<p>​    echo ‘<pre>‘;<br>​        print_r( \$arr );<br>​    echo ‘</pre>‘;    </p>
+<p>​    </p>
+<h6 id="4-var-dump"><a href="#4-var-dump" class="headerlink" title="4. var_dump"></a>4. var_dump</h6><p>​      <strong>支持任意类型</strong><br>​      函数<br>​      无返回值</p>
+<p>  print_r() 和 var_dump()<br>  除了支持类型不一样以外:<br>  <strong>print_r 能输出的个数: 任意个</strong><br>  <strong>var_dump 能输出的个数: 128个</strong></p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="autoType（类型的自动换转）"><a href="#autoType（类型的自动换转）" class="headerlink" title="autoType（类型的自动换转）"></a>autoType（类型的自动换转）</h3><p>  弱类型: 数据类型可做隐式转换<br>  强类型: 数据类型不可做隐式转换</p>
+<p>  隐式转换: 偷偷将数据类型 进行转换</p>
+<p>  类型的自动换转<br>var_dump( 10 + 10.5 );<br>echo ‘<hr>‘;</p>
+<h6 id="bool-gt-int"><a href="#bool-gt-int" class="headerlink" title="bool -&gt; int"></a>bool -&gt; int</h6><p>var_dump( true + 10 );    11         true -&gt; 1<br>var_dump( false + 10 );   10         false -&gt; 0</p>
+<h6 id="bool-gt-float"><a href="#bool-gt-float" class="headerlink" title="bool -&gt; float"></a>bool -&gt; float</h6><p>var_dump( true + 10.5 );   11.5         true -&gt; 1.0<br>var_dump( false + 10.5 );   10.5         false -&gt; 0.0<br>echo ‘<hr>‘;</p>
+<h6 id="string-gt-int-float"><a href="#string-gt-int-float" class="headerlink" title="string -&gt; int/float"></a>string -&gt; int/float</h6><p>从前向后, 碰到第一个非数字时, 保留前面的数字, 后面全部抛弃<br>var_dump( ‘100’ + 200 );   300         ‘100’ =&gt; 100<br>var_dump( ‘abc’ + 200 );   200         ‘abc’ =&gt; 0<br>var_dump( ‘100abc’ + 200 );   300         ‘100abc’ =&gt; 100<br>var_dump( ‘abc100’ + 200 );   200         ‘abc100’ =&gt; 0<br>var_dump( ‘1a2b3c’ + 200 );   201         ‘1a2b3c’ =&gt; 1<br>echo ‘<hr>‘;</p>
+<h6 id="string-gt-float"><a href="#string-gt-float" class="headerlink" title="string -&gt; float"></a>string -&gt; float</h6><p>从前向后, 碰到第一个非数字时(除了第一个. 和 e), 保留前面的数字, 后面全部抛弃<br>var_dump( ‘10.5’ + 100 );   110.5         ‘10.5’ =&gt; 10.5<br>var_dump( ‘a.b’ + 100 );    100         ‘a.b’  =&gt; 0<br>var_dump( ‘1a.b’ + 100 );    101         ‘1a.b’  =&gt; 1<br>var_dump( ‘1.ab’ + 100 );    101         ‘1.ab’  =&gt; 1.0<br>var_dump( ‘1eab’ + 100 );    101         ‘1eab’  =&gt; 1<br>var_dump( ‘1e2ab’ + 100 );    200         ‘1e2ab’  =&gt; 100.0<br>var_dump( ‘1.2.3’ + 100 );    101.2     ‘1.2.3’  =&gt; 1.2<br>var_dump( ‘1.2e3’ + 100 );    1300     ‘1.2e3’  =&gt; 1200<br>var_dump( ‘1e2e3’ + 100 );    200         ‘1e2e3’  =&gt; 100.0<br>echo ‘<hr>‘;</p>
+<h6 id="int-gt-float"><a href="#int-gt-float" class="headerlink" title="int -&gt; float"></a>int -&gt; float</h6><p>var_dump( 10 + 10.5 );       20.5     10 =&gt; 10.0</p>
+<h3 id="dataType-强制类型转换"><a href="#dataType-强制类型转换" class="headerlink" title="dataType( 强制类型转换)"></a>dataType( 强制类型转换)</h3><p>\$str = ‘一见钟情和日久生情有什么区别? 一个靠脸, 一个靠技术’;</p>
+<h4 id="1-临时转换"><a href="#1-临时转换" class="headerlink" title="1. 临时转换"></a>1. 临时转换</h4><h6 id="1-1-通过运算符"><a href="#1-1-通过运算符" class="headerlink" title="1.1 通过运算符"></a>1.1 通过运算符</h6><p>​        var_dump( (int)\$str );<br>​        var_dump( (float)\$str );<br>​        var_dump( (string)\$str );<br>​        var_dump( (bool)\$str );<br>​        var_dump( (array)\$str );<br>​        var_dump( (object)\$str );<br>​          var_dump( (resource)\$str );<br>​          var_dump( (null)\$str );<br>​        var_dump( \$str );<br>​        echo ‘<hr>‘;</p>
+<h6 id="1-2-通过函数"><a href="#1-2-通过函数" class="headerlink" title="1.2 通过函数"></a>1.2 通过函数</h6><p>​        var_dump( intval(\$str) );<br>​        var_dump( floatval(\$str) );<br>​        var_dump( boolval(\$str) );<br>​        var_dump( strval(\$str) );     # 记住这里是 str 而不是 string<br>​        var_dump( \$str );<br>​        echo ‘<hr>‘;</p>
+<h4 id="2-永久转换"><a href="#2-永久转换" class="headerlink" title="2. 永久转换"></a>2. 永久转换</h4><p>​    settype( 变量, 类型 )<br>​    var_dump(\$str);</p>
+<p>​    settype(\$str, ‘int’);</p>
+<p>​    var_dump(\$str);</p>
+<p>​    settype(\$str, ‘string’);</p>
+<p>​    var_dump(\$str);</p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="*常量"></a>*常量</h2><p>常量值恒定不变的</p>
+<h6 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h6><p><strong>    格式1: const 常量名 = 常量值</strong><br>      <strong>格式2: define(常量名, 常量值, bool)</strong><br>                              <strong>false : 区分大小写, 默认</strong><br>                              <strong>true: 不区分大小写</strong></p>
+<h6 id="特性"><a href="#特性" class="headerlink" title="特性:"></a><strong>特性</strong>:</h6><pre><code>      **常量不能重新赋值**
+      **常量不能重新定义**
+      **常量名不能重复**
+      **常量区分大小写**, **推荐大写**
+</code></pre><h6 id="预定义常量"><a href="#预定义常量" class="headerlink" title="预定义常量"></a><strong>预定义常量</strong></h6><pre><code>      PHP_OS                 当前所在的操作系统
+      PHP_VERSION            当前所在的PHP版本
+      M_PI                 圆周率
+      PHP_INT_MAX            最大整数
+</code></pre><h6 id="魔术常量"><a href="#魔术常量" class="headerlink" title="魔术常量"></a><strong>魔术常量</strong></h6><pre><code>      \__FILE__             文件所在的盘符地址
+      \__LINE__             当前所在的行数
+</code></pre><h6 id="常量的作用域"><a href="#常量的作用域" class="headerlink" title="常量的作用域"></a>常量的作用域</h6><pre><code>      **常量相对于函数, 没有作用域, 外部常量 可以直接在函数内部使用**
+      **const不能直接在函数内部定义**
+      **define**可以在函数内部定义
+</code></pre><h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h6 id="算术运算符-模"><a href="#算术运算符-模" class="headerlink" title="算术运算符(模)"></a>算术运算符(模)</h6><p>​       算术运算符<br>​           + -<br>​           * 乘法<br>​           / 除法      第二位数不能为</p>
+<p>​        % 余数</p>
+<p>​        要的范围在 结果范围: x ~ y<br>​         套用公式:  %(y-x+1) + x</p>
+<p>​        </p>
+<p>​     求奇偶数,则 %2</p>
+<p>​         结果范围: 0~1</p>
+<p>​         余数为0  即为偶数<br>​         余数为1  即为奇数    </p>
+<p>​<br>​                </p>
+<p>​     求任意数字的 个位数 0 ~ 9<br>​        \$a = 123;<br>​        var_dump( \$a % 10 );    10的1次方</p>
+<p>​    求任意数字的 最后两位  00 ~ 99<br>​        \$a = 123;<br>​        var_dump( \$a % 100 );    10的2次方</p>
+<p>​      求任意数字的 最后n为<br>​          %10的n次方</p>
+<h6 id="自增-自减运算符"><a href="#自增-自减运算符" class="headerlink" title="自增/自减运算符"></a>自增/自减运算符</h6><p>​      自增/自减运算符<br>​<br>​      ++     变量a自己给自己+1<br>​          a++     先返回a, 再给a+1<br>​          ++a     先给a+1, 再返回a<br>​<br>​      –  变量自己给自己-1<br>​       a–      同上<br>​       –a     同上</p>
+<h6 id="字符串拼接符"><a href="#字符串拼接符" class="headerlink" title="字符串拼接符"></a>字符串拼接符</h6><p>  拼接符 .  小数点 </p>
+<p>  主要用于:<br>          字符串.变量<br>          变量.字符串<br>          变量.变量</p>
+<p>  单引号 不解析变量,所以拼接<br>    \$name = ‘老王’;<br>    echo ‘今天晚上’.\$name.’说了, 带大家去见见世面, 走一趟天上人间 ‘;</p>
+<p>单引号的速度 比 双引号的快<br> 为了整个项目的运行速度考虑:<br>     如果变量较少, 推荐用单引号, 变量用拼接<br>     如果变量较多, 使用双引号, 变量用{}包起来</p>
+<h6 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h6><p>  赋值运算符<br>      =         将 = 右边的 赋给 左边的<br>      +=         a += b  ==&gt;  a = a + b<br>      -=          同上<br>      *=        同上<br>      /=        同上<br>      %=        同上<br>      .=        a .= b  ==&gt;  a = a . b</p>
+<p>​    \$a = 10;<br>​    \$b = 5;<br>​    \$a .= \$b;<br>​    echo ‘\$$a = ‘.\$$a 请问此时的 \$a 是什么数据类型???<br>​    echo ‘\$b = ‘.\$b;</p>
+<p>​    var_dump( \$a ); </p>
+<p>​    D:\wamp\www\s84\kejian\0114\09-equal.php:29:string ‘105’ (length=3)</p>
+<p>​     结果: \$a 是 string, 不是int了</p>
+<h6 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h6><p>​    ==     判断两边的值是否相等<br>​      ===  全等: 判断两边的值是否相等  且 数据类型相等<br>​      !=     判断两边的值 是否不等<br>​      !==  不全等: 只有全等时为false, 其余都是true<br>​    </p>
+<p>​     注意点:  所有的比较结果: 都是bool值</p>
+<p>​    例子:    </p>
+<p>​    var_dump( 1 === true );<br>​    var_dump( 1 === 1 );<br>​    var_dump( ‘’ === ‘0’ );         no</p>
+<h6 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h6><p>​    </p>
+<p>​     <strong>注意点:  所有的比较结果: 都是bool值</strong></p>
+<p>​      逻辑与     &amp;&amp;         两边为真即为真, 一边为假即为假</p>
+<p>​      逻辑或     ||         一边为真即为真, 两边为假即为假</p>
+<p>​     逻辑非          !         真即是假, 假即是真</p>
+<p>​    var_dump( 1 &amp;&amp; 2 );<br>​    var_dump( 1 || 2 );</p>
+<p>​      高阶逻辑<br>​            如果前面的运算已经确定了最终结果, 那么后面的就不再执行了<br>​    $a = 5;<br>​    $b = 0;<br>​    var_dump(\ $a &amp;&amp; \$b = 10 );<br>​    var_dump($a, $b);</p>
+<p>​    $a = 0;<br>​    $b = 5;<br>​    var_dump( \$a &amp;&amp; \$b = 10 );    因为\$a 已经确定了最终结果, 所以$b=10     根本没运行<br>​    var_dump($a, $b);<br>​    </p>
+<p>​    \$a = 0;<br>​    \$b = 5;<br>​    var_dump( \$a = 10 &amp;&amp; \$b = 9 || \$a );<br>​    var_dump(\$a, \$b);<br>​      t t t<br>​    echo ‘<hr>‘;    </p>
+<p>​    \$a = 0;<br>​    \$b = 5;<br>​    var_dump( \$a &amp;&amp; \$b = 9 || \$a );<br>​    var_dump(\$a, \$b);<br>​      f 0 5</p>
+<h6 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h6><p>​    条件表达式? true环境 : false环境;</p>
+<p>​    例子:<br>​    $lv = 3;<br>​    $lv = 5.5;<br>​    $lv = 9.5;<br>​    echo \$lv &lt; 4? ‘青铜’ : ( \$lv &lt; 5? ‘白银’ : ( \$lv &lt; 6? ‘黄金’ :(\$lv &lt; 7 ?’铂金’:(\$lv &lt; 8 ?’钻石’:(\$lv &lt; 9 ?’大师’:’王者’)))));</p>
+<p>​      三元运算符 仅仅适合 做一些简单判断.</p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><hr>
+<pre><code>  顺序结构: 代码从上往下依次执行
+  分支结构: 通过if/switch进行分支选择
+  循环结构: 通过while, doWhile, for来循环操作
+</code></pre><h6 id="if"><a href="#if" class="headerlink" title="if"></a>if</h6><p>分支写法1:<br>          if( 条件表达式 )  true环境1<br>          分析:<br>              条件 仅仅能影响紧跟在if 后面的一条命令;</p>
+<p>​        例子:</p>
+<p>​            if ( false )<br>​                echo ‘今晚加个鸡腿 ‘;</p>
+<p>​                echo ‘今晚搞碗 泪流满面 ‘;   #这句话无法被影响</p>
+<p>分支写法2:</p>
+<pre><code>      if (条件表达式){
+          true环境
+      }
+
+      分析:
+          条件 仅仅能影响后面{} 内的所有代码
+</code></pre><p>​        例子:</p>
+<p>​        if ( false ) {<br>​            echo ‘给老王加个四喜丸子  ‘;<br>​            echo ‘给老王送个小飞飞  ‘;<br>​            echo ‘给老王顺带小柏柏  ‘;<br>​        }<br>​        echo ‘送一碗 孟婆汤  ‘;</p>
+<p>分支写法3:<br>          if (条件表达式) {<br>              true环境<br>          }else{<br>              false环境<br>          }</p>
+<pre><code>      分析:
+          条件为真, 则进入true环境, 否则进入 false 环境
+</code></pre><p>​        例子:<br>​        if ( false ) {<br>​            echo ‘让老王给小飞飞按按脚 ‘;<br>​        }else{<br>​            echo ‘让小飞飞给老王洗洗脚 ‘;<br>​        }</p>
+<p>分支写法4: </p>
+<pre><code>      if( 条件表达式1 ){
+           true环境1
+      }elseif( 条件表达式2 ){
+          true环境2
+      }elseif( 条件表达式3 ){
+          true环境3
+      }...
+  分析:
+      从 多个条件表达式中, 选择一个满足. (符合先来后到的原则)
+</code></pre><p>​    例子:</p>
+<p>​    $lv = 3;<br>​    $lv = 5.3;<br>​    $lv = 80.3;</p>
+<p>​    if ( $lv &lt; 3  ) {<br>​        echo ‘黑铁’;<br>​    }elseif( $lv &lt; 4 ){<br>​    echo ‘青铜’;<br>​    }elseif( $lv &lt; 5 ){<br>​        echo ‘白银’;<br>​    }elseif( $lv &lt; 6 ){<br>​        echo ‘黄金’;<br>​    }elseif( $lv &lt; 7 ){<br>​        echo ‘铂金’;<br>​    }elseif( $lv &lt; 8 ){<br>​        echo ‘钻石’;<br>​    }elseif( $lv &lt; 9 ){<br>​        echo ‘大师’;<br>​    }else{<br>​        echo ‘王者’;<br>​    }</p>
+<p>分支写法5:<br>      巢状分支</p>
+<pre><code>  if( 条件表达式1 ){
+       if ( 条件表达式2 ){
+           if ( 条件表达式3 ){
+               ...
+           }            
+       }
+  }    
+</code></pre><p>例子:</p>
+<p>$sex = ‘女’;<br>$age = 18;</p>
+<p>if ( $sex == ‘男’) {<br>    if ( $age &lt; 30) {<br>        echo ‘处男’;<br>    }else{<br>        echo ‘老司机’;<br>    }<br>}else{<br>    if ( $age &lt; 30 ) {<br>        echo ‘少妇’;<br>    }else{<br>        echo ‘妇女’;<br>    }<br>}</p>
+<h6 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h6><p>​    例子:</p>
+<p>​    $name = ‘盖伦’;<br>​    $name = ‘剑圣’;</p>
+<p>​    switch( $name ){<br>​        case ‘快乐风男’: echo ‘面对疾风吧  ‘; break;<br>​        case ‘大司马’: echo ‘回首掏, 走位走位  ‘; break;<br>​        case ‘盖伦’: echo ‘人在塔在  ‘; break;<br>​        default: echo ‘404’;<br>​    }</p>
+<pre><code>  swtich($name=标识){
+      case &#39;$name=标识1&#39;: 代码块;break;
+      case &#39;$name=标识2&#39;: 代码块;break;
+      case &#39;$name标识3&#39;: 代码块; break;
+      ...
+      case &#39;$name标识N&#39;: 代码块;break;
+  }
+</code></pre><p>​    无break default<br>      匹配到某一标识, 执行该代码块, 且依次向下执行</p>
+<pre><code> 若添加了break
+  执行到break时, 立马跳出分支, 后面的代码不再执行
+</code></pre><p>​    若添加了default</p>
+<pre><code>  匹配不到标识时, 默认执行default
+</code></pre><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h6 id="while"><a href="#while" class="headerlink" title="while"></a>while</h6><p>  循环结构</p>
+<ol>
+<li>while</li>
+<li>doWhile</li>
+<li><p>for</p>
+<p>代码块: 拥有1行 或 多行代码的块. 甚至没有代码</p>
+</li>
+<li><p>while</p>
+<p> while( 条件表达式 ){</p>
+<pre><code> 代码块
+</code></pre><p> }</p>
+<p> 分析:</p>
+<pre><code> 如果条件为真 -&gt; 则执行1次 代码块 -&gt; 再回到条件表达式 -&gt; 真 -&gt; 再执行1次代码块 ...
+ 当条件为假 -&gt; 立马结束循环 -&gt; 准备执行循环外的代码
+</code></pre><p>输出 0 - 10<br>$i = 0;<br>while ($i &lt;= 10) {<br>echo $i.’ ‘;<br>$i++;<br>}<br>echo ‘<hr>‘;</p>
+<p>输出 0 2 4 6 8 10<br>$i = 0;<br>while ( $i &lt;= 10 ) {</p>
+</li>
+</ol>
+<p>​      判断 $i 是否为偶数<br>    if ( $i % 2 == 0) {<br>        echo $i . ‘ ‘;<br>    }</p>
+<p>​    $i++;<br>}<br>echo ‘<hr>‘;</p>
+<p>  输出 0~10 之间所有奇数<br>$i = 0;<br>while ( $i &lt;= 10 ) {</p>
+<p>​     判断 $i 是否为偶数<br>    if ( $i % 2 != 0) {<br>        echo $i . ‘ ‘;<br>    }</p>
+<p>​    $i++;<br>}<br>echo ‘<hr>‘;</p>
+<p>  坑题</p>
+<p>$num = 5;<br>while ( \$i = \$num ){     当 赋予 false等价值时, 条件认为为 假<br>    echo $i.’ ‘;<br>    $num–;<br>}<br>echo ‘<hr>‘;</p>
+<p>$x = 5;<br>$y = 0;<br>while(\$x &amp;&amp; \$y ){<br>    echo $x . ‘ ‘;<br>    $y++;<br>}<br>echo ‘<hr>‘;</p>
+<p>$x = 5;<br>while ( $x ) {<br>    echo $x.’ ‘;<br>    $x–;<br>}<br>echo ‘<hr>‘;</p>
+<p>$x = 5;<br>while ( –$x ) {<br>    echo $x. ‘ ‘;<br>    $x–;<br>}<br>  4 2 </p>
+<h6 id="dowhile"><a href="#dowhile" class="headerlink" title="dowhile"></a>dowhile</h6><p>$year = 2019;<br>    echo ‘<select>‘;<br>        do{<br>            echo ‘<option>‘.$year.’</option>‘;<br>            $year–;<br>        }while($year &gt;= 1990);<br>    echo ‘</select>‘;</p>
+<h6 id="for"><a href="#for" class="headerlink" title="for"></a>for</h6><pre><code> for 循环    
+ 格式for(1初始值;2条件;3 增量){
+         执行代码4
+     }
+</code></pre><p>  执行顺序:<br>      1 243 243 243<br>      2为假时,结束循环</p>
+<p>for($i = 0;$i&lt;10; $i++){<br>    echo $i.’ ‘;<br>}<br>  0~9<br>echo ‘<hr>‘;</p>
+<p>for($i = 0;$i&lt;10;){<br>    echo $i.’ ‘;<br>    $i++;<br>}<br> 0~9<br>echo ‘<hr>‘;</p>
+<p> 初始位置和增量位置可以不写值<br>$i = 0;<br>for(;$i&lt;10;){<br>    echo $i;<br>    $i++;</p>
+<p>}<br> 0~9;<br>echo ‘<hr>‘;<br> 条件只是一个变量<br>for($i=0 ;$i ;$i++){<br>    echo $i++;<br>}<br> 空<br>echo ‘<hr>‘;</p>
+<p>for($i = 10;$i -= 2;$i -= 2){<br>    echo $i.’ ‘;<br>}<br>  8 4<br>echo ‘<hr>‘;</p>
+<p>for($i = 0; $i &lt; 10; $i+2){<br>    echo $i++.’ ‘;<br>}<br> 0~9</p>
+<p>echo ‘<hr>‘;</p>
+<h6 id="多重循环"><a href="#多重循环" class="headerlink" title="*多重循环"></a>*多重循环</h6><p>​    见ex==&gt;PHP部分</p>
+<p>​    for        </p>
+<p>​    tr</p>
+<p>​            td            td</p>
+<p>​    tr</p>
+<h6 id="流程控制符"><a href="#流程控制符" class="headerlink" title="流程控制符"></a>流程控制符</h6><p>  流程控制符<br>      <strong>1.break</strong>  立马结束分支/循环,准备执行分支/循环外的代码<br>      <strong>2.continue</strong><br>      立马结束当前一轮循环,进入下一轮循环 for 碰到continue,立马进入增量3<br>      while碰到 continue,立马进入条件判断<br>      <strong>3.die</strong>  立马结束程序<br>      die(内容)    遗言</p>
+<p>​    </p>
+<p>  输出 0~9<br><code>for ($i=0; $i &lt; 10; $i++) {</code><br>    <code>echo  $i.&#39; &#39;;</code><br><code>}</code><br><code>echo &#39;&lt;hr&gt;&#39;;</code></p>
+<p>  输出 0~9, 若碰到5, 则跳过<br><code>for ($i=0; $i &lt; 10; $i++) {</code><br>    <code>if( $i == 5 ){</code><br>        <code>continue;</code><br>        <code>echo &#39;123&#39;;</code><br>    }</p>
+<p>​    echo  $i.’ ‘;<br>}<br>echo ‘<hr>‘;</p>
+<p> 输出 0~9, 若碰到5, 则结束循环<br><code>for ($i=0; $i &lt; 10; $i++) {</code><br>    if( $i == 5 ){<br>        break;<br>        echo ‘123’;<br>    }</p>
+<p>.</p>
+<p>​    echo  $i.’ ‘;<br>}</p>
+<p>echo ‘<hr>‘;</p>
+<p>  输出 0~9, 若碰到5, 则结束程序<br>for ($i=0; $i &lt; 10; $i++) {<br>    if( $i == 5 ){<br>          die;<br>          exit;<br>          die(‘我还会回来的’);<br>        exit(‘我还会回来的’);<br>        echo ‘123’;<br>    }</p>
+<p>​    echo  $i.’ ‘;<br>}</p>
+<p>echo ‘<hr>‘;</p>
+<h2 id="function函数"><a href="#function函数" class="headerlink" title="function函数"></a>function函数</h2><h6 id="函数作用丶简介"><a href="#函数作用丶简介" class="headerlink" title="函数作用丶简介"></a>函数作用丶简介</h6><p>​    用函数封装一些功能, 重复利用</p>
+<p>​    <strong>分类:</strong><br>          系统函数<br>          自定义函数</p>
+<pre><code>  格式:
+      function 函数名( [参数1, 参数2, ...] )
+      {
+          函数体
+      }
+
+  特性:
+      不调用不执行
+      函数一旦调用, 那么函数执行之后, 会返回到调用函数的地方
+
+  调用函数:
+      函数名()
+</code></pre><p>​        函数名( 实参 ) </p>
+<h6 id="函数名规范"><a href="#函数名规范" class="headerlink" title="函数名规范"></a>函数名规范</h6><pre><code>  命名规范: 由数字, 字母和下划线组成, 不能以数字开头
+  函数名不能重复
+  不区分大小写
+  命名形式:
+      驼峰式命名法: 从第二个单词开始, 首字母大写  
+      帕斯卡命名法: 每个单词首字母大写
+      下划线命名法: 每个单词用下划线隔开
+</code></pre><h6 id="函数返回值return"><a href="#函数返回值return" class="headerlink" title="函数返回值return"></a>函数返回值return</h6><pre><code>  关键字: return
+  格式: return 数值
+  特性:
+      当执行到return时, 立马结束函数, 并返回到调用函数的地方
+      可以返回任意类型
+
+  如何一次性返回多个值?           将多个值 包装到数组中, 并返回数组
+  强行接收无return的函数?              没有return时, 会接收到null
+</code></pre><h6 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h6><pre><code>  形参: parameter    param     定义函数时给的值
+  实参: argument     arg         调用函数时给的值
+
+  形参个数 = 实参个数     形参接收实参, 先到的先得
+  形参个数 &gt; 实参个数:      多余的形参     1.当成未定义变量     实参加( &#39;&#39; )就不会报错了
+                                       2.采用默认值
+  形参个数 &lt; 实参个数:      多余的实参, 被抛弃
+</code></pre><p><strong>当 实参个数 不确定时?</strong><br>      func_get_args()     以数组的形式接收全部的实参<br>      func_get_arg(N)     接收下标为N的值<br>      func_num_args()     接收实参 数量总和</p>
+<h6 id="变量的作用域-globals"><a href="#变量的作用域-globals" class="headerlink" title="变量的作用域 globals"></a>变量的作用域 globals</h6><p>​    关键词 globals</p>
+<pre><code>  全局变量: 在函数外部声明的变量
+  局部变量: 在函数内部声明的变量
+
+  全局变量如何在函数内部使用
+  通过 \$GLOBALS[&#39;变量名&#39;]
+
+  局部变量如何在函数外面使用
+  在函数里面定义时, 通过global 定义变量
+</code></pre><p>​    例子:</p>
+<p>​    $a = 10;   全局<br>​    function demo1(){<br>​        global $b;<br>​        $b = 20;   局部</p>
+<p>​    <strong>通过 $GLOBALS[ 全局变量名 ] 即可在局部环境中使用 全局变量</strong><br>​    echo $GLOBALS[‘a’];<br>​    }</p>
+<p>​    demo1();</p>
+<p>​    <strong>  在全局环境中, 可以输出 global修饰的 局部变量</strong><br>​    echo $b;</p>
+<p>​    </p>
+<h6 id="静态变量-static"><a href="#静态变量-static" class="headerlink" title="静态变量 static"></a>静态变量 static</h6><pre><code>  关键词: static
+  作用: 在函数结束时, 不会销毁, 当再次调用此函数时, 会直接使用上一次的静态值
+  注意: 对于不同的函数, 相同静态变量名, 互不影响
+</code></pre><p>​    例子:</p>
+<p>​    function demo(){<br>​        $a = 10;<br>​        echo $a.’ ‘;<br>​        $a++;<br>​    }</p>
+<p>​    demo();<br>​    demo();</p>
+<p>​      10   10</p>
+<p>​    echo ‘<hr>‘;</p>
+<p>​    function demo2(){<br>​        static $b = 50;<br>​        echo $b.’ ‘;<br>​        $b++;<br>​    }</p>
+<p>​    demo2();<br>​    demo2();<br>​    demo2();</p>
+<p>​      50 51 52</p>
+<h6 id="变量技巧-函数技巧"><a href="#变量技巧-函数技巧" class="headerlink" title="变量技巧/函数技巧"></a>变量技巧/函数技巧</h6><pre><code>// 变量技巧
+    // 可变变量: 将一个变量的值 作为另一个变量名 来使用
+    // 引用变量     
+
+
+// 函数技巧
+    // 可变函数: 将一个变量的值 作为函数名 来使用
+    // 引用函数
+</code></pre><pre><code class="php+HTML">    // 可变函数 
+    function demo(){
+        echo &#39;我是 demo函数&#39;;
+    }
+
+    // demo();
+
+    $a = &#39;demo&#39;;
+    echo $a;
+    echo &#39;&lt;br&gt;&#39;;
+    $a();  //  ===&gt;  demo()
+    echo &#39;&lt;hr&gt;&#39;;
+
+    function demo2($x){
+        $x++;
+        echo &#39;x = &#39;.$x.&#39;&lt;br&gt;&#39;;
+    }
+
+    $a = 10;
+    demo2($a);
+    echo &#39;a = &#39;.$a.&#39;&lt;br&gt;&#39;;
+
+
+    // 可变函数 
+    function demo(){
+        echo &#39;我是 demo函数&#39;;
+    }
+
+    // demo();
+
+    $a = &#39;demo&#39;;
+    echo $a;
+    echo &#39;&lt;br&gt;&#39;;
+    $a();  //  ===&gt;  demo()
+    echo &#39;&lt;hr&gt;&#39;;
+
+
+    function demo2($x){
+        $x++;
+        echo &#39;x = &#39;.$x.&#39;&lt;br&gt;&#39;;
+    }
+
+    $a = 10;
+    demo2($a);
+    echo &#39;a = &#39;.$a.&#39;&lt;br&gt;&#39;;
+
+
+</code></pre>
+<p>​    </p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h4 id="基础知识点"><a href="#基础知识点" class="headerlink" title="基础知识点"></a>基础知识点</h4><p><strong>分类</strong>:<br>    索引数组: 下标为int<br>    关联数组: 下标为string</p>
+<p><strong>格式</strong>:<br>    \$数组名[ 键 ] = 值</p>
+<p>​    \$数组名 = [键=&gt;值,  键=&gt;值, …]</p>
+<p>​    \$数组名 = array(键=&gt;值, 键=&gt;值, …)</p>
+<p><strong>键</strong>:</p>
+<ol>
+<li>键的别称: 下标, 索引, 偏移量</li>
+<li><p>若 下标不是int 或 string , 则会强制转为 int 或 string<br> . 下标等价值:    </p>
+<pre><code> true = 1 = 1.0 = 1.xxxx
+</code></pre><p> false = 0 = 0.0 = 0.xxxx = ‘0’<br> null = ‘  ‘ = 未定义变量<br> 非法键: 数组 , 资源 ,  对象  ,   有就报错</p>
+</li>
+<li><p>下标若未设置, 默认从0开始<br>已存在部分下标, 默认从已有的最大int下标开始 + 1</p>
+</li>
+</ol>
+<p><strong>值:</strong>可以为任意类型,如果值也是数组,那么将会形成多维数组</p>
+<hr>
+<h4 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h4><pre><code class="php">        查询数组值: 通过数组下标来查找值  $arr[ 下标 ]
+                                     $arr[下标1][下标2]
+
+        修改数组值: 通过已存在的数组下标来修改值  $arr[ 下标 ] = 值
+        新增数组值: 通过不存在的数组下标来新增值  $arr[ 下标 ] = 值
+            删除数组值: 通过已存在的数组下标来删除值  unset($数组名)
+</code></pre>
+<h6 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h6><p>​        在数组中, 值设为数组, 即为多维数组</p>
+<p>​        $a = [<br>​                ‘吴彦组’ =&gt; [‘成龙’, ‘李连杰’, ‘甄子丹’, ‘吴京’],<br>​                ‘佛组’   =&gt; [‘释迦牟尼’, ‘象猴得度’, ‘割肉喂鹰’, ‘佛说前身’],<br>​                ‘达摩老组’ =&gt; [‘易筋经’, ‘洗髓经’, ‘童子功’, ‘金钟罩’],<br>​             ];</p>
+<p>​         删除成龙         unset( \$a[‘吴彦组’][0] );</p>
+<h6 id="指针函数"><a href="#指针函数" class="headerlink" title="指针函数:"></a>指针函数:</h6><p>​        current()     获取当前指针所指向的值<br>​        key()         获取当前指针所指向的键<br>​        next()         将指针下移一位<br>​        prev()         将指针上移一位<br>​        reset()         将指针重置到第一位<br>​        end()         将指针重置到最后一位<br>​        each()         获取当前指针所指向的键和值, 且指针自动下移一位</p>
+<p>​        超出指针范围, 返回值 返回false, 键返回null</p>
+<h6 id="字符串数组"><a href="#字符串数组" class="headerlink" title="字符串数组"></a>字符串数组</h6><p>​        当做索引数组来看待<br>​        超出指定下标, 返回 空字符串</p>
+<h4 id="html和php结合写法"><a href="#html和php结合写法" class="headerlink" title="html和php结合写法"></a>html和php结合写法</h4><h6 id="foreach遍历"><a href="#foreach遍历" class="headerlink" title="foreach遍历"></a>foreach遍历</h6><p>​        不需要考虑初始值, 不需要考虑增量, 不需要考虑条件<br>​<br>​        擅长遍历 非索引,非规律数字的数组<br>​         foreach( 数组名 as 键 =&gt; 值 ){<br>​                      代码块<br>​                  }<br>​<br>​                  若只需要值, 不需要用键, 可以简化写法<br>​                  foreach( 数组名 as 值 ){<br>​                      代码块<br>​                  }</p>
+<p>​    foreach( \$a as \$x =&gt; $y ){<br>​        echo \$x.’======&gt;’.\$y;<br>​        echo ‘<br>‘;<br>​    }<br>​      分析:<br>​              $x 只能接受当前一轮的键<br>​              $y 只能接受当前一轮的值<br>​<br>​              每一次循环, 都只能接收一个键或值</p>
+<p>​    </p>
+<h6 id="html和php结合写法-1"><a href="#html和php结合写法-1" class="headerlink" title="html和php结合写法"></a>html和php结合写法</h6><p>​    不需要拼接html, 只要PHP直接套html<br>​    foreach 和 html 的混合写法</p>
+<p>​    &lt;?php foreach():      ?&gt;<br>​<br>​        html 原生代码  不需要echo的</p>
+<p>​    &lt;?php endforeach      ?&gt;</p>
+<p>​    if 和 html 的混合写法<br>​    写法1:<br>​        &lt;?php if():      ?&gt;<br>​            html 原生代码  不需要echo的<br>​        &lt;?php endif     ?&gt;</p>
+<p>​    写法2:<br>​        &lt;?php if():  ?&gt;<br>​            html 原生代码  true环境<br>​        &lt;?php else: ?&gt;<br>​            html 原生代码  false环境<br>​        &lt;?php endif     ?&gt;</p>
+<p>​    写法3:<br>​        &lt;?php if():  ?&gt;<br>​            html 原生代码  true环境<br>​        &lt;?php elseif(): ?&gt;<br>​            html 原生代码  false环境<br>​        &lt;?php endif     ?&gt;</p>
+<p> */</p>
+<h6 id="双foreach例题"><a href="#双foreach例题" class="headerlink" title="双foreach例题"></a>双foreach例题</h6><pre><code class="php">     $orders = [
+         [&#39;orderNum&#39;=&gt;1,&#39;time&#39;=&gt;&#39;2019-01-21&#39;],    
+         [&#39;orderNum&#39;=&gt;2,&#39;time&#39;=&gt;&#39;2019-01-22&#39;],    
+     ];
+    $ordersgoods = [
+        [&#39;orderNum&#39;=&gt;1,&#39;goodsName&#39;=&gt;&#39;小米手机&#39;,&#39;price&#39;=&gt;666,&#39;num&#39;=&gt;1],    
+        [&#39;orderNum&#39;=&gt;2,&#39;goodsName&#39;=&gt;&#39;小米电脑&#39;,&#39;price&#39;=&gt;999,&#39;num&#39;=&gt;2],    
+        [&#39;orderNum&#39;=&gt;2,&#39;goodsName&#39;=&gt;&#39;Mac Pro&#39;,&#39;price&#39;=&gt;1000,&#39;num&#39;=&gt;2],    
+     ];
+</code></pre>
+<p><img src="D:\markdown\php\twoforeach.PNG" alt="twoforeach"></p>
+<pre><code class="php+HTML">  &lt;div class=&quot;box&quot;&gt;
+      &lt;div class=&quot;line&quot; style=&quot;border:1px solid black&quot;&gt;
+          &lt;?php foreach ($orders as $k =&gt; $v): ?&gt;
+                  &lt;div class=&quot;head&quot;&gt;
+                      订单号：&lt;?= $v[&#39;orderNum&#39;]?&gt;时间：&lt;?= $v[&#39;time&#39;]?&gt;
+                  &lt;/div&gt;
+          &lt;div class=&quot;body&quot; style=&quot;margin-left:20px;&quot;&gt;
+                  &lt;?php foreach ($ordersgoods as $key =&gt; $value): ?&gt;
+                      &lt;?php if ( $value[&#39;orderNum&#39;] == $v[&#39;orderNum&#39;]): ?&gt;
+
+                      &lt;div&gt;
+                          商品:&lt;?= $value[&#39;goodsName&#39;]?&gt;|价格:&lt;?= $value[&#39;price&#39;]?&gt;|数量：&lt;?= $value[&#39;num&#39;]?&gt; 
+                      &lt;/div&gt;
+                      &lt;?php endif ?&gt;
+                  &lt;?php endforeach ?&gt;
+          &lt;/div&gt;
+      &lt;?php endforeach ?&gt;
+
+      &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+<h4 id="预定义数组"><a href="#预定义数组" class="headerlink" title="预定义数组"></a><strong>预定义数组</strong></h4><hr>
+<p>​    \$GLOBALS         存放所有全局可用的变量</p>
+<p>​    \$_GET            用于接收所有明文传输的值</p>
+<p>​    \$_POST            用于接收所有密文传输的值</p>
+<p>​    \$_COOKIE        用于存放客户端的cookie信息</p>
+<p>​    \$_SESSION        用于存放服务端的session信息</p>
+<p>​    \$_FILES            用于接收上传的文件</p>
+<p>​    \$_REQUEST        用于get, post , cookie的值</p>
+<p>​    \$_SERVER        用于存放服务器相关的信息</p>
+<p>​        HTTP_HOST        主机</p>
+<p>​        HTTP_USER_AGENT    获取终端, 浏览器版本</p>
+<p>​        HTTP_REFERER        获取上一级来源地址</p>
+<p>​        SERVER_ADDR        服务器IP</p>
+<p>​        REMOTE_ADDR        客户端IP</p>
+<p>​        SERVER_SOFTWARE    服务器环境</p>
+<p>​        SERVER_PORT        服务器端口</p>
+<p>​        SCRIPT_FILENAME    服务器脚本地址（盘符形式）</p>
+<p>​        SCRIPT_NAME        脚本地址(网址形式)</p>
+<p>​        REQUEST_URI         请求地址( 带参数 )</p>
+<p>​        REQUST_METHOD    请求方法</p>
+<p>​        REQUEST_STRING    请求参数</p>
+<h4 id="GET丶POST传输冲突"><a href="#GET丶POST传输冲突" class="headerlink" title="GET丶POST传输冲突"></a>GET丶POST传输冲突</h4><p>​    前端: method=get时, action带参数<br>​    后端:         $_GET 只接收 表单值<br>​                action的参数 被抛弃</p>
+<p>​        解决方案:<br>​                action的参数, 设置为 隐藏域(name=”下标”，value=”值” )<br>​                $_GET 依旧接收 表单值</p>
+<p>​    前端: method=post时, action带参数<br>​    后端:            $_GET 只接收到 参数<br>​                   $_POST 只接收到 表单值 </p>
+<h4 id="多上传文件5个条件"><a href="#多上传文件5个条件" class="headerlink" title="多上传文件5个条件:"></a>多上传文件5个条件:</h4><p>​    想要$_FILES接收到上传的文件, 必须要满足以下3个条件:</p>
+<p>​        form表单 必须要有enctype = multipart/form-data</p>
+<p>​        form表单 method = post</p>
+<p>​        file表单 name 必须要有值</p>
+<p>​        file表单 name 值后面加[] </p>
+<p>​        file表单属性：multiple</p>
+<h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a><strong>正则</strong></h2><hr>
+<p>​        </p>
+<p>​    <strong>表达式: 用某种模式去匹配字符串的一个公式</strong></p>
+<p>​    <strong>功能: 用于字符串的查找与替换</strong></p>
+<p>​    <strong>组成: 由正规字符和一些特殊字符组成</strong></p>
+<h4 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h4><p>定界符:    ## {}</p>
+<p><strong>​    原子: 可见原子和不可见原子</strong></p>
+<p><strong>元字符:</strong></p>
+<h6 id="原子筛选方式"><a href="#原子筛选方式" class="headerlink" title="原子筛选方式:"></a><strong>原子筛选方式:</strong></h6><p><strong>             |             匹配俩个或多个分支选择</strong></p>
+<p><strong>            [  ]            匹配中括号中的任意一个原子</strong></p>
+<p><strong>            [ ^ ]            匹配除了中括号的原子之外的其他任意原子</strong></p>
+<h6 id="原子的集合"><a href="#原子的集合" class="headerlink" title="原子的集合:"></a><strong>原子的集合:</strong></h6><p><strong>            \d            匹配任意一个十进制数字, 即[ 0-9]</strong></p>
+<p><strong>            \D            匹配任意一个非十进制数字</strong></p>
+<p><strong>            \s            匹配不可见原子</strong></p>
+<p><strong>​            \S            匹配可见原子</strong></p>
+<p><strong>            \w            匹配任意一个数字 字母或者下划线</strong></p>
+<p><strong>            \W            匹配任意一个非数字 字母或者下划线</strong></p>
+<p><strong>            .            匹配除换行符以外的任意字符</strong></p>
+<p><strong>            *            匹配0次, 1次或者 多次其前面的原子,即 { 0, }</strong></p>
+<p><strong>            +              {1, }</strong></p>
+<p><strong>            ?              {0,  1}</strong></p>
+<h6 id="边界控制符-模式单元和模式选择符"><a href="#边界控制符-模式单元和模式选择符" class="headerlink" title="边界控制符,模式单元和模式选择符"></a><strong>边界控制符,模式单元和模式选择符</strong></h6><p><strong>            ^            匹配字符串开始的位置</strong></p>
+<p><strong>            \$            匹配字符串结尾的位置</strong></p>
+<p><strong>            ()            匹配其中的整体为一个原子</strong></p>
+<p><strong>            (|)            匹配其中的俩个或更多的选择之一</strong></p>
+<h6 id="模式修正符"><a href="#模式修正符" class="headerlink" title="模式修正符:"></a><strong>模式修正符:</strong></h6><p><strong>            U    贪婪懒惰转换</strong></p>
+<p><strong>            x    忽略空白</strong></p>
+<p><strong>            i    不区分大小写</strong></p>
+<p><strong>            u    把中文当做一个原子看待</strong></p>
+<h4 id="单次匹配"><a href="#单次匹配" class="headerlink" title="单次匹配"></a>单次匹配</h4><p>preg_match(正则 , 对象,匹配结果)</p>
+<p>返回值: 成功匹配几个      true flase</p>
+<p>​                                成功=1</p>
+<p>​                                失败=0</p>
+<p>​    例子:</p>
+<p>// 检测是否含有大写字母<br>$preg = ‘/[A-Z]/‘;</p>
+<p>\$total = preg_match(\$preg, \$str, $result);<br>var_dump($total);  =&gt; 1或0<br>var_dump($result);=&gt;过了的值以数组接收,没过就是空</p>
+<p> 检测字符串中 既有数字, 又有小写字母, 还有大写字母<br>$str = ‘aaaaaaaa’;<br>$preg = ‘/[0-9][a-z][A-Z]/‘;</p>
+<p>$a = preg_match(‘/\d/‘, \$str);<br>$b = preg_match(‘/[a-z]/‘, \$str);<br>\$c = preg_match(‘/[A-Z]/‘, $str);<br>\$res = $a &amp;&amp;\$b &amp;&amp; \$c;<br>// 若 $res 为 true ,则证明 3个条件都满足了<br>// 若 $res 为 false,则证明 3个中至少有1个没满足</p>
+<h4 id="多次匹配"><a href="#多次匹配" class="headerlink" title="多次匹配"></a>多次匹配</h4><p>​    <strong>一般用于统计</strong></p>
+<p>​    preg_match_all(正则, 对象, 匹配结果)</p>
+<p>​        <strong>返回值: 成功匹配了几个</strong>     成功&gt;=1</p>
+<p>​                                失败=0</p>
+<p>​        一般用于看有几个符合的值,多少个字母,都少个数字,或者str有多长</p>
+<p>​    例子:</p>
+<pre><code class="php">    统计$str 有多长
+
+    $str = &#39;i love 老母鸡找上了小母鸡&#39;;
+
+    $preg = &#39;/./u&#39;;  =&gt;.表示匹配str里的任意一个原子,如果加上小写u那么将会将汉子当成一个原子,否则默认就是三个原子
+
+    $total = preg_match_all($preg, $str, $result);
+
+    var_dump($total);
+
+    var_dump($result);
+
+    echo strlen($str);
+
+
+    只获取字符串中的所有汉字  \x{4e00} ~ \x{9fa5}
+
+    $preg = &#39;/[\x{4e00}-\x{9fa5}]/u&#39;;
+
+    $total = preg_match_all($preg, $str, $result );
+
+    echo $total;
+
+    var_dump($result);
+
+</code></pre>
+<p>​    </p>
+<h4 id="正则敏感字替换"><a href="#正则敏感字替换" class="headerlink" title="正则敏感字替换"></a>正则敏感字替换</h4><p>​    preg_replace(正则,替换值,对象)</p>
+<p>​    例子:</p>
+<p>​    $str = ‘MMP, 你是不是脑残啊, 脑子是不是不好使啊, MMP’;</p>
+<p>​    // 敏感词库<br>​    $keywords = [‘MMP’, ‘脑残’];</p>
+<p>​    foreach(\$keywords as $v){<br>​        // 1. 统计 $v 占几位(匹配所有的原子,并将一个汉子当成一个原子)<br>​            \$num = preg_match_all(‘/./u’, $v);</p>
+<p>​        // 2. 将 <em> 重复 num次<br>​            \$star = str_repeat(‘</em>‘, $num);</p>
+<p>​        // 3.将重复的* 替换成要修改的敏感词<br>​            \$str = preg_replace(“/{\$v}/“, \$star, $str);<br>​    }</p>
+<p>​    echo $str;</p>
+<h4 id="正则过滤"><a href="#正则过滤" class="headerlink" title="正则过滤"></a>正则过滤</h4><p>​    preg_grep(正则,数组)</p>
+<p>​    例子:</p>
+<p>​    $time =[</p>
+<p>​                ‘2019-01-23’,<br>​                ‘2019/01/23’,<br>​                ‘2019.01.23’,<br>​                ‘2019.01/23’,<br>​                ‘2019-01/23’,<br>​                ‘2019-01.23’,<br>​                ‘2019-01?23’,<br>​                ‘2019<em>01?23’,<br>​                ‘2019</em>01*23’,            </p>
+<p>​            ]</p>
+<p>​    =&gt;不符合\$preg的将被全部抛弃,只留下符合的</p>
+<p>​    $preg = ‘/\d{4}   [-\/\.]    \d{2}  [-\/\.]   \d{2}/x’;<br>​    \$res = preg_grep(\$preg, $time);<br>​    var_dump($res);    </p>
+<h4 id="后向引用-1"><a href="#后向引用-1" class="headerlink" title="后向引用:    \1"></a>后向引用:    \1</h4><p>​    后面的引用前面的值:</p>
+<p>​    用()将正则包起来后面用\1,就是代表使用被()包起来的正则.</p>
+<p>​    例如 ‘2019-01-23’  2019后面时-那么01后面也必须是-,01后面的-就可以用\1代表前面的正则.</p>
+<h4 id="模式单元"><a href="#模式单元" class="headerlink" title="模式单元(  )"></a>模式单元(  )</h4><p>​        功能1:将()内容当成一个整体,即一个大院子</p>
+<p>​        功能2:()内的内容将被送进子模式组</p>
+<p>​    取消模式单元:</p>
+<p>​        正则后面加?:     例如(?:正则内容)</p>
+<h4 id="项目验证"><a href="#项目验证" class="headerlink" title="项目验证"></a>项目验证</h4><h6 id="邮箱正则"><a href="#邮箱正则" class="headerlink" title="邮箱正则"></a>邮箱正则</h6><pre><code class="php">$e = &#39;11111@xx.com&#39;;        
+
+$preg = &#39;/^  [0-9a-zA-Z]    {2,16}   @  [0-9a-zA-Z]{2,8} .   (com|cn|edu|net|org)     $/x&#39;;
+
+$res = preg_match($preg, $e, $result);
+
+if( $res ){
+    echo &#39;邮箱格式正确, 邮箱为: &#39;.$result[0];
+}else{
+    echo &#39;邮箱格式不正确&#39;;
+}    
+</code></pre>
+<h6 id="手机正则"><a href="#手机正则" class="headerlink" title="手机正则"></a>手机正则</h6><p>$tel=18317045591 </p>
+<pre><code class="php">$preg = &#39;/^1(3\d|4[5-9]|5[0-35-9]|66|7[013-8]|8\d|9[89])\d{8}$/&#39;;
+
+if( !preg_match($preg, $tel) ){
+    echo &#39;您的手机号码格式不正确&#39;;
+    重定向
+    echo &#39;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3; url=&#39;.$_SERVER[&#39;HTTP_REFERER&#39;].&#39;&quot;&gt;&#39;; 
+    die;
+    equiv    相等的，等价物
+    refresh    使恢复，使振作;
+    content 内容
+
+</code></pre>
+<h6 id="昵称验证"><a href="#昵称验证" class="headerlink" title="昵称验证"></a>昵称验证</h6><pre><code class="php">// 2. 昵称验证
+$nickname = empty($_POST[&#39;nickname&#39;])?null:$_POST[&#39;nickname&#39;];
+// 长度: 1-10    支持: 中英文, 数字    中文区间:  \x4e00 ~ \x9fa5
+$preg = &#39;/^[a-zA-Z0-9\x{4e00}-\x{9fa5}]{1,10}$/u&#39;;
+if(  !preg_match($preg, $nickname)){
+    echo &#39;昵称格式错误&#39;;
+    echo &#39;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;             url=&#39;.$_SERVER[&#39;HTTP_REFERER&#39;].&#39;&quot;&gt;&#39;;die;
+}
+</code></pre>
+<h6 id="密码验证"><a href="#密码验证" class="headerlink" title="密码验证"></a>密码验证</h6><pre><code class="php">// 2. 验证数据
+// 密码验证
+if( empty($data[&#39;pwd&#39;]) ){
+    unset($data[&#39;pwd&#39;]);
+    unset($data[&#39;repwd&#39;]);
+}elseif(  $data[&#39;pwd&#39;] != $data[&#39;repwd&#39;] ){
+    echo &#39;两次密码不一致&#39;;
+    echo &#39;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3; url=&#39;.$_SERVER[&#39;HTTP_REFERER&#39;].&#39;&quot;&gt;&#39;; die;
+}else{
+    // 复杂度  ( 密码必须要有  小写, 大写, 数字, 长度至少6位, 至多16位 )
+    $preg = &#39;/^.{6,16}$/&#39;;
+    if( !preg_match($preg, $data[&#39;pwd&#39;])  ){
+        echo &#39;密码长度不够&#39;;
+        echo &#39;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3; url=&#39;.$_SERVER[&#39;HTTP_REFERER&#39;].&#39;&quot;&gt;&#39;; die;
+    }
+    $a = preg_match(&#39;/\d/&#39;, $data[&#39;pwd&#39;]);
+    $b = preg_match(&#39;/[a-z]/&#39;, $data[&#39;pwd&#39;]);
+    $c = preg_match(&#39;/[A-Z]/&#39;, $data[&#39;pwd&#39;]);
+    $res = $a &amp;&amp; $b &amp;&amp; $c;
+
+    if(!$res){
+        echo &#39;密码格式不正确&#39;;
+        echo &#39;&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3; url=&#39;.$_SERVER[&#39;HTTP_REFERER&#39;].&#39;&quot;&gt;&#39;; die;
+    }
+
+    // 完善密码
+    unset($data[&#39;repwd&#39;]);
+    $data[&#39;pwd&#39;] = md5($data[&#39;pwd&#39;]);
+}
+</code></pre>
+<h4 id="时间"><a href="#时间" class="headerlink" title="时间"></a><strong>时间</strong></h4><table>
+<thead>
+<tr>
+<th>时间函数</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date_default_timezone_set(‘PRC’)</td>
+<td>获取中国时区:PRC</td>
+<td></td>
+</tr>
+<tr>
+<td>time( )</td>
+<td>获取时间戳</td>
+<td></td>
+</tr>
+<tr>
+<td>date(‘格式’,时间戳)</td>
+<td>格式化时间</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Y    (year)</td>
+<td>4位年份</td>
+</tr>
+<tr>
+<td></td>
+<td>y</td>
+<td>2位年份</td>
+</tr>
+<tr>
+<td></td>
+<td>m  (month)</td>
+<td>月</td>
+</tr>
+<tr>
+<td></td>
+<td>d (day )</td>
+<td>天</td>
+</tr>
+<tr>
+<td></td>
+<td>H (hour)</td>
+<td>小时,24小时制 (h12小时)</td>
+</tr>
+<tr>
+<td></td>
+<td>i (minute)</td>
+<td>分</td>
+</tr>
+<tr>
+<td></td>
+<td>s(second)</td>
+<td>秒</td>
+</tr>
+<tr>
+<td></td>
+<td>z</td>
+<td>今天是几年第几天</td>
+</tr>
+<tr>
+<td></td>
+<td>W(week)</td>
+<td>本周是今年第几周</td>
+</tr>
+<tr>
+<td></td>
+<td>t</td>
+<td>本月一共多少天</td>
+</tr>
+<tr>
+<td></td>
+<td>w</td>
+<td>w: 数字型的星期几，从”0(星期天)”至”6(星期六)”</td>
+</tr>
+<tr>
+<td>mktime(时,分,秒,月,日,年)</td>
+<td>创建时间点(返回的时一个时间戳)</td>
+<td></td>
+</tr>
+<tr>
+<td>strtotime(‘时间字符串’)</td>
+<td>字符串转时间戳</td>
+</tr>
+</tbody>
+</table>
+<p><strong>创建时间点</strong></p>
+<p>​    mktime(时,分,秒,月,日,年)</p>
+<p>​    返回值: 时间戳</p>
+<p>​    例:        $birthday = mktime(11, 11, 11, 6, 20, 1994);</p>
+<p>​            $now = time( );<br>​            \$diff = \$now - \$birthday;<br>​            echo “老王目前已经活了  {$diff}  秒 </p>
+<p><strong>字符串转时间戳</strong></p>
+<p>​    strtotime(‘时间字符串’)</p>
+<p>​    例:5天后</p>
+<p>​        echo date(‘Y-m-d H:i:s’, strtotime(‘5 day’) );</p>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题:"></a>面试题:</h4><p>请用最短的代码 获取昨天的时间</p>
+<p>​        echo strtotime(‘-1 day’);</p>
+<p>其返回值: 时间戳</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">微秒</th>
+<th style="text-align:center">microtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"><strong>microtime(true)</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="PHP错误"><a href="#PHP错误" class="headerlink" title="PHP错误"></a><strong>PHP错误</strong></h2><h4 id="错误类型"><a href="#错误类型" class="headerlink" title="错误类型"></a>错误类型</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">PHP程序的错误发生一般属于以下3种领域:</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">语法错误</td>
+<td style="text-align:center">若文件中, 有任意一行代码发生语法错误, 那么整个文件一行代码都不会运行</td>
+</tr>
+<tr>
+<td style="text-align:left">运行时错误</td>
+<td style="text-align:center">有些运行时错误, 会终止程序的运行.有些运行时错误, 不会终止程序的运行</td>
+</tr>
+<tr>
+<td style="text-align:left">逻辑错误</td>
+<td style="text-align:center">最麻烦的错误, 第一不会提示错误, 第二不会终止程序是 人的问题</td>
+</tr>
+</tbody>
+</table>
+<h4 id="错误级别"><a href="#错误级别" class="headerlink" title="错误级别"></a>错误级别</h4><table>
+<thead>
+<tr>
+<th>错误级别</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">致命错误, 终止程序致命错误, 终止程序</td>
+</tr>
+<tr>
+<td>warning</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">警告错误, 不会终止程序</td>
+</tr>
+<tr>
+<td>notice</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">提示错误, 不会终止程序</td>
+</tr>
+</tbody>
+</table>
+<h4 id="屏蔽错误"><a href="#屏蔽错误" class="headerlink" title="屏蔽错误"></a>屏蔽错误</h4><table>
+<thead>
+<tr>
+<th>屏蔽错误</th>
+<th style="text-align:left"></th>
+<th style="text-align:center">原理</th>
+<th style="text-align:center">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方法1:</td>
+<td style="text-align:left">@ : 错误抑制符</td>
+<td style="text-align:center">哪边变量报错, 就在哪里加@.  仅限于小代码块范围使用</td>
+<td style="text-align:center">echo @$a;</td>
+</tr>
+<tr>
+<td>方法2:</td>
+<td style="text-align:left">error_reporting()</td>
+<td style="text-align:center">函数来屏蔽 函数后面的错误提示. 位置: 靠前</td>
+<td style="text-align:center">error_reporting(E_ALL ^E_WARNING);     // 除了 warning 不报, 其余都报</td>
+</tr>
+<tr>
+<td>方法3</td>
+<td style="text-align:left">ini_set()</td>
+<td style="text-align:center">临时改变”配置文件”</td>
+<td style="text-align:center">ini_set(‘error_reporting’, E_NOTICE)或者ini_set(‘error_reporting’, 8);</td>
+</tr>
+<tr>
+<td>方法4</td>
+<td style="text-align:left">修改配置文件</td>
+<td style="text-align:center">通过直接 修改配置文件, 来屏蔽错误提示 (影响到整个服务器)</td>
+<td style="text-align:center">1.   error_reporting = 常量                                   2.display_errors = On/off   开关错误提示(完成后需要重启服务器)​</td>
+</tr>
+</tbody>
+</table>
+<p>如何屏蔽错误:</p>
+<p>​    仅限本文件:</p>
+<p>​        <strong>方法一</strong>: 通过@抑制符        只能抑制一个变量的错误</p>
+<p>​        <strong>方法二</strong>: error_reporting()    从当前代码向下全部抑制</p>
+<p>​                E_ALL        显示所有错误</p>
+<p>​                0            屏蔽所有错误</p>
+<p>​                E_ERROR    只显示error级错误</p>
+<p>​                E_WARNING    只显示warning级错误</p>
+<p>​                E_ALL ^E_NOTICE    除了notice不报,其他都报</p>
+<p>​                E_ALL &amp; ~E_NOTICE    除了notice 不报,其他都报</p>
+<p>​        <strong>方法三</strong>:    ini_get()    获取配置</p>
+<p>​                ini_set()    设置配置</p>
+<p>​    <strong>相对于整个</strong>WWW目录</p>
+<p>​        方法一: 修改配置文件</p>
+<p>​                display_errors = On        打开错误提示</p>
+<p>​                                Off        关闭错误提示</p>
+<p>​        方法二:</p>
+<p>​                error_reporting =   ( 函数值)</p>
+<h4 id="自定义错误-amp-生成错误日志"><a href="#自定义错误-amp-生成错误日志" class="headerlink" title="自定义错误&amp;生成错误日志"></a>自定义错误&amp;生成错误日志</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">自定义错误</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">trigger_error(报错信息报错类型)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">E_USER_ERROR</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">E_USER_WARNING</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center">E_USER_NOTICE</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>错误日志</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>error_log(报错信息, 消息类型(3:将错误信息填写入到目标文件),目标文件 )</td>
+</tr>
+</tbody>
+</table>
+<p>自定义错误和错误日志结合例子:</p>
+<pre><code class="php">if($b == 0){    
+    $msg = &#39;第二位参数不能为0 &#39;;
+    $type = E_USER_WARNING;
+
+    $now = date(&#39;Y-m-d H:i:s&#39;);
+    $timezone = date_default_timezone_get();
+    $file = __FILE__;
+    $line = __LINE__;
+    // 在 txt文档中, 换行是通过 \r\n 来实现的
+    $message = &quot;[ {$now} {$timezone} ] PHP {$msg}  in {$file} on line {$line} \r\n \r\n&quot;;
+    error_log($message, 3, &#39;./logs.txt&#39;);
+
+    trigger_error($msg, $type);
+}else{
+    echo $a / $b;
+}
+</code></pre>
+<p><strong>排除错误</strong></p>
+<p>​     缩小错误范围<br>​         断点法: 通过 die 来终止程序, 并输出之前的相关变量, 来判断是否有问题<br>​         注释法: 通过 注释 来屏蔽局部程序</p>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><hr>
+<h4 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">文件属性</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">file</td>
+<td style="text-align:center">文件</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">dir</td>
+<td style="text-align:center">文件夹, 目录</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">filetype( )</td>
+<td style="text-align:center">获取文件的类型</td>
+<td style="text-align:center">类型 常见以 file 和 dir 居多,文件不存在, 则返回false</td>
+</tr>
+<tr>
+<td style="text-align:left">filesize( )</td>
+<td style="text-align:center">获取文件的大小</td>
+<td style="text-align:center">返回值:     文件的大小(b)</td>
+</tr>
+<tr>
+<td style="text-align:left">file_exists( )</td>
+<td style="text-align:center">判断文件是否存在</td>
+<td style="text-align:center">返回值: bool</td>
+</tr>
+<tr>
+<td style="text-align:left">is_readable()</td>
+<td style="text-align:center">判断文件是否可读</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">is_writeable()</td>
+<td style="text-align:center">判断文件是否可写</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">filectime()</td>
+<td style="text-align:center">创建文件时间</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">filemtime()</td>
+<td style="text-align:center">修改文件时间</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:left">fileatime()</td>
+<td style="text-align:center">访问文件时间</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h4><table>
+<thead>
+<tr>
+<th>文件路径</th>
+<th></th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>window系统支持的路径分隔符</td>
+<td>\         /</td>
+<td></td>
+</tr>
+<tr>
+<td>linux系统支持的路径分隔符</td>
+<td>/</td>
+<td></td>
+</tr>
+<tr>
+<td>dirname</td>
+<td>获取指定路径的目录</td>
+<td></td>
+</tr>
+<tr>
+<td>basename</td>
+<td>获取制定路径的文件</td>
+<td>注意: 会获取到 参数</td>
+</tr>
+</tbody>
+</table>
+<h6 id="面试题-获取url扩展名"><a href="#面试题-获取url扩展名" class="headerlink" title="面试题,获取url扩展名"></a>面试题,获取url扩展名</h6><p>​    // 需求:  请获取$url 的文件扩展名 ( .html 或 html )<br>​    <code>$url = &#39;http://www.baidu.com/image/index.html?name=laowang&amp;age=18#xxoo&#39;;</code></p>
+<p>​    <strong>涉及到的一些字符串函数</strong></p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符串函数</th>
+<th style="text-align:center"><code>www.baidu.com?m=aad</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">strtok($str , ‘.’ )</td>
+<td style="text-align:center"><code>www</code></td>
+</tr>
+<tr>
+<td style="text-align:center">strchr($str , ‘.’)  = strstr( \$str , ‘.’)   加第三个参数true=strtok</td>
+<td style="text-align:center">.baidu.com?m=aad</td>
+</tr>
+<tr>
+<td style="text-align:center">strrchr($str , ‘.’)</td>
+<td style="text-align:center">.com?m=aad</td>
+</tr>
+<tr>
+<td style="text-align:center">substr($str, n )</td>
+<td style="text-align:center">从下标n 开始截取到 末尾</td>
+</tr>
+<tr>
+<td style="text-align:center">substr($str, n,m)</td>
+<td style="text-align:center">从下标n 开始截取m长</td>
+</tr>
+<tr>
+<td style="text-align:center">strpos($str,’.’)</td>
+<td style="text-align:center">3(第一个.出现的位置下标为3)</td>
+</tr>
+<tr>
+<td style="text-align:center">strrpos($str,’.’)</td>
+<td style="text-align:center">9(最后一个.出现的位置下标为9)</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><table>
+<thead>
+<tr>
+<th>文件操作</th>
+<th></th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opendir( )</td>
+<td>打开目录</td>
+<td>资源</td>
+</tr>
+<tr>
+<td>readdir( )</td>
+<td>读取目录</td>
+<td>资源名,已经读取完则返回false</td>
+</tr>
+<tr>
+<td>closedir( )</td>
+<td>关闭资源</td>
+<td></td>
+</tr>
+<tr>
+<td>is_file( )</td>
+<td>判断是否位文件</td>
+<td></td>
+</tr>
+<tr>
+<td>is_dir( )</td>
+<td>判断是否为目录</td>
+</tr>
+</tbody>
+</table>
+<p>每个目录都有 .(当前目录) 和 .. (上一级目录)</p>
+<p> 需求:<br><strong>计算 目录a 的大小</strong> </p>
+<pre><code class="php">getSize 统计任意一个目录的大小
+function getSize($dir){
+    // 1. 打开目录
+        $handle = opendir($dir);
+
+    // 2. 读取目录
+        $size = 0;
+
+        while( $res = readdir($handle) ){
+            // 排除 . 和 .. 
+            if( $res == &#39;.&#39; || $res == &#39;..&#39;){
+                continue;
+            }
+
+            // 凑完整的路径
+            $path = $dir.&#39;/&#39;.$res;
+
+            // 判断是否为文件, 是: 获取大小, 并累加size
+            if ( is_file($path) ) {
+                $size += filesize($path);
+
+            }
+            // 判断是否为目录, 是: 打开目录
+            if ( is_dir($path) ) {
+                $size += getSize($path);
+            }
+
+        }
+
+    // 3. 关闭目录
+
+        closedir($handle);
+
+    // 4. 返回当前目录的大小
+        return $size;
+}
+
+echo getSize(&#39;./a&#39;);
+</code></pre>
+<h4 id="other"><a href="#other" class="headerlink" title="other"></a>other</h4><table>
+<thead>
+<tr>
+<th>other</th>
+<th></th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>copy(复制谁, 复制到哪儿去 )</td>
+<td>复制文件( 不能复制文件夹 )</td>
+<td>copy(‘./07-other.php’, ‘./a/077-other.php’);</td>
+</tr>
+<tr>
+<td>mkdir(目录地址)</td>
+<td>创建空目录</td>
+<td>mkdir(目录地址, 0777, true)     开启递归创建</td>
+</tr>
+<tr>
+<td>rmdir(目录地址 )</td>
+<td>删除空目录</td>
+<td>rmdir(‘./x’)</td>
+</tr>
+<tr>
+<td>touch( 文件地址)</td>
+<td>创建空文件</td>
+<td>touch(‘./a.txt’)</td>
+</tr>
+<tr>
+<td>unlink( 文件地址)</td>
+<td>删除文件</td>
+<td>unlink(‘./a.txt’)</td>
+</tr>
+<tr>
+<td>rename(剪切谁, 剪切到哪儿去)</td>
+<td>剪切/重命名</td>
+<td>rename(‘./a.txt’, ‘./b.txt’)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>目录不同, 就属于剪切…目录相同, 就属于重命名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文件加载"><a href="#文件加载" class="headerlink" title="文件加载"></a>文件加载</h4><table>
+<thead>
+<tr>
+<th>文件加载</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include(‘文件地址’)</td>
+<td>加载文件</td>
+<td>加载地址出错, <strong>不会终止</strong>程序的运行,支持相对路径,盘符式路径,<strong>不支持网址路径</strong></td>
+</tr>
+<tr>
+<td>include_once(‘文件地址’)</td>
+<td>加载文件</td>
+<td>为了避免 文件重复加载, 通过 include_once 来加载</td>
+</tr>
+<tr>
+<td>require(‘文件地址’)</td>
+<td></td>
+<td>加载地址出错, <strong>立马终止</strong>程序的运行.支持相对路径, 盘符式路径,  <strong>不支持网址路径</strong></td>
+</tr>
+<tr>
+<td>require_once(‘文件地址’)</td>
+<td></td>
+<td>为了避免 文件重复加载, 通过 require_once 来加载</td>
+</tr>
+</tbody>
+</table>
+<p> <strong>include 和 require 最大的区别</strong>?<br>         include加载出错, 不会终止程序, 不是用require 就用include<br>         require加载出错, 立马终止程序, 适合加载 核心文件, 配置文件 等重要文件</p>
+<h4 id="文件上传-下载"><a href="#文件上传-下载" class="headerlink" title="文件上传/下载"></a>文件上传/下载</h4><table>
+<thead>
+<tr>
+<th>赋予,读取文件内容</th>
+<th></th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file_put_contents(文件路径, 内容)</td>
+<td>向文件赋予内容</td>
+<td>直接删除原本内容</td>
+</tr>
+<tr>
+<td>file_get_contents(文件路径,内容)</td>
+<td>获取文件内容</td>
+<td>有多少获取多少</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>何种方式打开文件</th>
+<th>打开方式</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fopen(文件路径,打开方式)</td>
+<td>r  读</td>
+<td>文件指针指向开头,若读不存在的文件则会报错</td>
+</tr>
+<tr>
+<td></td>
+<td>w 写</td>
+<td>文件指针指向开头,若文件不存在则会自动创建</td>
+</tr>
+<tr>
+<td></td>
+<td>a 写</td>
+<td>文件指针指向末尾(文章末尾接着写),若文件不存在则自动创建</td>
+</tr>
+<tr>
+<td></td>
+<td>r+ w+ a+</td>
+<td>增强模式, 同时兼具读写功能</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>打开后操作</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fread(资源,file_size(文件内容 ) )</td>
+<td>读取全部文件资源</td>
+<td>这里的资源是指打开文件后的资源</td>
+</tr>
+<tr>
+<td>fwrite(资源, 内容)</td>
+<td>写入</td>
+<td></td>
+</tr>
+<tr>
+<td>fclose(资源)</td>
+<td>关闭文件资源</td>
+</tr>
+</tbody>
+</table>
+<h6 id="面试题-获取百度首页"><a href="#面试题-获取百度首页" class="headerlink" title="面试题:获取百度首页"></a>面试题:获取百度首页</h6><p>请用一行代码获取百度首页:</p>
+<p>​    <code>echo file_get_contents(&#39;https://www.baidu.com&#39;);</code></p>
+<h4 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h4><p><strong>上传文件大小三道坎</strong></p>
+<p>// 1. 前端form, 设置 MAX_FILE_SIZE 上传大小<br>// 2. post协议(post_max_size), wamp限制: 8M以内.         一旦超过, $_FILES 则接收不到上传文件<br>// 3. 服务器限制(upload_max_filesize): 2M以内.             一旦超过, 则error = 1</p>
+<p>// 如果是需要更大的上传限制, 则修改配置文件php.ini</p>
+<p><strong>上传文件步奏</strong></p>
+<p>1.判断error<br>2.判断是否是从post协议传输    // is_uploaded_file( 临时文件路径 )</p>
+<p>3.判断文件类型       //in_array</p>
+<p>4.设置新的文件名  //格式: 20190128xxxxxxxxxxxxxxxxxx.jpg</p>
+<p>5.设置存储目录   //格式: upload/2019/01/28/</p>
+<p>6.移动文件    // move_uploaded_file( 临时文件,  新目录+新文件名)</p>
+<table>
+<thead>
+<tr>
+<th>涉及函数</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符串切割函数</td>
+<td>strtok,strchr……………</td>
+</tr>
+<tr>
+<td>key</td>
+<td>获取前端传输过来的name值</td>
+</tr>
+<tr>
+<td>in_array(s1,数组 )</td>
+<td>判断一个数组里面有没有给定的值</td>
+</tr>
+<tr>
+<td>is_uploaded_file( <strong>临时文件</strong> )</td>
+<td>判断是否从post协议传输</td>
+</tr>
+<tr>
+<td>move_uploaded_file( <strong>临时文件</strong>,  <strong>新目录+新文件名</strong>)=&gt;括号里面都是文件</td>
+<td>移动临时文件到指定目录</td>
+</tr>
+<tr>
+<td>uniqid()</td>
+<td>基于1微秒 产生一个唯一ID, 适合低频率</td>
+</tr>
+<tr>
+<td>function UUID()</td>
+<td>高频率需要自己做</td>
+</tr>
+</tbody>
+</table>
+<h4 id="上传文件imge或text例子"><a href="#上传文件imge或text例子" class="headerlink" title="上传文件imge或text例子"></a>上传文件imge或text例子</h4><pre><code class="php">    var_dump($_FILES);    
+
+    function singleFile(allowType=[&#39;image&#39;], save = &#39;./upload&#39;)
+
+    {
+
+    // 1. 判断error
+
+        // 1.1 获取$_FIELS 的下标, 由此判断是否超过 8M
+            key = key(_FILES);
+            if( empty($key) ){
+                return &#39;您上传的文件过大, 换个小点的&#39;; 
+            }
+        // 1.2 获取 error 
+                error = _FILES$key;
+                if($error != 0){
+                    switch ($error) {
+                        case 1:    return &#39;您上传的文件过大, 换个小点的&#39;; break;
+                        case 2:    return &#39;您上传的文件过大, 换个小点的&#39;; break;
+                        case 3:    return &#39;请检查您的网络&#39;; break;
+                        case 4:    return &#39;请上传您的文件&#39;; break;
+                        case 6:    return &#39;服务器繁忙, 请稍后再试&#39;; break;
+                        case 7:    return &#39;服务器繁忙, 请稍后再试&#39;; break;
+                    }
+                    die;
+                }         
+    // 2. 判断是否是从post协议传输
+    $tmp = $_FILES[$key][&#39;tmp_name&#39;];
+    if( !is_uploaded_file($tmp)){
+    return &#39;非法上传&#39;;
+    }
+
+    // 3. 判断文件类型
+    // 3.1 获取上传文件的type
+    $type = strtok($_FILES[$key][&#39;type&#39;], &#39;/&#39;);
+
+    // 3.2 判断是否为 允许类型之一
+    // $allowType = [&#39;image&#39;];
+    if ( !in_array($type, $allowType) ) {
+    return &#39;您上传的格式有误&#39;; 
+    }
+
+    // 4. 设置新的文件名 (唯一性)
+    // 格式: 20190128xxxxxxxxxxxxxxxxxx.jpg
+
+    // 4.1 获取当前的年月日
+    $time = date(&#39;Ymd&#39;);
+    // 4.2 获取上传文件的扩展名
+    $suffix = strrchr( $_FILES[$key][&#39;name&#39;]  , &#39;.&#39;);
+    // 4.3 获取唯一字符 uniqid()
+    $newFile = $time.uniqid().$suffix;
+
+    // 5. 设置存储目录
+    // 5.1 设计 上传目录/年/月/日/
+    // $savePath = &#39;./upload/&#39;.date(&#39;/Y/m/d/&#39;);
+    $savePath = $save.date(&#39;/Y/m/d/&#39;);
+
+    // 5.2 判断 该目录是否存在
+    if ( !file_exists($savePath) ) {
+    mkdir($savePath, 0777, true);
+    }
+
+    // 6. 移动文件
+    if ( move_uploaded_file($tmp, $savePath.$newFile)) {
+    return [$newFile];
+    }
+    return &#39;上传失败&#39;;  
+    }
+
+    $result = singleFile([&#39;image&#39;,&#39;text&#39;]);
+    var_dump($result);
+</code></pre>
+<h4 id="单文件下载"><a href="#单文件下载" class="headerlink" title="单文件下载"></a>单文件下载</h4><table>
+<thead>
+<tr>
+<th>涉及知识点(下载核心)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>header(‘content-Disposition:attachment; filename=”‘.$filename.’”‘);</td>
+<td>下载</td>
+</tr>
+<tr>
+<td>readfile($path);</td>
+<td>读取下载内容</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="php">// 1. 接收 需要下载的名字
+    $name = $_GET[&#39;name&#39;];
+
+// 2. 准备下载路径
+    $path = &#39;./download/&#39;.$name;
+
+// 3. 准备下载之后的名字 (唯一性)
+    $suffix = strrchr($name, &#39;.&#39;);
+
+    // 产生32位 随机16进制字符, 以保证唯一性
+    $filename = str_shuffle(str_shuffle(md5(mt_rand().uniqid()))).$suffix;
+    header(&#39;content-Disposition:attachment; filename=&quot;&#39;.$filename.&#39;&quot;&#39;);
+
+// 4. 读取下载内容
+    readfile($path);
+</code></pre>
+<h2 id="mysql数据库"><a href="#mysql数据库" class="headerlink" title="mysql数据库"></a>mysql数据库</h2><h4 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h4><p><strong>注释:</strong>–单行注释;#单行注释;/<em> 多行注释</em>/</p>
+<p><strong>数据库类型:</strong></p>
+<ul>
+<li>关系型数据库<pre><code>* mysql, sql server, oracle, ...
+</code></pre></li>
+<li>非关系型数据库<ul>
+<li>redis, mongodb, …</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本语法</strong>:</p>
+<ul>
+<li>每一条命令均已 分号 作为结束</li>
+<li>mysql 命令均大写(大写), 不区分大小写</li>
+<li><strong>字段名,表名,数据库,</strong>加反引号 ` ` : 主要是为了<strong>屏蔽 关键字</strong></li>
+</ul>
+<p><strong>配置windows环境变量</strong>:</p>
+<pre><code>1.配置环境变量
+    在windows 任何地方都可以直接操作mysql
+    1. 右键&quot;我的电脑&quot; 
+    2. 选择&quot;属性&quot;
+    3. 左侧 选择&quot;高级系统设置&quot;
+    4. 选项卡 &quot;高级&quot;
+    5. 选择 &quot;环境变量&quot;
+    6. 查看是否有 变量path
+        有: 选择&quot;编辑&quot;, 粘贴 mysql 目录地址
+        没有: 选择&quot;新建&quot;, 粘贴 mysql 目录地址
+        win7系统, 在原有path值的最后面加 分号; 再粘贴 mysql 目录地址
+
+
+2.使用mysql
+    1. 进入 cmd
+    2. 输入 mysql -u root -p回车
+            mysql -h 主机或ip地址 -u 用户名 -p 回车
+
+    3. 输入密码:  wampsever默认密码为 空
+
+    分析:
+        -h         若地址为 localhost 即可省略
+                否则 必须填写
+
+        -u         用户名
+                wampserver 默认用户名为 root
+
+        -p         密码
+                wampserver 默认密码为 空    即可以回车
+</code></pre><h4 id="数据库引擎"><a href="#数据库引擎" class="headerlink" title="数据库引擎"></a>数据库引擎</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>MyISAM</th>
+<th>InnoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>事务</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>全文索引</td>
+<td>Yes</td>
+<td>No<br>可用Sphinx代替</td>
+</tr>
+<tr>
+<td>表总行数</td>
+<td>存储<br>count() 可直接<br>count() 若带where条件, 则会遍历整表, 消耗巨大</td>
+<td>未存储<br>当场遍历整表, 消耗</td>
+</tr>
+<tr>
+<td>CURD</td>
+<td>擅长R (read), 查询数据</td>
+<td>擅长CDU</td>
+</tr>
+<tr>
+<td>行表锁</td>
+<td>表锁<br>开销小,加锁快,低并发</td>
+<td>行锁(默认),表锁<br>开销大加锁慢,易死锁,高并发</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h4><table>
+<thead>
+<tr>
+<th>字段类型</th>
+<th>数据类型(宽度)来设定宽度,<br>可超过设定,但是不可以超过默认,超过就报错<br>例如:987占3位</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整形</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>tinyint</td>
+<td>0~255</td>
+</tr>
+<tr>
+<td></td>
+<td>int</td>
+<td>42亿</td>
+</tr>
+<tr>
+<td>定点型</td>
+<td>decimal(M,D)</td>
+<td></td>
+</tr>
+<tr>
+<td>日期</td>
+<td>datetime</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>char</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>varchar</td>
+<td></td>
+</tr>
+<tr>
+<td>其他</td>
+<td>blod, text, enum, set…….</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字段属性"><a href="#字段属性" class="headerlink" title="字段属性"></a>字段属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th style="text-align:left">属性名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRIMARY KEY</td>
+<td style="text-align:left">主键</td>
+<td>主键数据不能为空,不能重复</td>
+</tr>
+<tr>
+<td>UNIQUE</td>
+<td style="text-align:left">唯一索引</td>
+<td></td>
+</tr>
+<tr>
+<td>AUTO_INCREMEN</td>
+<td style="text-align:left">自增</td>
+<td></td>
+</tr>
+<tr>
+<td>NOT NULL</td>
+<td style="text-align:left">不能为空</td>
+<td></td>
+</tr>
+<tr>
+<td>NULL</td>
+<td style="text-align:left">可以为空</td>
+<td></td>
+</tr>
+<tr>
+<td>DEFAULT</td>
+<td style="text-align:left">默认值</td>
+<td></td>
+</tr>
+<tr>
+<td>UNSINGED</td>
+<td style="text-align:left">无符号</td>
+<td></td>
+</tr>
+<tr>
+<td>COMMENT</td>
+<td style="text-align:left">描述</td>
+<td></td>
+</tr>
+<tr>
+<td>ZEROFILL</td>
+<td style="text-align:left">补零</td>
+</tr>
+</tbody>
+</table>
+<h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><table>
+<thead>
+<tr>
+<th>数据库数据表基本命令</th>
+<th style="text-align:left"></th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set password = password(密码)</td>
+<td style="text-align:left">设置密码</td>
+<td></td>
+</tr>
+<tr>
+<td>show database;</td>
+<td style="text-align:left">查询所有的数据库</td>
+<td></td>
+</tr>
+<tr>
+<td>create database if not exists `库名` default charset=编码</td>
+<td style="text-align:left">创建一个数据库</td>
+<td></td>
+</tr>
+<tr>
+<td>drop database`库名`</td>
+<td style="text-align:left">删除一个数据库</td>
+<td></td>
+</tr>
+<tr>
+<td>use `库名`</td>
+<td style="text-align:left">使用一个数据库</td>
+<td>在使用任意数据表之前, 必须先选择好 数据库</td>
+</tr>
+<tr>
+<td>show tables</td>
+<td style="text-align:left">查询所有的数据表</td>
+<td></td>
+</tr>
+<tr>
+<td>create table if not exists `表名`(`字段名` 字段类型 字段属性  <strong>,</strong>   `字段名` 字段类型 字段属性)engine=引擎 default charset=编码</td>
+<td style="text-align:left">创建数据表</td>
+<td>最后一条字段, 不要加 逗号</td>
+</tr>
+<tr>
+<td>drop table `表名`</td>
+<td style="text-align:left">删除数据表</td>
+<td></td>
+</tr>
+<tr>
+<td>desc `表名`</td>
+<td style="text-align:left">查看表结构</td>
+<td></td>
+</tr>
+<tr>
+<td>show create table `表名`</td>
+<td style="text-align:left">查看建表语句 (引擎)</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="sql">-- 创建用户表
+create table if not exists `user`(
+    `id`             int             auto_increment primary key,
+    `nickname`         varchar(20),    
+    `tel`             char(11)         unique not null,
+    `pwd`             char(32)         not null     comment &#39;加密32位密码&#39;,
+    `sex`             tinyint(1)     default 1     comment &#39;1-男  2-女&#39;,
+    `birthday`         date,
+    `address`         varchar(50),
+    `status`         tinyint(1)     default 1  comment &#39;1-激活 2-禁用&#39;,
+    `regtime`         int
+)engine=myisam default charset=utf8;
+</code></pre>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><table>
+<thead>
+<tr>
+<th>聚合函数</th>
+<th></th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count( )</td>
+<td>统计</td>
+<td><strong>select</strong> count(字段名) from(表) =&gt;统计此字段里有多少个值</td>
+</tr>
+<tr>
+<td>sum( )</td>
+<td>求和</td>
+<td></td>
+</tr>
+<tr>
+<td>avg( )</td>
+<td>求平均值</td>
+<td></td>
+</tr>
+<tr>
+<td>max( )/min( )</td>
+<td>求最大/最小</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>concat(  字符串或字段名, 字符串或字段名, 字符串或字段名, 字符串或字段名,  )</td>
+<td>字符串拼接函数</td>
+<td></td>
+</tr>
+<tr>
+<td>now( )</td>
+<td>现在的格式化时间</td>
+<td></td>
+</tr>
+<tr>
+<td>unix_timestamp( )</td>
+<td>现在的时间戳</td>
+<td></td>
+</tr>
+<tr>
+<td>version( )</td>
+<td>当前数据库的版本</td>
+<td></td>
+</tr>
+<tr>
+<td>md5(‘123456’)</td>
+<td>查看加密之后的值</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="增"><a href="#增" class="headerlink" title="增:"></a>增:</h4><ul>
+<li><p><strong>插入一条数据</strong>    </p>
+<ul>
+<li><p>insert into `表名` values(值1, 值2, …)</p>
+<ul>
+<li><p>注意点:    1.字段有多少个,值就要有多少个,没有值也要写上null</p>
+<p>​        2.值 只可以使用 单双引号</p>
+<p>​        3.库名,表名, 字段名 只可以用 反引号</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>插入一条 部分字段的数据</strong></p>
+<ul>
+<li><p>insert into `表名`(字段名1, 字段名2, …)  values(值1, 值2, …)</p>
+<ul>
+<li><p>注意点:   1.值的个数 要随着前面的字段名的个数, 保持一一对应    </p>
+<p>​        2.具有not null 属性的字段, 必须要添加值</p>
+<p>​        3.auto_increment 是从记录+1, 而不是从最大字段值+1(<strong>学过的唯一以1开始的</strong>)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>插入多条 完整的数据</strong></p>
+<ul>
+<li>insert into `表名` values(值1, 值2, …),(值1, 值2, …),(值1, 值2, …),(值1, 值2, …) …<ul>
+<li>注意点:    即在第一种里直接加 <strong>, (值1,值2,…)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>插入多条 部分字段的数据</strong></p>
+<ul>
+<li>insert into `表名`(字段名1, 字段名2, …)  values(值1, 值2, …), (值1, 值2, …), …</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="删"><a href="#删" class="headerlink" title="删:"></a>删:</h4><ul>
+<li><p><strong>删除一张表中的 所有数据</strong></p>
+<ul>
+<li>DELETE FROM `表名`</li>
+</ul>
+</li>
+<li><p><strong>删除一张表中的 部分数据</strong></p>
+<ul>
+<li><p>DELETE FROM `表名` WHERE 条件</p>
+<ul>
+<li><blockquote>
+<p>例子:delete from `user` where `sex` = 1        //删除 user表中所有的男生</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>删除 排序之后的前几条[满足条件] 数据</strong></p>
+<ul>
+<li><p>DELETE FROM `表名` [WHERE 条件] ORDER BY 排序依据 LIMIT 行数</p>
+<ul>
+<li><blockquote>
+<p>例子:delete from `user` order by `birthday` desc  limit 5        //删除 年级最小的5个人    </p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>删除树结构</strong></p>
+<ul>
+<li>TRUNCATE TABLE `表名`<ul>
+<li>相当于dorp然后create,创建了一个与原表一样的表,但是<strong>auto_increment(主键)</strong>会重置,适合删除大批量数据(整表)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h6 id="数据库备份和导入"><a href="#数据库备份和导入" class="headerlink" title="数据库备份和导入"></a>数据库备份和导入</h6><p> <strong>备份</strong></p>
+<ul>
+<li>进入cmd （前提条件： 配置好环境变量）<ul>
+<li>输入 mysqldump -u root -p s84 &gt; c:/s84.sql<ul>
+<li>备份  mysqldump -u 用户名 -p  库名 &gt; 目标地址</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>导入</strong><ul>
+<li>mysql -u 用户名 -p 库名 &lt; 来源地址</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="改"><a href="#改" class="headerlink" title="改:"></a>改:</h4><ul>
+<li><p><strong>更新整表数据</strong></p>
+<ul>
+<li><p>UPDATE 表名 SET  字段名1=值1, 字段名2=值2, …</p>
+<ul>
+<li><blockquote>
+<p>例子:update     `user` set `sex` = 2, `status` = 2;        //将所有的性别改为2,状态改为2</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>更新 部分数据</strong></p>
+<ul>
+<li><p>UPDATE 表名 SET  字段名1=值1, 字段名2=值2, … WHERE 条件</p>
+<ul>
+<li><blockquote>
+<p>例子:update `user` set `status` = 2 where `birthday` &gt;= ‘2002-01-01’        //将user表里生日大于&gt;=2002-01-01的status状态改为2</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="查"><a href="#查" class="headerlink" title="查:"></a>查:</h4><p><strong>select数据结构</strong></p>
+<p><strong>select  distinct | * | 字段名 | 表名.字段名 | 字段名 as 别名</strong><br><strong>[ from ] 表名</strong><br><strong>[ where ] 条件             (分组之前的条件筛选)</strong><br><strong>[ group by ] 分组依据</strong><br><strong>[ having ] 筛选条件      (分组之后的条件筛选)</strong><br><strong>[ order by ] 排序依据</strong><br><strong>[ limit ] 下标, 行数</strong></p>
+<p><strong>In操作</strong>      </p>
+<p><strong>别名as</strong></p>
+<p>​    </p>
+<p><strong>1.查询数据库</strong></p>
+<ul>
+<li><p>select *  from 表名</p>
+<ul>
+<li><blockquote>
+<p>select <strong>*</strong> from user;        //全查容易被打</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>2.查询指定字段数据</strong></p>
+<ul>
+<li><blockquote>
+<p>select <strong>tel, pwd</strong> from user;             </p>
+</blockquote>
+</li>
+</ul>
+<p><strong>3.带条件查询字段数据</strong></p>
+<ul>
+<li><blockquote>
+<p>select nickname, tel, sex, address </p>
+<p>from user </p>
+<p><strong>where id</strong> = 8      //查询路飞的 昵称, 电话, 性别, 住址</p>
+</blockquote>
+</li>
+<li><p>逻辑与  and   /   逻辑或 or   (两个条件时)</p>
+<ul>
+<li><blockquote>
+<p>select nickname, tel, sex, address<br>from user<br>where sex = 2 <strong>and</strong> status = 1        //and:  查询user表中 所有状态为激活的 女生的昵称, 电话, 住址, 性别</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>is null     /    is not null</p>
+<ul>
+<li><blockquote>
+<p>select nickname, tel<br>from user<br>where address <strong>is not null</strong>            //查找user表中,所有地址不为空的人</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>区间查询  between A and B      /     not between A and B</p>
+<ul>
+<li><blockquote>
+<p>select nickname, birthday<br>from user<br>where birthday <strong>not between</strong> ‘2005-01-01’ <strong>and</strong> ‘2015-12-31’                  //查询user表中, 生日在 05 ~ 15 年之间的人的 昵称 和 生日</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>in 操作</p>
+<ul>
+<li><blockquote>
+<p>select nickname, address<br>from user<br>where <strong>address in</strong> (‘老王隔壁’, ‘召唤师峡谷’, ‘木叶忍者村’)        //查询 住在( 老王隔壁, 召唤师峡谷, 木叶忍者村 ) 的昵称和住址</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4.分组/分组后的筛选:</strong></p>
+<ul>
+<li><p>group by 分组依据</p>
+<ul>
+<li><blockquote>
+<p>select dep, count(`id`)<br>from salary<br><strong>group by dep</strong>        //查询salary表 每个部门各有多少人</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>having  筛选,配合group by使用的  <strong>(分组之后的条件筛选)</strong></p>
+<ul>
+<li><blockquote>
+<p>select dep, count(`id<code>)
+from salary
+group by dep
+**having count(\</code>id`) &gt; 2**        //查询salary表 人数超过2个的部门</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>5.嵌套查询</strong></p>
+<ul>
+<li><ul>
+<li><blockquote>
+<p>select uid, dep, money<br>from salary<br>where money in (select max(`money`) from salary group by dep    //扩号内命令用于查询每个部门的最高工资,然后在表格里面查出这些这些最高工资的数值,万一有一些不是最高工资的数值跟其他部门最高工资相同也会被查出,所有是BUG );       //查询每个部门最高工资的uid, <strong>该命令有BUG</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="6-多表查询"><a href="#6-多表查询" class="headerlink" title="6.多表查询"></a><strong>6.多表查询</strong></h6><ul>
+<li><p><strong>格式:</strong></p>
+<ul>
+<li>select 查询的字段<br>from 表名1, 表名2, …<br>where 表与表之间的关系(必须声明)</li>
+<li>当 查询时, 发生多表字段重名?   解决方法: 使用 表名.字段名 区分重名字段</li>
+</ul>
+</li>
+<li><p><strong>取别名     as</strong></p>
+<ul>
+<li><p>在from里面写别名,表名as简单字母</p>
+<ul>
+<li><blockquote>
+<p>from salary <strong>as</strong> s, test <strong>as</strong> t</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>最终版:</strong></p>
+<ul>
+<li><blockquote>
+<p>select uid, s.dep, s.money<br>from salary as s, (select dep, max(`money`) as money from salary group by dep  //这里命令查出来就相当于是一个表格,直接当两表联查用) as t<br>where s.dep = t.dep and s.money = t.money            //查询每个部门最高工资的uid                </p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>7. limit 下标, 行数</strong></p>
+<ul>
+<li>经常被利用在 后期 分页效果</li>
+</ul>
+<ul>
+<li><p>公式 key = (page -1)×rows    行数:rows          页数page           key从多少开始  </p>
+<ul>
+<li><blockquote>
+<p>select id, nickname<br>from user<br><strong>limit 5    # ===&gt;  limit 0, 5</strong>            //查询前5条数据</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>8. 取消重复   distinct</strong></p>
+<ul>
+<li><blockquote>
+<p>select dep from salary<br>select <strong>distinct</strong> dep from salary            //查询该公司有哪些部门</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="面向对象-OOP"><a href="#面向对象-OOP" class="headerlink" title="面向对象(OOP)"></a>面向对象(OOP)</h2><h4 id="基本知识点"><a href="#基本知识点" class="headerlink" title="基本知识点:"></a><strong>基本知识点:</strong></h4><p>​    想要用类就先实例化:例,\$a = new plane; 类由:属性和方法组成,<strong>外面调用时</strong> $对象-&gt;属性</p>
+<p>$对象-&gt;方法名(  ),<strong>里面调用时</strong>   调用<strong>另一个方法</strong>\$this-&gt;fly( ),调用<strong>一个属性</strong>:\$this-&gt;name;</p>
+<blockquote>
+<p>例子:</p>
+</blockquote>
+<pre><code class="php">class plane{
+    public $name = &#39;波音747&#39;;
+    public $material = &#39;黄金&#39;;
+
+    public function fly()
+    {
+        echo &#39;我会飞 &lt;br&gt;&#39;;
+    }        
+
+    public function biu()
+    {
+        echo &#39;我会biu biu biu &lt;br&gt;&#39;;
+    }
+
+    public function test()
+    {
+        // 查看对象自己
+        // 方法1:
+        // var_dump($GLOBALS[&#39;a&#39;]);
+
+        // 方法2:
+        // $b = new plane;
+        // var_dump($b);
+
+        // if($b == $GLOBALS[&#39;a&#39;]){
+        //     echo &#39;Yes&#39;;
+        // }else{
+        //     echo &#39;No&#39;;
+        // }
+        // 方法3: 伪对象
+        // 查看自己的名字
+        echo $this-&gt;name;
+        echo &#39;&lt;br&gt;&#39;;
+
+        // 查看自己的材料
+        echo $this-&gt;material;
+        echo &#39;&lt;br&gt;&#39;;
+
+        // 查看自己的功能fly
+        $this-&gt;fly();
+
+        // 查看自己的功能biu
+        $this-&gt;biu();
+
+   }
+}
+
+$a = new plane;
+echo $a-&gt;name;
+echo $a-&gt;material;
+// echo $a-&gt;xxxx;  # 对象a 中没有属性 xxx
+$a-&gt;fly();
+$a-&gt;biu();
+</code></pre>
+<hr>
+<h4 id="PDO类"><a href="#PDO类" class="headerlink" title="PDO类"></a>PDO类</h4><p><strong>PDO 只是PHP系统 封装好的 一个类</strong></p>
+<pre><code class="php">class PDO
+{
+    public function __construct( DSN, USER, PWD){
+
+    }
+    执行一条sql命令, 返回 PDOStatement对象
+        public function query(){}
+
+    执行一条sql命令, 返回 受影响的行数
+        受影响的行数:
+    &gt;= 1 : 证明操作成功
+        0    : 证明操作失败
+            public function exec(){}
+
+    获取 sql 报错信息
+        public function errorInfo(){}
+
+    获取 最新一次 新增的ID
+        public function lastInertId(){}
+}
+</code></pre>
+<p><strong>主要负责:操作数据库</strong></p>
+<ul>
+<li><p>在使用任何PDO方法前,必须先实例化PDO(连接数据库)</p>
+<ul>
+<li><ul>
+<li><pre><code class="php"> $dsn = &#39;mysql:host=localhost;dbname=s84;charset=utf8&#39;;
+     $user = &#39;root&#39;;
+     $pwd = &#39;&#39;;
+     $pdo = new PDO($dsn, $user, $pwd);
+</code></pre>
+<pre><code>在wampserver软件中,用户名 = root  pwd = 密码
+
+在wampserver软件中,密码 =&#39;&#39; 空
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="PDO的方法"><a href="#PDO的方法" class="headerlink" title="PDO的方法"></a>PDO的方法</h6><ul>
+<li><p><strong>query(    )</strong>            执行一条sql语句,并返回PDOStatement 对象,<strong>适合 查</strong> </p>
+<ul>
+<li><p><strong>fetch(    )</strong>          以一维数组的形式, 获取一条数据<br> <strong>fetchAll(       )</strong>      以二维数组的形式, 获取所有数据 (查询到的所有数据)</p>
+<ul>
+<li><p>fetch 和 fetchAll <strong>可添加参数</strong>:     <strong>PDO::FETCH_ASSOC     </strong>以关联数组形式存储**</p>
+<pre><code>                           PDO::FETCH_NUM     以索引数组形式存储
+                                PDO::FETCH_BOTH     以混合数组形式存储 (关联+索引)(默认)
+</code></pre><blockquote>
+<p><code>$res = $pdo-&gt;query( $sql );</code></p>
+<p><code>$row = $res-&gt;fetchAll(PDO::FETCH_ASSOC);</code></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<pre><code>**exec(     )**            执行一条sql语句, 并返回受影响的行数,**适合增删改**
+</code></pre><p>  errorInfo(    )        获取执行sql失败的错误信息<br>  <strong>lastInsertID(    )</strong>    <strong>新增时使用:获取最后一次 插入的id </strong>  =&gt; <code>$row = $pdo-&gt;exec( $sql );</code>   </p>
+<pre><code>                                                  `$newId = $pdo-&gt;lastInsertID();`
+</code></pre><blockquote>
+<p><code>$row = $pdo-&gt;exec( $sql );</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="连贯操作"><a href="#连贯操作" class="headerlink" title="连贯操作"></a>连贯操作</h4><ul>
+<li><ol>
+<li><p>类外先实例化类    2. 对象-&gt;方法1(    )-&gt;方法2(    )-&gt;方法3(    )</p>
+<ol>
+<li>\$a = new Person       2.$a-&gt;step1()-&gt;step2()-&gt;step3();</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>在使用连贯操作时, 需要前面一个方法 返回一个对象. 用以调用后面的方法<ul>
+<li>在方法里写上 <strong>return $this</strong> 代表返回的就是本身对象,即可以使用连贯操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h4><p>​    在触发特定条件时, 自动调用魔术方法</p>
+<h6 id="构造-construct"><a href="#构造-construct" class="headerlink" title="构造(__construct)"></a>构造(__construct)</h6><blockquote>
+<p>​        public function __construct()</p>
+</blockquote>
+<p><strong>知识点:</strong></p>
+<ul>
+<li><p>触发条件: 实例化时,自动调用</p>
+</li>
+<li><p>常用于:初始值(手机初始化)</p>
+</li>
+<li><p>不需要返回值</p>
+<ul>
+<li>实例化时,变量接收对象</li>
+<li>调用时,变量接收返回值</li>
+</ul>
+</li>
+<li><p>位置: 写在属性的最后面,方法的在最前面</p>
+</li>
+<li><p>类名和方法名相同时,当在没有构造方法时, 实例化的瞬间会自动执行同类名的方法</p>
+</li>
+<li><p><strong>在实例化时, 传递参数给 __construct()</strong></p>
+<ul>
+<li><p>例题1:手机初始化时各两个参数,账号和密码</p>
+</li>
+<li><pre><code class="php">class Computer
+{
+    public $name;
+    public $pwd;
+    public function __construct($a, $b)
+    {
+        // var_dump($this); 
+        \$this-&gt;name = $a;
+        \$this-&gt;pwd = $b;
+    }
+}
+
+// 在实例化时, 传递参数给 __construct()
+// $a = new Computer;
+$a = new Computer(&#39;Asus&#39;, &#39;123456&#39;);
+var_dump($a);
+
+$c = $a-&gt;name;
+var_dump($c);
+</code></pre>
+<p>   例子2:编写一个求自定义圆的面积、周长的类（圆的周长C=2πr，圆的面积S=πr * r，保留2位小数，需要用到构造方法）</p>
+<pre><code class="php"> class circle
+ {
+     public $r = 0;
+
+     //设置半径
+     public function __construct($value = 0) {
+         $this-&gt;r = $value;
+     }
+
+     //周长
+     public function getGirth() {
+         return round(2 * pi() * $this-&gt;r, 2);
+     }
+
+     //面积
+     public function getArea() {
+         return round(pi() * $this-&gt;r * $this-&gt;r, 2);
+     }
+ }
+
+ $test = new circle(10);
+ echo &quot;周长：&quot;.$test-&gt;getGirth();
+ echo &quot;&lt;hr&gt;&quot;;
+ echo &quot;面积：&quot;.$test-&gt;getArea();
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="析构-destruct"><a href="#析构-destruct" class="headerlink" title="析构(__destruct)"></a>析构(__destruct)</h6><blockquote>
+<p>public function __destruct()</p>
+</blockquote>
+<p><strong>知识点</strong></p>
+<ul>
+<li>触发条件:<ul>
+<li>在对象被销毁时,自动调用!</li>
+<li>被销毁的情况<ul>
+<li>程序结束时          //     die</li>
+<li>对象被覆盖时           //     <code>$a = 100   $a =30</code></li>
+<li>对象被删除时           //     <code>$a= 100   unset $a</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不能有参数(有参数就会报错)</li>
+<li>位置:写在方法的最后面</li>
+</ul>
+<h6 id="克隆-clone"><a href="#克隆-clone" class="headerlink" title="克隆(__clone)"></a>克隆(__clone)</h6><ul>
+<li><p>触发条件:</p>
+<ul>
+<li>在克隆时, 自动触发</li>
+</ul>
+</li>
+<li><p>一般用于</p>
+<ul>
+<li>可用于在克隆时, 重新初始化属性</li>
+</ul>
+</li>
+<li><pre><code class="php"> class demo
+     {
+         public $name = &#39;老王&#39;;
+         public function __clone()
+         {
+             $this-&gt;name = &#39;老李&#39;;
+         }
+     }
+     $a = new demo;
+     $b = clone $a;   #将 标识 和 内存 各自复制了一份, 重现划分内存, 与 $a 不再有联系
+     $c = $a;         # 将 $a 与 标识之间的联系 复制一份给 $c
+     unset($a);         # 仅仅删除了 $a 和 标识之间的联系, 不影响 $c 和 标识之间的联系
+</code></pre>
+</li>
+</ul>
+<p>OOP的封装性</p>
+<p><strong>封装性</strong></p>
+<ol>
+<li>将对象的全部成员和方法结合在一起, 形成一个不可分割的独立单位(对象)</li>
+<li>尽可能的隐藏对象内部的属性和方法, 只留下部分接口与外部联系</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">类外</th>
+<th style="text-align:center">本类</th>
+<th style="text-align:center">继承</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>public</strong></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"><strong>公有属性</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>private</strong></td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center"><strong>私有的</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>protected</strong></td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"><strong>受保护的</strong></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="php">class People
+{
+    public $name = &#39;老王&#39;;
+    private $wife = &#39;老李&#39;;
+    protected $money = 5;
+    public function test()
+    {
+        echo $this-&gt;name;    
+        echo $this-&gt;wife;
+        echo $this-&gt;money;
+    }
+}
+    $a = new People;
+</code></pre>
+<blockquote>
+<p>​    echo $a-&gt;name;    正常-&gt;公有属性<br>​    // echo $a-&gt;wife;   报错-&gt;私有属性<br>​    // echo $a-&gt;money;    报错-&gt;继承属性</p>
+</blockquote>
+<blockquote>
+<p>   //调用方法,方法里面有被调用的属性<br>   $a-&gt;test();</p>
+</blockquote>
+<h6 id="权限不足-如何避免error级报错"><a href="#权限不足-如何避免error级报错" class="headerlink" title="权限不足,如何避免error级报错"></a>权限不足,如何避免error级报错</h6><p>当访问了 非公有属性 或 方法(权限不足)时, 如何避免error级错误的发生?</p>
+<p>通过<strong>一些魔术方法</strong>,来<strong>避开</strong>error错误</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">魔术方法</th>
+<th></th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>__get( )</strong></td>
+<td>当访问非公有属性(即权限不足)时,自动触发</td>
+<td>一个形参</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>__set( )</strong></td>
+<td>当设置非公有属性(即权限不足)时, 自动触发</td>
+<td>两个形参</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>__unset( )</strong></td>
+<td>当删除非公有属性(即权限不足)时, 自动触发</td>
+<td>一个形参</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>__isset( )</strong></td>
+<td>当判断非公有属性(即权限不足)是否设置时, 自动触发</td>
+<td>一个形参(类外判断是一定是false(其实有),通过魔术方法__isset类内return,然后再在类外调用)</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>__call( )</strong></td>
+<td>当调用不存在的方法时, 自动触发</td>
+<td>两个形参</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>__toString()</strong></td>
+<td>当输出(echo)对象时, 自动触发, 必须返回 字符串值(魔术方法内必须return字符串)</td>
+<td>没有形参(但是必须return一个字符串)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>__callStatic( )</strong></td>
+<td>当调用一个不存在的静态方法时,自动触发</td>
+<td>与_call()一样也是两个形参,\$a接收静态方法,$b接收实参.</td>
+</tr>
+</tbody>
+</table>
+<h6 id="串行化触发-sleep"><a href="#串行化触发-sleep" class="headerlink" title="串行化触发(__sleep)"></a>串行化触发(__sleep)</h6><p>有东西不想被看(保密),return什么,显示什么,其他的不显示但是其实都在</p>
+<pre><code class="php">    public function __sleep()
+    {    
+        #有东西不想被看时,返回什么,显示什么,其他的不显示但是其实都在
+        return[]
+    }
+</code></pre>
+<h6 id="反串行化触发-wakeup"><a href="#反串行化触发-wakeup" class="headerlink" title="反串行化触发(__wakeup)"></a>反串行化触发(__wakeup)</h6><p>醒来时(反串行化时),重新赋值做初始化</p>
+<pre><code class="php">    public function __wakeup()
+    {    
+        #醒来时,重新赋值做初始化
+        $this-&gt;age = 1018;
+    }
+</code></pre>
+<h6 id="自动加载-autoload"><a href="#自动加载-autoload" class="headerlink" title="自动加载(__autoload)"></a>自动加载(__autoload)</h6><p>在实例化一个不存在的类时, 自动触发,用于自动加载其他文件</p>
+<p>new哪个类就获得哪个类类名,并将类名送进参数,include时凑近去</p>
+<pre><code class="php">// 魔术方法 __autoload
+//     在实例化一个不存在的类时, 自动触发
+//     
+    #获取到类名送进参数
+function __autoload($className)
+{
+    // var_dump($className);
+    #凑出一个路径
+    include &quot;./class/{$className}.php&quot;;
+
+    // 实际开发中, 一般情况下:
+    //     类名 与 类文件名 有一定的关联
+    //  一个类文件中, 一般只有一个类
+}
+
+$a = new Image;
+</code></pre>
+<hr>
+<h4 id="OOP的封装性"><a href="#OOP的封装性" class="headerlink" title="OOP的封装性"></a>OOP的封装性</h4><p>​        1.1将对象的全部成员和方法结合在一起, 形成一个不可分割的独立单位(对象)<br>​        1.2 尽可能的隐藏对象内部的属性和方法, 只留下部分接口与外部联系</p>
+<pre><code>// 通过 修饰符 来控制对象与外部的联系
+// 
+//              类外     本类        继承
+// public          √          √          √         公有的
+// private          x          √          x         私有的          
+// protected      x          √          √         受保护的
+</code></pre><h4 id="OOP的继承性"><a href="#OOP的继承性" class="headerlink" title="OOP的继承性"></a>OOP的继承性</h4><p><strong>概念</strong></p>
+<ul>
+<li>继承性<ul>
+<li>儿子 继承老子的 一些东西<ul>
+<li>儿子: 派生类, 继承类, 子类</li>
+<li>老子: 基础类, 基类, 父类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="继承-extends"><a href="#继承-extends" class="headerlink" title="继承(extends)"></a><strong>继承(extends)</strong></h6><p><strong>特性:</strong></p>
+<ol>
+<li><p>子类可继承父类属性 和 方法 (<strong>私有的无法继承</strong>)</p>
+<ol>
+<li><pre><code class="php">class son extends laozi
+{
+    public function test()
+    {
+        echo $this-&gt;name.&#39;&lt;br&gt;&#39;;
+        // echo $this-&gt;wife.&#39;&lt;br&gt;&#39;;     #==&gt;这行时laozi的私有属性
+        echo $this-&gt;money.&#39;&lt;br&gt;&#39;;
+    }
+
+}
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p><strong>子类继承父类后可重写属性 和 方法</strong> (方法如果重名, 可以做覆盖, 可以做扩展)  <strong>扩展</strong>==&gt;即通过 parent::父级方法名() 再调用一次</p>
+<ol>
+<li><pre><code class="php">class son extends laozi
+{
+    public $name = &#39;小宋&#39;;
+
+    public function skill()
+    {
+        parent::skill();             #===&gt;精髓所在
+        echo $this-&gt;name.&#39;泡男人一绝 &lt;br&gt;&#39;;
+    }
+
+}
+</code></pre>
+</li>
+</ol>
+<p>3.<strong>访问级别:</strong>子类在继承父类时要么保留等级,要么降级,不能升级.private&gt;protected&gt;public</p>
+<p>4.一个父类可以有多个子类继承<br>   一个子类不能继承多个父类</p>
+</li>
+</ol>
+<h4 id="一些修饰符"><a href="#一些修饰符" class="headerlink" title="一些修饰符"></a>一些修饰符</h4><h6 id="静态-static"><a href="#静态-static" class="headerlink" title="静态(static)"></a>静态(static)</h6><p><strong>静态:</strong></p>
+<pre><code class="php">    class Person
+    {
+        public $name = &#39;老王&#39;;
+        // public static $age;     =&gt;修饰符位置可颠倒
+        static public $age = 18;
+
+        static public function skill()
+        {
+            // echo &#39;老王擅长翻墙去隔壁 &lt;br&gt;&#39;;
+
+            // echo $this-&gt;name.&#39;擅长翻墙去隔壁 &lt;br&gt;&#39;;   =&gt;调用普通属性无法调用
+
+            // echo &#39;老王今年 &#39;. $this-&gt;age .&#39; 岁&#39;;        =&gt;且无法使用$this-&gt;代表这个类,$this代表对象
+            // echo &#39;老王今年 &#39;. Person::$age .&#39; 岁&#39;;    =&gt;可以用self 代表本类
+            echo &#39;老王今年 &#39;. self::$age .&#39; 岁&#39;;
+        }
+    }
+
+    echo Person::$age;  //      =&gt;不需要new实例化,即可直接在类外调用静态属性
+    Person::skill();    //     这里不能使用self这是类外,直接写class名  =&gt;不需要new实例化,即可直接在类外调用静态方法
+</code></pre>
+<p><strong>特性:</strong></p>
+<ul>
+<li>静态属性/方法 属于类, 不属于对象  (不需要实例化)</li>
+<li>在静态方法内  只能访问静态属性/静态方法</li>
+<li>静态属性/方法 都可以继承, 重写</li>
+<li><strong>魔术方法</strong> __callStatic( )<ul>
+<li>当调用一个不存在的静态方法时,自动触发</li>
+</ul>
+</li>
+</ul>
+<h6 id="类常量-const"><a href="#类常量-const" class="headerlink" title="类常量(const)"></a>类常量(const)</h6><p><strong>类常量</strong></p>
+<pre><code class="php">class Person
+{
+    const STEAM = &#39;火箭队&#39;;
+
+    public function test()
+    {
+        // echo Person::STEAM;
+        echo self::STEAM;
+    }
+}
+
+$a = new Person;
+$a-&gt;test();        #调用方法
+
+echo Person::STEAM;        #调用属性
+</code></pre>
+<p><strong>特性:</strong></p>
+<ul>
+<li>类常量 属于类, 不属于对象</li>
+<li>类常量 可以继承, 但只能重写一次类常量</li>
+<li>其余的特性 与 普通常量一样<ul>
+<li>普通常量 可以直接在类内或函数内使用</li>
+</ul>
+</li>
+</ul>
+<p>访问常量</p>
+<p>​    <strong>类名::类常量名</strong></p>
+<h6 id="最终类-final"><a href="#最终类-final" class="headerlink" title="最终类(final)"></a>最终类(final)</h6><p><strong>最终:</strong></p>
+<p>作用=&gt;保护方法和类</p>
+<ul>
+<li><p>修饰类: 最终类, 不能被继承</p>
+</li>
+<li><p>修饰方法: 最终方法, 可以继承, 但不能重写</p>
+<ul>
+<li><pre><code class="php">class Person
+{
+    final public function skill()
+    {
+        echo &#39;练 天外飞仙 &lt;br&gt;&#39;;
+    }
+}
+class son extends Person
+{
+    // public function skill()            =&gt;这个方法可以被继承,但不能重写,因为上面类被final修饰了!!
+    // {
+    //     echo &#39;练 葵花宝典 &lt;br&gt;&#39;; 
+    // }  
+}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>不能修饰属性</strong></p>
+</li>
+</ul>
+<h6 id="滴血认亲-instanceof"><a href="#滴血认亲-instanceof" class="headerlink" title="滴血认亲(instanceof)"></a>滴血认亲(instanceof)</h6><p><strong>instanceof为运算符</strong></p>
+<ul>
+<li>判断 对象是否从 某一类 实例化过来的</li>
+<li>判断 对象是否从 某一对象 继承过来的<ul>
+<li>返回值:<strong>bool</strong></li>
+</ul>
+</li>
+</ul>
+<pre><code class="php">var_dump( $b instanceof $a );   #   =&gt;前面是后辈,后面写长辈
+var_dump( $b instanceof son );    
+var_dump( $b instanceof laozi );
+</code></pre>
+<h6 id="克隆-clone-1"><a href="#克隆-clone-1" class="headerlink" title="克隆(clone)"></a>克隆(clone)</h6><p><strong>作用:主要给对象做一个副本</strong>,副本 和 本尊 互不影响, 完全独立    </p>
+<p>也属于运算符, 优先级为 第一优先级 ,  与new 同级</p>
+<p><strong>引入了一个概念</strong>:<strong>标识 </strong>  $a = 一个对象,是复制的标识</p>
+<p><img src="D:\wamp\www\s84\markdown\一期\phpMK\克隆标识.png" alt="克隆标识"></p>
+<pre><code class="php">class demo
+{
+    public $name = &#39;老王&#39;;
+
+    public function __clone()
+    {
+        $this-&gt;name = &#39;老李&#39;;
+    }
+}
+$a = new demo;
+$b = clone $a; # 将 标识 和 内存 各自复制了一份给$b, 重现划分内存, 与 $a与$b 不再有联系
+$c = $a;         # 将 $a 与 标识之间的联系 复制一份给 $c
+unset($a);         # 仅仅删除了 $a 和 标识之间的联系, 不影响 $c 和 标识之间的联系
+var_dump($a, $b, $c);
+</code></pre>
+<hr>
+<h6 id="对象串行化-serialize"><a href="#对象串行化-serialize" class="headerlink" title="对象串行化(serialize)"></a>对象串行化(serialize)</h6><p><strong>作用</strong>:将对象串行化为字符serialize串,存入数据库,传递给其他文件,写入文件等</p>
+<p><strong>特性</strong>:<strong>方法不参与串行化</strong>,不代表会消失,只是没显示出来而已,可以正常使用</p>
+<p><strong>反串行化:unserialize</strong>=&gt;将字符串重新转化为对象</p>
+<table>
+<thead>
+<tr>
+<th>存档过程</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$a = new Demo123</td>
+<td>将DEmo123类实例化</td>
+</tr>
+<tr>
+<td><strong>\$str = serialize($a)</strong></td>
+<td><strong>串行化</strong></td>
+</tr>
+<tr>
+<td>$handle = fopen(‘./demo.txt’,’w’)</td>
+<td>创建并打开文件</td>
+</tr>
+<tr>
+<td>fwrite(\$handle,$str)</td>
+<td>将内容串行化写入打开的文件</td>
+</tr>
+<tr>
+<td>fclose($handle)</td>
+<td>关闭文件</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>存档过程</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$result = file_get_contents(‘./demo.txt’)</td>
+<td>读取获取文件内容(上面存档后的字符串)</td>
+</tr>
+<tr>
+<td>\$obj = unserialize($result)</td>
+<td>反串行化: 将 字符串 反串行化为 对象,将读到的内容(字符串)反串行化为对象</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="php">class Demo123
+{
+    public $name =&#39;老王&#39;;
+    public $age = 18;
+
+    public function skill()
+    {
+        echo &#39;老王就是会赚钱&#39;;
+    }
+}
+$a = new Demo123;
+var_dump($a);
+
+#串行化
+$str = serialize($a);
+
+//写入文件(存档)
+    #创建并打开文件
+    $handle = fopen(&#39;./demo.txt&#39;,&#39;w&#39;);
+    #将内容串行化写入打开的文件
+    fwrite($handle,$str);
+    #关闭文件
+    fclose($handle);
+
+//一千年以后(读档)
+#读取文件内容
+$result = file_get_contents(&#39;./demo.txt&#39;);
+// 反串行化: 将 字符串 反串行化为 对象
+    #将读到的内容(字符串)反串行化为对象
+    $obj = unserialize($result);
+    var_dump($obj);
+    echo $obj-&gt;name;
+</code></pre>
+<pre><code class="php">/*
+    分析 串行化后的字符串
+        O:4:&quot;Demo&quot;:2:
+        {
+            s:4:&quot;name&quot;;
+            s:6:&quot;老王&quot;;
+            s:3:&quot;age&quot;;
+            i:18;
+        }
+
+        数据类型: 内容长度 : 内容
+ */
+</code></pre>
+<h6 id="抽象-abstract"><a href="#抽象-abstract" class="headerlink" title="抽象(abstract)"></a>抽象(abstract)</h6><p>修饰方法(<strong>抽象方法</strong>):没有方法体的方法</p>
+<p>修饰类(<strong>抽象类</strong>):不能new,必须让子类继承,并实现,才能使用 这里的继承也是用<strong>extends</strong></p>
+<ul>
+<li>继承后的方法必须要有,不然继续报错直到有子类用了这个方法</li>
+</ul>
+<p><strong>注意</strong>:<strong>1.</strong>含有抽象方法的类 必须是抽象类 <strong>2.</strong>抽象类不一定要有抽象方法</p>
+<blockquote>
+<p>与final总结:    final 保护父类   |    abstract 约束子类                 </p>
+</blockquote>
+<pre><code class="php">abstract class Project
+{
+    public function fun1()
+    {
+        echo &#39;已完成 20% ... &lt;br&gt;&#39;;
+
+    }
+    public function fun2()
+    {
+        echo &#39;已完成 50% ... &lt;br&gt;&#39;;
+
+    }
+    abstract public function fun3();
+}
+
+#父类无法完成时交给子类
+class Son extends Project
+{    
+    #假如这里没有方法3和代码体会继续报错
+    public function fun3()
+    {
+            echo &#39;已完成 30% ... &lt;br&gt;&#39;;
+    }
+}
+
+$b = new Son;
+
+$b-&gt;fun1();
+$b-&gt;fun2();
+$b-&gt;fun3();    
+</code></pre>
+<h6 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口(interface)"></a>接口(interface)</h6><p><strong>修饰类</strong>:全部都是抽象方法时, 可以使用接口</p>
+<p>​    通过 <strong>implements</strong> 来实现接口方法, 不是通过 extends        #类似继承</p>
+<p><strong>特新:</strong>php不支持多继承,但一个类可以实现多个接口.接口的多继承(<strong>implements</strong>)</p>
+<pre><code class="php">interface laozi
+{
+    public function dream1();
+
+}
+
+interface niang
+{
+    public function dream2();
+}
+#继承
+# 通过 implements 来实现接口方法, 不是通过 extends
+class son implements laozi,niang
+{
+    public function dream1()
+    {
+        echo  &#39;我实现了爹的梦想 &lt;br&gt;&#39;;
+    }
+
+    #如果这儿被注释将会报错,因为有抽象方法没被调用
+    public function dream2()
+    {
+        echo &#39;我实现了娘的梦想 &lt;br&gt;&#39;;
+    }
+}
+
+$a = new son;
+$a-&gt;dream1();
+$a-&gt;dream2();
+</code></pre>
+<h4 id="类型约束"><a href="#类型约束" class="headerlink" title="类型约束"></a>类型约束</h4><p>​    类型约束,目前仅支持两种<br>​    1.数组       (\$arry  $a )     #第一个参数填的是array,第二个参数填的是要接受的对象(随便给一个变量)<br>​    2.对象    (类名    $n  )     #第一个参数填的时类名,第二个参数填的是要接受的对象(随便给一个变量),送入数据:</p>
+<p>​        $b = 类名;</p>
+<p>​        \$b-&gt;demo( $c );    这里的\$c是一个对象</p>
+<pre><code class="php">function A( array $a )#$a只接收数组
+{
+    var_dump($a);
+}
+
+// A(100);
+A([10,20,34]);
+
+echo &#39;&lt;hr&gt;&#39;;
+
+// 2.对象
+
+class A
+{}
+$a = new A;
+
+class C
+{}
+$c = new C;
+
+class B
+{
+    // public function demo( $b )
+    // public function demo( A $b )          # $b 只接收 对象A
+    // #第一个参数填的时类名,第二个参数填的是要接受的对象(随便给一个变量)
+    public function demo( A $n )      # $b 只接收 对象Object
+    {
+        var_dump($n);
+    }
+}
+
+$b = new B;
+
+// $b-&gt;demo( 100 );
+$b-&gt;demo( $a );
+// $b-&gt;demo( $c );
+</code></pre>
+<h4 id="OOP的多态性"><a href="#OOP的多态性" class="headerlink" title="OOP的多态性"></a><strong>OOP的多态性</strong></h4><p>​    <strong>作用:通过同一个接口, 传入不同的对象, 从而实现不同的效果</strong></p>
+<ul>
+<li>定义一个接口类,类和方法都是抽象的<ul>
+<li>这里也可以用抽象或者普通类<ul>
+<li>不建议使用普通类,因为普通类对子类没有约束性,即使子类不执行一定要做的方法,他也不报错!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="php">//     通过同一个接口, 传入不同的对象, 从而实现不同的效果
+
+// usb接口
+
+#定义一个接口类,类和方法都是抽象的
+interface USB
+{
+    public function run();
+}
+
+// 外设
+// 继承端口
+class Mouse implements USB
+{
+    // 必须实现 run
+    // #继承过来的run是抽象类,必须有方法体,调用执行,否则报错;例如鼠标链接不成功时电脑右下倒三角警告
+    public function run()
+    {
+        echo &#39;鼠标已连接成功 ... &lt;br&gt;&#39;;
+    }
+    #一些其他的普通方法
+    public function Hong(){}
+
+    public function dpi(){}
+
+    public function color(){}
+}
+
+class Keyboard implements USB
+{    
+    #键盘继承run
+    public function run()
+    {
+        echo &#39;键盘已连接成功 ... &lt;br&gt;&#39;;
+    }
+
+    public function skill(){}
+}
+
+class UDisk implements USB
+{    
+    #U盘继承run
+    public function run()
+    {
+        echo &#39;U盘已连接成功 ... &lt;br&gt;&#39;;
+    }
+}
+
+// 电脑
+// 创建一个类
+class Computer 
+{    
+    #创建一个方法,接收对象USB,即这里的$a
+    public function start( USB $a )
+    {
+        #然后调用$a里的方法run
+        $a-&gt;run();         # 电脑一旦开始, 强制执行所有跟USB有关 的run 方法
+    }
+}
+
+$computer = new Computer;
+$m = new Mouse;
+$k = new Keyboard;
+$u = new UDisk;
+
+// var_dump( $m instanceof USB );
+
+$computer-&gt;start($m);
+$computer-&gt;start($k);
+$computer-&gt;start($u);
+</code></pre>
+<h4 id="迭代对象-foreach"><a href="#迭代对象-foreach" class="headerlink" title="迭代对象 (foreach)"></a>迭代对象 (foreach)</h4><p>foreach (数组 or 对象 as \$key =&gt; $value) {<br>         循环体, 代码块<br>     }</p>
+<pre><code class="php">class Book
+{
+    public $name;
+    public $price;
+    private $author;#受保护属性
+
+    #构造
+    public function __construct( $name, $price, $author )
+    {
+        $this-&gt;name = $name;
+        $this-&gt;price = $price;
+        $this-&gt;author = $author;
+    }
+
+    #方法
+    public function fun()
+    {
+        echo $this-&gt;author.&#39; 写了一本 &#39;.$this-&gt;name.&#39;, 零售价: &#39;.$this-&gt;price.&#39;&lt;br&gt;&#39;;
+    }
+}
+#new时送入参数给构造
+$wang = new Book(&#39;金瓶梅&#39;, &#39;998&#39;, &#39;老王&#39;);
+
+$tao = new Book(&#39;跟兄弟学PHP&#39;, &#39;9800&#39;, &#39;小陶&#39;);
+
+$wang-&gt;fun();
+$tao-&gt;fun();
+echo &#39;&lt;hr&gt;&#39;;
+
+// 在类外, 依旧遵守 作用域
+#private私有属性无法被打印
+foreach($wang as $k =&gt; $v){
+    echo $k .&#39;=======&gt;&#39;. $v .&#39;&lt;br&gt;&#39;;
+}
+</code></pre>
+<h4 id="魔术常量-1"><a href="#魔术常量-1" class="headerlink" title="魔术常量"></a>魔术常量</h4><table>
+<thead>
+<tr>
+<th>魔术常量</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>var_dump( __FILE__ )</td>
+<td>获取文件路径</td>
+</tr>
+<tr>
+<td>var_dump( __LINE__ )</td>
+<td>获取行</td>
+</tr>
+<tr>
+<td>var_dump( __DIR__ )</td>
+<td>获取文件夹名</td>
+</tr>
+<tr>
+<td>var_dump( __FUNCTION__ )</td>
+<td>获取函数名</td>
+</tr>
+<tr>
+<td>var_dump( __METHOD__ )</td>
+<td>获取方法名</td>
+</tr>
+<tr>
+<td>var_dump( __CLASS__ )</td>
+<td>获取类名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="对象函数-objFun"><a href="#对象函数-objFun" class="headerlink" title="对象函数(objFun)"></a>对象函数(objFun)</h4><table>
+<thead>
+<tr>
+<th>objFun</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class_exists(类名)</td>
+<td>判断类 是否存在</td>
+</tr>
+<tr>
+<td>property_exists(‘Book’, ‘name’)</td>
+<td>判断BOOK类里面是否有name属性</td>
+</tr>
+<tr>
+<td>get_class_vars(‘Book’)</td>
+<td>获取BOOK中 所有的公有属性</td>
+</tr>
+<tr>
+<td>get_object_vars($wang)</td>
+<td>获取对象 wang 中所有公有属性</td>
+</tr>
+<tr>
+<td>get_class_methods(‘Book’)</td>
+<td>获取BOOK中 所有的公有方法</td>
+</tr>
+<tr>
+<td>get_class($wang)</td>
+<td>获取对象$wang被new之前的类名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="设计模式-单例模式"><a href="#设计模式-单例模式" class="headerlink" title="设计模式(单例模式)"></a>设计模式(单例模式)</h4><p><strong>单例模式:</strong><br>            只有一个对象, 多次实例化, 也只有一个对象<br>            从而节省内存, 提高性能<br>            只有一个对象, 多次实例化, 也只有一个对象<br>             从而节省内存, 提高性能</p>
+<pre><code class="php">class MySQL
+{
+    static private $link = null;
+
+    // 设为 private, 就是为了防止在类外 直接new
+    private function __construct()
+    {
+        echo &#39;数据库连接成功... &lt;br&gt;&#39;;
+    }
+
+    // 在类内 触发构造, 通过 new self, 来实例化自己, 从而触发构造
+    static public function getConnect()
+    {
+        // 如果 已经实例化过了, 则不再new
+        // 如果 从未实例化过, 则 new MySQL
+        if( is_null(self::$link) ){
+            self::$link = new self;
+        }
+        #返回一个对象
+        return self::$link;
+    }
+
+    public function select()
+    {
+        echo &#39;这里是 select 查询方法 &lt;br&gt;&#39;;
+    }
+}
+
+// $a = new MySQL;
+// $b = new MySQL;
+// $c = new MySQL;
+// var_dump($a, $b, $c);
+
+$a = MySQL::getConnect();
+$a-&gt;select();
+var_dump($a);
+
+$b = MySQL::getConnect();
+var_dump($b);
+
+$c = MySQL::getConnect();
+var_dump($c);
+</code></pre>
+<h4 id="异常结构"><a href="#异常结构" class="headerlink" title="异常结构"></a>异常结构</h4><p>作用:在try结构 捕获异常,一旦捕获到异常,则立马跳转至处理异常的地方<br>            <strong>异常类:**</strong>Excepation**<br>            使用场景:不允许发生任何的错误代码块,常用try</p>
+<p><strong>语法:</strong></p>
+<p>​    echo $e-&gt;getFile()            # 获取发生异常的文件位置<br>​    echo $e-&gt;getLine()        # 获取发生异常的行数<br>​    echo $e-&gt;getMessage()’;     # 获取发生异常的信息<br>​    echo $e-&gt;getCode()        # 获取发生异常的错误编号</p>
+<pre><code class="php">    try{
+        捕获异常
+    }catch(Exception $e){
+        此处相当于 $e = new Exception
+        处理异常
+    }    
+</code></pre>
+<pre><code class="php">try{
+    // 自动抛出异常
+
+    $dsn = &#39;mysql:host=localhost;dbname=s8;charset=utf8&#39;;
+    $user = &#39;root&#39;;
+    $pwd = &#39;&#39;;
+
+    $pdo = new PDO($dsn, $user, $pwd);
+    var_dump($pdo);
+
+}catch(Exception $e){
+    echo &#39;数据库连接失败 &lt;br&gt;&#39;;
+    echo $e-&gt;getFile().&#39;&lt;br&gt;&#39;;         # 获取发生异常的文件位置
+    echo $e-&gt;getLine().&#39;&lt;br&gt;&#39;;         # 获取发生异常的行数
+    echo $e-&gt;getMessage().&#39;&lt;br&gt;&#39;;     # 获取发生异常的信息
+    echo $e-&gt;getCode().&#39;&lt;br&gt;&#39;;         # 获取发生异常的错误编号
+}
+</code></pre>
+<h4 id="InnoDB转账事务"><a href="#InnoDB转账事务" class="headerlink" title="InnoDB转账事务"></a>InnoDB转账事务</h4><p> mysql自动提交<br>        默认情况, sql一旦执行, 将立马改变数据库<br>         关闭自动提交, sql一旦指针, 可以得到执行之后应该有的结果, 但是不会立马改变数据库</p>
+<pre><code class="php">try{
+    $dsn = &#39;mysql:host=localhost;dbname=s84;charset=utf8&#39;;
+    $user = &#39;root&#39;;
+    $pwd = &#39;&#39;;
+
+    $pdo = new PDO($dsn, $user, $pwd);        
+
+#此处相当于  $e = new Exception
+}catch(Exception $e){
+    echo &#39;数据库连接失败&#39;; die;
+
+}
+
+// 事务的操作步骤
+try{
+    // 1. 关闭自动提交
+        $pdo-&gt;setAttribute( PDO::ATTR_AUTOCOMMIT, 0 );
+
+    // 2. 开启一个事务  (存档)
+        $pdo-&gt;beginTransaction();
+
+    // 3. 执行sql 操作
+        // 3.1 转出 扣钱
+        $sql = &quot;UPDATE `salary` SET `money` = `money` - 5000   WHERE uid = 7 &quot;;
+        $rows = $pdo-&gt;exec($sql);
+
+        // 若 转出失败, 则主动抛出异常
+        if( !$rows ){
+            throw new Exception(&#39;转出失败&#39;);
+        }
+
+        // 3.2 转入 收账
+        $sql = &quot;UPDATE `salary` SET `money` = `money` + 5000   WHERE uid = 400 &quot;;
+        $rows = $pdo-&gt;exec($sql);
+
+        // 若 转出失败, 则主动抛出异常
+        if( !$rows ){
+            throw new Exception(&#39;收款失败&#39;);
+        }
+
+    // 4. 执行成功, 提交事务
+        $pdo-&gt;commit();
+
+}catch(Exception $e){
+    // 4. 执行失败, 回滚事务 (回到 存档时的状态)
+    echo $e-&gt;getMessage();
+    $pdo-&gt;rollBack(); # 回滚事务
+}
+
+// 5. 开启自动提交 ( 如果不打开, 那么后面所有的sql 都不会真正的执行)
+$pdo-&gt;setAttribute( PDO::ATTR_AUTOCOMMIT, 1);
+</code></pre>
+<h4 id="会话控制-cookie-session"><a href="#会话控制-cookie-session" class="headerlink" title="会话控制(cookie,session)"></a>会话控制(cookie,session)</h4><p><img src="D:\markdown\php\会话控制区别.png" alt="会话控制区别"></p>
+<p><strong>特性:</strong>HTTP协议时是无状态协议,HTTP协议不能告诉我们请求是否来自同一个客户端</p>
+<p>​    <strong>会话控制就是允许服务器跟踪一个客户端发出连续请求</strong></p>
+<h6 id="cookie-客户端"><a href="#cookie-客户端" class="headerlink" title="cookie(客户端)"></a><strong>cookie(客户端)</strong></h6><table>
+<thead>
+<tr>
+<th>cookie</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>var_dump( $_COOKIE )</td>
+<td>查询cookie</td>
+</tr>
+<tr>
+<td>setcookie(cookie名,  cookie值,  生命周期,  作用域,  有效域名)</td>
+<td>设置cookie   例: setcookie(‘pwd’, ‘123’, time()+10000, ‘/‘, ‘localhost’)</td>
+</tr>
+<tr>
+<td>setcookie(‘tel’, ‘18888888888’, time()+<code>7*24*3600</code>)</td>
+<td>7天后cookie失效(电话在cookie里保存7天)</td>
+</tr>
+<tr>
+<td>setcookie(‘age’, ‘18’, time()+<code>7*24*3600</code>, ‘/‘  )</td>
+<td>这里的  ‘/‘  就是根目录 www目录</td>
+</tr>
+<tr>
+<td>setcookie(‘pwd’, ‘’, time()-1, ‘/‘)</td>
+<td>删除cookie,即调整生命周期</td>
+</tr>
+<tr>
+<td></td>
+<td>修改session,就是重新赋值,就跟修改数组一样</td>
+</tr>
+</tbody>
+</table>
+<h6 id="session-服务端"><a href="#session-服务端" class="headerlink" title="session(服务端)"></a>session(服务端)</h6><p><strong>session 本身的作用域</strong>: 整个服务器<br>    哪个文件需要session值, 只要开启session即可获取session值<br>    session数据时可以共享的.</p>
+<p><strong>生命周期</strong><br>    默认浏览器一关, 就到期了<br>    如果浏览器不关, session也有生命周期, 周期为: 1440s</p>
+<p><strong>SessionID</strong><br>在访问服务器时, 服务器会给客户端分配sessionID, 用于标识客户端</p>
+<table>
+<thead>
+<tr>
+<th>session</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>var_dump($_SESSION)</td>
+<td>访问session</td>
+</tr>
+<tr>
+<td>session_start( )</td>
+<td>开启session(开门,不然其他文件用不了)</td>
+</tr>
+<tr>
+<td>$_SESSION[‘name’] = ‘雪人’</td>
+<td>设置session</td>
+</tr>
+<tr>
+<td>$_SESSION[‘name’] = ‘亚索’</td>
+<td>修改session,跟数组一样直接通过下标修改</td>
+</tr>
+<tr>
+<td>unset($_SESSION[‘name’])</td>
+<td>删除session</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p><img src="D:\wamp\www\s84\markdown\一期\phpMK\MVC流程控制图.png" alt="MVC流程控制图"></p>
+<h4 id="登录流程"><a href="#登录流程" class="headerlink" title="登录流程"></a>登录流程<img src="D:\wamp\www\s84\markdown\一期\phpMK\登录流程.png" alt="登录流程"></h4><h4 id="增加用户"><a href="#增加用户" class="headerlink" title="增加用户"></a>增加用户</h4><p><img src="D:\wamp\www\s84\markdown\一期\phpMK\添加用户流程.png" alt="添加用户流程"></p>
+<h4 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h4><p><img src="D:\wamp\www\s84\markdown\一期\phpMK\删除流程.png" alt="删除流程"></p>
+<h4 id="编辑用户"><a href="#编辑用户" class="headerlink" title="编辑用户"></a>编辑用户</h4><p><img src="D:\wamp\www\s84\markdown\一期\phpMK\编辑用户流程.png" alt="编辑用户流程"></p>
+<p>配置虚拟域名</p>
+<pre><code class="html">&lt;pre&gt;
+    1. 配置 hosts
+        文件位置:  c:\Windows\System32\drivers\etc\hosts
+
+
+        配置如下:
+            127.0.0.1     www.s84.com
+
+        注意: 
+            1. 若该目录下, 没有hosts文件, 自己创建 (该文件, 没有扩展名)
+            2. 若不能直接在 ect目录下, 保存hosts配置, 则先hosts 拷贝桌面, 修改完之后再拷贝回来, 并覆盖原来的hosts文件.
+
+    2. 开启虚拟域名
+        文件地址: x:\wamp\bin\apache\apache2.4.18\conf\httpd.conf
+
+        搜索 LoadModule vhost_alias_module modules/mod_vhost_alias.so
+        将 改行最前面的 # 去掉
+
+    3. 配置虚拟域名
+        文件地址: x:\wamp\bin\apache\apache2.4.18\conf\extra\httpd-vhosts.conf
+        原文件不要动,复制一份上面的文件做修改!!!!!!!
+        原文件不要动,复制一份上面的文件做修改!!!!!!!
+        原文件不要动,复制一份上面的文件做修改!!!!!!!
+        原文件不要动,复制一份上面的文件做修改!!!!!!!
+        配置如下: 
+            &lt;VirtualHost *:80&gt;
+                服务器名:  域名
+                ServerName www.s84.com
+
+                项目根目录
+                DocumentRoot D:/wamp/www/s84/project
+                &lt;Directory  &quot;D:/wamp/www/s84/project/&quot;&gt;
+                    Options +Indexes +FollowSymLinks +MultiViews
+                    AllowOverride All
+                    Require local
+                &lt;/Directory&gt;
+            &lt;/VirtualHost&gt;
+&lt;/pre&gt;
+</code></pre>
+<h2 id="PHP执行流程"><a href="#PHP执行流程" class="headerlink" title="PHP执行流程"></a>PHP执行流程</h2><p>域名-&gt;apache(80端口监听了域名(路由))-&gt;php(接收get post请求完成数据梳理,提交给Mysql)</p>
+<p>mysql操作成功-&gt;PHPreturn给apache-&gt;apache-&gt;https</p>
+<p><img src="D:\wamp\www\s84\markdown\一期\phpMK\PHP执行流程.PNG" alt="PHP执行流程"></p>
+<p>aly = 阿里云通过阿里云解析域名</p>
+<h4 id="常用状态码"><a href="#常用状态码" class="headerlink" title="常用状态码"></a>常用状态码</h4><p><strong>200:</strong>请求已成功</p>
+<p><strong>301:</strong>被请求的资源已永久移动到新位置(永久性转移)</p>
+<p><strong>302:</strong> 暂时性转移</p>
+<p><strong>401:</strong>语义有误，当前请求无法被服务器理解</p>
+<p><strong>503:</strong>由于临时的服务器维护或者过载，服务器当前无法处理请求</p>
+<p><strong>500:</strong>服务器遇到了一个未曾预料的状况</p>
+<h2 id="JS时学的回调和匿名-闭包函数"><a href="#JS时学的回调和匿名-闭包函数" class="headerlink" title="JS时学的回调和匿名/闭包函数"></a>JS时学的回调和匿名/闭包函数</h2><h4 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h4><p><strong>定义:</strong>将一个函数名作为参数    ,通过这个参数传递参数就是回调函数</p>
+<p>​    其实就是在一个函数内部使用变量函数</p>
+<h6 id="自定回调函数"><a href="#自定回调函数" class="headerlink" title="自定回调函数"></a>自定回调函数</h6><pre><code class="php">function sum($n1, $n2)
+{
+    return $n1 + $n2;
+}
+// 求积
+function mul($n1, $n2)
+{
+    return $n1 * $n2;
+}
+
+
+// 自定义回调函数
+function result($n1, $n2, $callback=&#39;sum&#39;)
+{
+    // sum($n1, $n2);
+    return $callback($n1, $n2);
+}
+
+echo result(10, 20);
+echo &#39;&lt;br&gt;&#39;;
+echo result(10, 20, &#39;mul&#39;);
+</code></pre>
+<h6 id="系统回调函数"><a href="#系统回调函数" class="headerlink" title="系统回调函数"></a>系统回调函数</h6><pre><code class="php">function sum($n1, $n2)
+{
+    return $n1 + $n2;
+}
+// 求积
+function mul($n1, $n2)
+{
+    return $n1 * $n2;
+}
+
+</code></pre>
+<p><strong>call_user_func(‘sum’, 50, 50)</strong>// 把第一个参数作为回调函数调用</p>
+<p><strong>call_user_func_array(‘sum’, [99, 99])</strong>//调用回调函数，并把一个数组参数作为回调函数的参数</p>
+<h4 id="匿名函数-即闭包函数"><a href="#匿名函数-即闭包函数" class="headerlink" title="匿名函数(即闭包函数)"></a>匿名函数(即闭包函数)</h4><p><strong>定义:</strong> 将一个没有函数名的函数赋值给一个变量,这就是定义匿名函数</p>
+<p>注意:函数最后必须有分号;</p>
+<pre><code class="php">$hehe = function($a)
+{
+    echo $a;
+};  //此处分好不得缺少
+
+// var_dump($hehe);
+$hehe(&#39;呵呵哒&#39;);
+echo &#39;&lt;hr&gt;&#39;;
+</code></pre>
+<h6 id="use读取全局变量时"><a href="#use读取全局变量时" class="headerlink" title="use读取全局变量时"></a>use读取全局变量时</h6><p>在匿名函数内部 使用外部的全局变量时 必须通过use关键字来连接闭包函数的内外变量</p>
+<pre><code class="php">$func = function()use(&amp;$x,&amp;$y)
+{
+    $x*=2;
+    $y*=3;
+    $z = $x+$y;
+    return $z;
+};
+$x = 3;
+$y = 4;
+echo $func();
+</code></pre>
+<h6 id="use读取全局变量时-1"><a href="#use读取全局变量时-1" class="headerlink" title="use读取全局变量时"></a>use读取全局变量时</h6><pre><code class="php">
+function demo()
+{
+    $m = 2;
+    $n = 3;
+    //闭包函数
+    $func = function()use($m,$n)
+    {
+        $m *= 3;
+        $n *= 4;
+        $k = $m + $n;
+        return $k;
+    };
+    return $func();
+
+}
+
+echo demo();
+</code></pre>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h4><p><strong>如何用它?:</strong></p>
+<pre><code>function getInfo($callback)
+{
+    $callback(&#39;死啦死啦地来到萨&#39;);
+}
+</code></pre><p><strong>1.回调方式:</strong></p>
+<p>(1)调用一个方法里面带上参数,这个参数就是函数名</p>
+<p>(2)被调用的方法体里面 就是函数名,即参数()的形式,所以开始调用这个方法体里面的方法($callback(‘死啦死啦地来到萨’)其实变成了lm(\$str)</p>
+<p>(3)外面有一个函数lm(\$str),被那个方法体里面的方法调用了.</p>
+<pre><code class="php">function getInfo($callback)
+{
+    $callback(&#39;死啦死啦地来到萨&#39;);//这里的 $callback 是一个对象(一个函数)
+}
+
+// 回调方式
+function lm($str)
+{
+echo &#39;回调方式:&#39;.$str;
+}
+
+getinfo(&#39;lm&#39;);
+echo &#39;&lt;hr&gt;&#39;;
+</code></pre>
+<p><strong>2.匿名(闭包)方式:</strong></p>
+<p>说白了就是调用一个函数时参数也是一个函数(这个函数是没有函数名的),通过里面的这个函数传一个参数$str(其实就是那个’死啦死啦地来到萨’)</p>
+<pre><code class="php">
+    function getInfo($callback)
+    {
+        $callback(&#39;死啦死啦地来到萨&#39;);    //这里的 $callback 是一个对象(一个函数)
+    }
+
+    // 匿名方式
+    getInfo(function($str){
+    echo &#39;匿名方式: &#39; . $str;
+    });
+</code></pre>
+<h2 id="依赖注入，控制翻转，反射"><a href="#依赖注入，控制翻转，反射" class="headerlink" title="依赖注入，控制翻转，反射"></a>依赖注入，控制翻转，反射</h2><p>这样想用任何方式记录操作日志都不需要去修改过User类了，只需要通过构造函数参数传递就可以实现，其实这就是“控制反转”。不需要自己内容修改，改成由外部外部传递。这种由外部负责其依赖需求的行为，我们可以称其为 “控制反转（IoC）”。</p>
+<p>那什么是依赖注入呢？，其实上面的例子也算是依赖注入，不是由自己内部new对象或者实例，通过构造函数，或者方法传入的都属于依赖注入（DI） 。</p>
+<pre><code class="PHP">
+&lt;?php
+
+interface log
+{
+    public function write();
+}
+
+// 文件记录日志
+class FileLog implements Log
+{
+    public function write()
+    {
+        echo &#39;file log write...&#39;;
+    }
+}
+
+// 数据库记录日志
+class DatabaseLog implements Log
+{
+    public function write()
+    {
+        echo &#39;database log write...&#39;;
+    }
+}
+
+class User
+{
+    protected $log;
+
+    public function __construct(FileLog $log)
+    {
+        $this-&gt;log = $log;
+    }
+
+    public function login()
+    {
+        // 登录成功，记录登录日志
+        echo &#39;login success...&#39;;
+        $this-&gt;log-&gt;write();
+    }
+}
+
+function make($concrete)
+{
+    //通过ReflectionClass，我们可以得到User类的信息：
+    $reflector = new ReflectionClass($concrete);
+//    dd($reflector);
+    //获取构造对象
+    $constructor = $reflector-&gt;getConstructor();
+//    dd($constructor);
+    // 如果没有构造函数，则直接创建对象
+    if (is_null($constructor)) {
+        return $reflector-&gt;newInstance();
+    } else {
+        // 构造函数依赖的参数
+        $dependencies = $constructor-&gt;getParameters();
+//          dd($dependencies);
+        //array:1 [▼
+        //  0 =&gt; ReflectionParameter {#1108 ▼
+        //    +name: &quot;log&quot;
+        //    position: 0
+        //    typeHint: &quot;FileLog&quot;
+        //  }
+        //]
+        // 根据参数返回实例
+        $instances = getDependencies($dependencies);
+//        dd($instances);
+        // 创建user对象，需要传递参数的
+        return $reflector-&gt;newInstanceArgs($instances);
+    }
+}
+
+function getDependencies($paramters)
+{
+    $dependencies = [];
+//    dump($paramters);
+    //array:1 [▼
+    //  0 =&gt; ReflectionParameter {#1108 ▼
+    //    +name: &quot;log&quot;
+    //    position: 0
+    //    typeHint: &quot;FileLog&quot;
+    //  }
+    //]
+    foreach ($paramters as $paramter) {
+        $dependencies[] = make($paramter-&gt;getClass()-&gt;name);
+    }
+//    dd($dependencies);
+    //array:1 [▼
+    //  0 =&gt; FileLog {#1853}
+    //]
+    return $dependencies;
+}
+
+$user = make(&#39;User&#39;);
+$user-&gt;login();
+exit;
+</code></pre>
+<h4 id="反射的概念"><a href="#反射的概念" class="headerlink" title="反射的概念"></a>反射的概念</h4><p>其实可以理解成根据类名返回该类的任何信息，比如该类有什么方法，参数，变量等等。我们先来学习下反射要用到的api。拿User举例</p>
+<p><strong>json_encode</strong>          数组转json            <strong>encode</strong>    编码</p>
+<p>json_decode           json转数组            <strong>decode</strong>    解码</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <!-- <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDNnull"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDNnull"></li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/cicken_breast/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                </h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/TP5.0的重新学习/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                TP5.0的重新学习</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon.jpg" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 红狼<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2020</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>  Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘その红狼</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/lh-xuyong" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="https://space.bilibili.com/20164078/" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="260651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

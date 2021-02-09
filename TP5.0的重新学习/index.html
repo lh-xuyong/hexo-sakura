@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">TP5.0的重新学习 | 红狼</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "さくら荘その红狼";
+  mashiro_option.author_name = "红狼";
+  mashiro_option.site_url = "https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(10).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(12).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(13).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(14).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(14).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(20).jpg.webp,https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/cover/(21).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <!-- <a href="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg"> -->
+          <a href="#">
+
+          <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/lh-xuyong" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://space.bilibili.com/20164078/" target="_blank" class="social-github" title="bilibili">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/bilibili.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_codejpg">
+                  </div>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://music.163.com/#/user/home?id=1397603034" target="_blank" class="social-github" title="wangyiyun">
+                    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">红狼</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg);" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      TP5.0的重新学习</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon.jpg">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-5-9<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <pre><code>0. Thinkphp官网
+    `http://www.thinkphp.cn`
+
+1. 使用composer安装
+    composer create-project topthink/think=5.0.* tp5  --prefer-dist
+
+2. 使用GIT安装
+    ThinkPHP 远程仓库
+    GitHub:
+        应用项目：https://github.com/top-think/think
+        核心框架：https://github.com/top-think/framework
+    码云:
+        应用项目： https://gitee.com/liu21st/thinkphp5
+        核心框架： https://gitee.com/liu21st/framework.git
+</code></pre><p>一. 初识佳人 (ThinkPHP 5.0 基本)</p>
+<ol start="0">
+<li><p>TP5 环境要求</p>
+<p>  PHP &gt;= 5.4.0<br>  PDO PHP Extension       PDO类<br>  MBstring PHP Extension  多字节字符串函数<br>  CURL PHP Extension      钩子/爬虫</p>
+</li>
+<li><p>目录结构</p>
+<p> 1).部署框架 目录结构</p>
+<pre><code>     tp5
+     ├─application     应用目录
+     ├─extend          扩展类库目录（可定义）
+     ├─public          网站对外访问目录
+     ├─runtime         运行时目录（可定义）
+     ├─vendor          第三方类库目录（Composer）
+     ├─thinkphp        框架核心目录
+     ├─build.php       自动生成定义文件（参考）
+     ├─composer.json   Composer定义文件
+     ├─LICENSE.txt     授权说明文件
+     ├─README.md       README 文件
+     └─think           命令行工具入口
+     !(如果在linux环境下面的话,需要给runtime目录755权限)
+</code></pre><p><strong>PS. 几个关键的路径:</strong></p>
+</li>
+</ol>
+<pre><code>        目录            说明             常量
+        tp5             项目根目录       ROOT_PATH
+        tp5/application 应用目录         APP_PATH
+        tp5/thinkphp    框架核心目录     THINK_PATH
+        tp5/exend       应用扩展目录     EXTEND_PATH
+        tp5/vendor      Composer扩展目录 VENDOR_PATH
+</code></pre><p><strong>2).核心框架 目录的结构</strong></p>
+<pre><code>        ├─thinkphp 框架系统目录
+        │  ├─lang               语言包目录
+        │  ├─library            框架核心类库目录
+        │  │  ├─think          think 类库包目录
+        │  │  └─traits         系统 traits 目录
+        │  ├─tpl                系统模板目录
+        │  │
+        │  ├─.htaccess          用于 apache 的重写
+        │  ├─.travis.yml        CI 定义文件
+        │  ├─base.php           框架基础文件
+        │  ├─composer.json      composer 定义文件
+        │  ├─console.php        控制台入口文件
+        │  ├─convention.php     惯例配置文件
+        │  ├─helper.php         助手函数文件（可选）
+        │  ├─LICENSE.txt        授权说明文件
+        │  ├─phpunit.xml        单元测试配置文件
+        │  ├─README.md          README 文件
+        │  └─start.php          框架引导文件
+</code></pre><p><strong>3).默认应用 目录结构:</strong></p>
+<pre><code>        ├─application            应用目录（可设置）
+        │  ├─index              模块目录(可更改)
+        │  │  ├─config.php     模块配置文件
+        │  │  ├─common.php     模块公共文件
+        │  │  ├─controller     控制器目录
+        │  │  ├─model          模型目录
+        │  │  └─view           视图目录
+        │  │
+        │  ├─command.php        命令行工具配置文件
+        │  ├─common.php         应用公共文件
+        │  ├─config.php         应用配置文件
+        │  ├─tags.php           应用行为扩展定义文件
+        │  ├─database.php       数据库配置文件
+        │  └─route.php          路由配置文件
+
+</code></pre><h3 id="开始应用"><a href="#开始应用" class="headerlink" title="开始应用"></a>开始应用</h3><p><code>&lt;http://www.tp5.0.com/admin/user/index&gt;</code></p>
+<p>admin:模板</p>
+<p>user:user.php  user类</p>
+<p>index:方法 </p>
+<h4 id="助手函数-详见thinkphp-helper"><a href="#助手函数-详见thinkphp-helper" class="headerlink" title="助手函数 (详见thinkphp/helper)"></a>助手函数 (详见thinkphp/helper)</h4><p>abort 中断执行并发送HTTP状态码<br>action 调用控制器类的操作<br>cache 缓存管理<br>config 获取和设置配置参数<br>controller 实例化控制器<br>cookie Cookie管理<br>db 实例化数据库类<br>debug 调试时间和内存占用<br>dump 浏览器友好的变量输出<br>exception 抛出异常处理<br>halt 变量调试输出并中断执行<br>import 导入所需的类库<br>input 获取输入数据 支持默认值和过滤<br>json JSON数据输出<br>jsonp JSONP数据输出<br>lang 获取语言变量值<br>load_trait<br>快速导入Traits PHP5.5 以上无需调<br>用<br>model 实例化Model<br>redirect 重定向输出<br>request 实例化Request对象<br>response 实例化Response对象<br>session Session管理<br>trace 记录日志信息<br>token 生成表单令牌输出<br>url Url生成<br>validate 实例化验证器</p>
+<p>vendor 快速导入第三方框架类库<br>view 渲染模板输出<br>widget 渲染输出Widget<br>xml XML数据输出</p>
+<h2 id="PHPstorim"><a href="#PHPstorim" class="headerlink" title="PHPstorim"></a>PHPstorim</h2><h4 id="生成-rest模块的-User资源控制器"><a href="#生成-rest模块的-User资源控制器" class="headerlink" title="生成 rest模块的 User资源控制器"></a>生成 rest模块的 User资源控制器</h4><p>php think build –module rest //这样的创建出一个rest模块,包括了MVC<br>php think make:controller rest/User</p>
+<h4 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h4><p>导入tink\Controller</p>
+<p>生成model </p>
+<p>php think make:model rest/User</p>
+<hr>
+<p><code>$this-&gt;assign(&#39;title&#39;,&#39;tp5后台&#39;);</code></p>
+<p><code>return $this-&gt;fetch();</code>  //相当于smarty里的display</p>
+<p>view //渲染模板输出</p>
+<pre><code class="php+HTML">use think\Controller;
+
+class Index extends Controller
+{
+    public function Index()
+    {
+//        return &#39;德玛西亚&#39;
+
+//        $this-&gt;assign(&#39;title&#39;,&#39;tp5后台&#39;);
+//        return $this-&gt;fetch(); //这里其实是有参数的默认&#39;index/index&#39;,所有可以不写
+
+        return view(&#39;&#39;,[&#39;title&#39;=&gt;&#39;tttttt5&#39;]);
+    }
+
+}
+</code></pre>
+<h2 id="CURD"><a href="#CURD" class="headerlink" title="CURD"></a>CURD</h2><p><img src="D:\wamp\www\s84\markdown\二期\tp5\fa7fda2e7c90081d988f07ea1a8adc1.jpg" alt="fa7fda2e7c90081d988f07ea1a8adc1"></p>
+<h4 id="查"><a href="#查" class="headerlink" title="查"></a>查</h4><pre><code class="php">public function index()
+{
+// 原生SQL
+$sql = &#39;SELECT * FROM user&#39;;
+$list = Db::query($sql);
+
+// 预处理
+$sql = &#39;SELECT * FROM user WHERE id = ?&#39;;
+$list = Db::query($sql, [5]);
+
+// DB类
+$list = Db::table(&#39;user&#39;)-&gt;order([&#39;id&#39; =&gt; &#39;desc&#39;])-&gt;select();
+
+// 助手函数
+$list = db(&#39;user&#39;)-&gt;order([&#39;id&#39; =&gt; &#39;asc&#39;])-&gt;select();
+
+dump($list);
+}
+</code></pre>
+<h4 id="增"><a href="#增" class="headerlink" title="增"></a>增</h4><pre><code class="php">public function insert()
+{
+    // 原生SQL
+   $sql = &#39;INSERT INTO user (id,name,age) VALUES (null,&quot;k1&quot;,66)&#39;;
+   $result = Db::execute($sql);
+    // 预处理
+   $sql = &#39;INSERT INTO user (id,name) VALUES (:id, :name)&#39;;
+   $result = Db::execute($sql, [&#39;id&#39;=&gt;null, &#39;name&#39;=&gt;&#39;k2&#39;]);
+
+    $data = [
+        &#39;name&#39; =&gt; &#39;k5&#39;,
+        &#39;age&#39; =&gt; 99,
+        &#39;province&#39; =&gt; &#39;西安&#39;
+    ];
+    // DB类   insertAll() 多条插入
+   $result = Db::table(&#39;user&#39;)-&gt;insert($data); // 受影响行数
+   $result = Db::table(&#39;user&#39;)-&gt;insertGetId($data); // 自增ID
+
+    // 助手函数
+    $result = db(&#39;user&#39;)-&gt;insert($data); // 受影响行数
+
+    dump($result);
+}
+</code></pre>
+<h4 id="删"><a href="#删" class="headerlink" title="删"></a>删</h4><pre><code class="php">public function delete()
+{
+    // 原生SQL
+   $sql = &#39;DELETE FROM user WHERE name=&quot;k2&quot;&#39;;
+   $result = Db::execute($sql);
+    // DB类
+   $result = Db::table(&#39;user&#39;)-&gt;delete(55);
+   $result = Db::table(&#39;user&#39;)-&gt;where(&#39;name&#39;,&#39;k1&#39;)-&gt;delete();
+
+    // 助手函数
+    $result = db(&#39;user&#39;)-&gt;delete(54);
+
+    dump($result);
+}
+</code></pre>
+<h4 id="改"><a href="#改" class="headerlink" title="改"></a>改</h4><pre><code class="php">public function update()
+{
+    // 原生SQL
+   $sql = &#39;UPDATE user SET age=&quot;5&quot; WHERE id =&quot;51&quot;&#39;;
+   $result = Db::execute($sql);
+
+    // DB类
+   $result = Db::table(&#39;user&#39;)-&gt;where([&#39;id&#39;=&gt;51])-&gt;update([&#39;age&#39;=&gt;88, &#39;sex&#39;=&gt;1]);
+
+    // 助手函数
+    $result = db(&#39;user&#39;)-&gt;where([&#39;id&#39;=&gt;50])-&gt;update([&#39;age&#39;=&gt;88, &#39;sex&#39;=&gt;1]);
+    dump($result);
+
+}
+</code></pre>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><pre><code>ThinkPHP 5.0 在没有启用路由的情况下典型的URL访问规则是：
+http://serverName/index.php（或者其它应用入口文件）/模块/控制器/操作/[参数名/参数值...]
+
+</code></pre><h4 id="1-路由文件"><a href="#1-路由文件" class="headerlink" title="1.路由文件"></a>1.路由文件</h4><p>​    <code>application/route.php</code></p>
+<h4 id="2-路由概念-规则"><a href="#2-路由概念-规则" class="headerlink" title="2.路由概念/规则"></a>2.路由概念/规则</h4><pre><code>    从规则上区分 路由分为: 动态路由 和 静态路由 两种
+    从设置方式上 路由分为: 动态注册 和 静态注册 两种
+
+    路由规则中 包含变量的 就是动态路由,没有包含任何变量的称为静态路由.
+    在路由文件中 return数组的 路由形式, 称之为 静态注册
+    使用Route类的方法 注册的路由 称之为 动态注册(5.0推荐)
+    以上两者 可同时使用.
+</code></pre><h4 id="3-定义路由"><a href="#3-定义路由" class="headerlink" title="3.定义路由"></a>3.定义路由</h4><p><strong>Route::rule(‘路由表达式’ , ‘路由地址’ , ‘请求类型’ , ‘路由参数（数组）’ , ‘变量规则（数组）’);</strong></p>
+<table>
+<thead>
+<tr>
+<th>路由表达式:</th>
+<th>URL访问规则（包括静态规则和动态规则）,只有符合规则的路由才能正确访问 // 其实就是外号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>路由地址:</td>
+<td>实际访问的地址（可以是控制器操作、类的方法或者闭包）;</td>
+</tr>
+<tr>
+<td>请求</td>
+<td>包括GET/POST/PUT/DELETE等,如果希望任何请求都能访问使用*号（默认值）。</td>
+</tr>
+<tr>
+<td>路由参数:</td>
+<td>路由匹配的条件约束或设置参数（用于检测或者解析）;</td>
+</tr>
+<tr>
+<td>路由变量</td>
+<td>路由规则里面的动态变量以及PATH_INFO里面的参数都称之为路由变量;</td>
+</tr>
+<tr>
+<td>变量规则</td>
+<td>路由规则中的变量的匹配规则（正则表达式）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>支持get请求规则</strong></p>
+<p>Route::get(‘home’, ‘index/index/index’);</p>
+<p><strong>支持post</strong></p>
+<p>Route::post(‘ppp’, ‘index/index/ppp’);</p>
+<p><strong>支持GET/POST/delete/…</strong></p>
+<p>Route::<strong>rule</strong>(‘ooxx’,’index/index/index’);</p>
+<p><strong>支持任意</strong></p>
+<p><strong>**Route::</strong>any**(‘xxoo’,’index/index/index’);</p>
+<p>以上皆为静态路由</p>
+<h6 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h6><table>
+<thead>
+<tr>
+<th>动态路由</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>必传参数</strong></td>
+<td>路由表达式后面跟变量:<strong>user/:id</strong></td>
+<td>Route::get(‘user/:id’, ‘index/index/user’);</td>
+<td>对应user方法里必须要有默认参数,不然就报错</td>
+</tr>
+<tr>
+<td><strong>可选参数</strong></td>
+<td>[]将变量包起来</td>
+<td>Route::get(‘user/[:id]’, ‘index/index/user’);</td>
+<td>可选参数,变量加[],如果输入网页时没ID那么将会输出user默认值</td>
+</tr>
+<tr>
+<td><strong>匹配参数</strong></td>
+<td>[变量]后面加$</td>
+<td>Route::get(‘user/[:id]$’, ‘index/index/user’);</td>
+<td>如果不加$用户在55后面乱输就会报错,user/55/eeres</td>
+</tr>
+</tbody>
+</table>
+<h6 id="闭包路由"><a href="#闭包路由" class="headerlink" title="闭包路由"></a>闭包路由</h6><p>闭包路由  一般用于非法命令,404</p>
+<pre><code>Route::get(&#39;js/[:id]$&#39;,function($id){
+    if ($id&gt;200){
+        return &#39;我们这里没有这么多及时&#39;;
+    }else{
+        return &quot;{$id}&quot;;
+    }
+});
+</code></pre><h6 id="路由参数"><a href="#路由参数" class="headerlink" title="路由参数"></a>路由参数</h6><p><strong>ext</strong> :路由后缀检测</p>
+<p>例:现在尾巴只允许是.html或.shtml</p>
+<p>deny_ext:与上面相反</p>
+<pre><code>Route::get(&#39;userlist&#39;,&#39;admin/user/index&#39;,[&#39;ext&#39;=&gt;&#39;html|shtml&#39;]);
+</code></pre><h6 id="变量规则"><a href="#变量规则" class="headerlink" title="变量规则"></a>变量规则</h6><p>第五个参数,用正则来约束变量</p>
+<pre><code class="php">// 变量规则  越容易匹配的规则 越往后放 或者加变量尾$ 
+// http://s84.com/blog/2019/10/05.html
+Route::get(&#39;blog/:year/:month/:day&#39;, &#39;index/blog/article&#39;,[], [&#39;year&#39;=&gt;&#39;\d{4}&#39;,&#39;month&#39;=&gt;&#39;\d{2}&#39;,&#39;day&#39;=&gt;&#39;\d{2}&#39;]);
+// http://s84.com/blog/5.html
+Route::get(&#39;blog/:id&#39;, &#39;index/blog/index&#39;,[],[&#39;id&#39;=&gt;&#39;\d+&#39;]);
+// http://s84.com/blog/ss.html
+Route::get(&#39;blog/:name&#39;, &#39;index/blog/read&#39;,[], [&#39;name&#39;=&gt;&#39;\w+&#39;]);
+</code></pre>
+<h6 id="路由分组"><a href="#路由分组" class="headerlink" title="路由分组"></a>路由分组</h6><pre><code>// Route::rule(&#39;路由表达式&#39;,&#39;路由地址&#39;,&#39;请求类型&#39;,&#39;路由参数（数组）&#39;,&#39;变量规则（数组）&#39;);
+Route::get(&#39;blog/:year/:month/:day&#39;, &#39;index/blog/article&#39;,[],[&#39;year&#39;=&gt;&#39;\d{4}&#39;],[&#39;month&#39;=&gt;&#39;\d{2}&#39;],[&#39;day&#39;=&gt;&#39;\d{2}&#39;]);
+</code></pre><p>Route::group(‘外号’,[</p>
+<p>​    ‘变量’=&gt;[</p>
+<p>​        路由地址    ,</p>
+<p>​        路由数组[],</p>
+<p>​        变量规则</p>
+<p>​    ]</p>
+<p>​    ‘变量’=&gt;[</p>
+<p>​        路由地址    ,</p>
+<p>​        路由数组[],</p>
+<p>​        变量规则</p>
+<p>​    ]</p>
+<p>)</p>
+<pre><code class="php">Route::group(&#39;blog&#39;,[
+    &#39;:year/:month/:day&#39;=&gt;[
+        &#39;index/blog/article&#39;,
+        [],
+        [&#39;year&#39;=&gt;&#39;\d{4}&#39;],
+        [&#39;month&#39;=&gt;&#39;\d{2}&#39;],
+        [&#39;day&#39;=&gt;&#39;\d{2}&#39;]
+    ],
+    &#39;:id&#39;=&gt;[
+        &#39;index/blog/index&#39;,
+        [],
+        [&#39;id&#39;=&gt;&#39;\d+&#39;]
+    ],
+    &#39;:name&#39;=&gt;[
+        &#39;index/blog/read&#39;,
+        [],
+        [&#39;name&#39;=&gt;&#39;\w+&#39;]
+    ],
+]);
+</code></pre>
+<h6 id="生成URL地址"><a href="#生成URL地址" class="headerlink" title="生成URL地址"></a>生成URL地址</h6><p>根据路由生成url网址</p>
+<p>在route.php内定义:</p>
+<pre><code>Route::get(&#39;user/[:id]$&#39;,&#39;index/index/user&#39;);
+</code></pre><p>调用到url方法:</p>
+<pre><code>Route::get(&#39;url&#39;,&#39;index/index/url&#39;);
+</code></pre><p>方法:</p>
+<pre><code class="php">public function url()
+{    
+        echo Url::build(&#39;index/index/user&#39;, [&#39;id&#39;=&gt;6]);
+        echo &#39;&lt;br&gt;&#39;;
+        echo url(&#39;index/index/user&#39;, [&#39;id&#39;=&gt;6]);
+        echo &#39;&lt;br&gt;&#39;;
+        echo url(&#39;index/blog/article&#39;, [&#39;year&#39;=&gt;2016,&#39;month&#39;=&gt;10,&#39;day&#39;=&gt;10]);
+        echo &#39;&lt;hr&gt;&#39;;
+
+        //带域名,加上true是带本地域名
+        echo url(&#39;index/blog/read&#39;, [&#39;name&#39;=&gt;&#39;laowang&#39;], &#39;shtml&#39;, true);
+        echo &#39;&lt;br&gt;&#39;;
+        // 指定域名 A站
+        echo url(&#39;index/blog/read&#39;, [&#39;name&#39;=&gt;&#39;laowang&#39;], &#39;shtml&#39;, &#39;www.acfun.cn&#39;);
+
+        echo &#39;&lt;hr&gt;&#39;;
+        //带锚点
+        echo url(&#39;index/blog/read#p1&#39;, [&#39;name&#39;=&gt;&#39;laowang&#39;], &#39;shtml&#39;, true);
+
+}    
+</code></pre>
+<h4 id="资源路由"><a href="#资源路由" class="headerlink" title="资源路由"></a>资源路由</h4><p>5.0支持设置 RESTFul 请求的资源路由，方式如下：<br><code>Route::resource(&#39;blog&#39;,&#39;index/blog&#39;);</code></p>
+<p>​                ‘外号’,’模块/文件名(Class名)’</p>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><h6 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h6><p><strong>跳转</strong></p>
+<p>​    关键词</p>
+<p>​    success和error</p>
+<p>​    访问jump: <code>Route::get(&#39;jump&#39;,&#39;admin/index/jump&#39;);</code></p>
+<p>​        跳转:<code>$this-&gt;success(&#39;添加成功&#39;, url(&#39;admin/user/index&#39;));</code></p>
+<p>​    定义路由::<code>Route::get(&#39;admin/user/index&#39;, &#39;admin/user/index&#39;);</code></p>
+<p><strong>秒跳:</strong></p>
+<p>​        $this-&gt;redirect(‘<a href="http://huaban.com&#39;)" target="_blank" rel="noopener">http://huaban.com&#39;)</a>;</p>
+<p><strong>空操作:</strong></p>
+<p>__empty()</p>
+<p><code>__miss__</code>路由  自己看手册去</p>
+<h1 id="实际项目"><a href="#实际项目" class="headerlink" title="实际项目"></a>实际项目</h1><p><img src="D:\wamp\www\s84\markdown\二期\tp5\RESTful.PNG" alt="RESTful"></p>
+<h4 id="增删改查-用户管理实例-RESTful资源控制器"><a href="#增删改查-用户管理实例-RESTful资源控制器" class="headerlink" title="增删改查 用户管理实例 RESTful资源控制器"></a>增删改查 用户管理实例 RESTful资源控制器</h4><ol>
+<li><h6 id="生成了-rest模块的-User资源控制器"><a href="#生成了-rest模块的-User资源控制器" class="headerlink" title="生成了 rest模块的 User资源控制器"></a>生成了 rest模块的 User资源控制器</h6><p> php think build –module rest<br> php think make:controller rest/User</p>
+</li>
+</ol>
+<p>助手函数   :url()</p>
+<pre><code class="php">&lt;a href=&quot;{:url(&#39;rest/user/index&#39;)}&quot; class=&quot;btn btn-default&quot;&gt;用户列表首页&lt;/a&gt; //生成了一个路由=&gt;users.html,users名来自于资源路由Route::resource(&#39;users&#39;, &#39;rest/User&#39;);
+</code></pre>
+<p>遍历,类似于foreach</p>
+<p>key是键,id是值</p>
+<pre><code>{volist name=&quot;list&quot; key=&quot;k&quot; id=&quot;&quot;}
+
+{/volist}
+</code></pre><h6 id="输出偶数记录"><a href="#输出偶数记录" class="headerlink" title="输出偶数记录"></a>输出偶数记录</h6><p>将查到的东西分两列:,按查到的条目分配,不是按ID基偶数</p>
+<p>在volist前标签加上 mod=”n”</p>
+<p>在volist标签中间写上:</p>
+<pre><code>{eq name=&quot;mod&quot; value=&quot;3&quot;}
+
+{/eq}
+</code></pre><p>示例</p>
+<pre><code class="php">&lt;div class=&quot;row mt50&quot;&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;table class=&quot;table table-hover bg-info&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;ID&lt;/th&gt;
+                &lt;th&gt;NAME&lt;/th&gt;
+                &lt;th&gt;ACTION&lt;/th&gt;
+            &lt;/tr&gt;
+            {volist name=&quot;list&quot; key=&quot;k&quot; id=&quot;v&quot; mod=&quot;2&quot;}
+            {eq name=&quot;mod&quot; value=&quot;0&quot;}
+            &lt;tr&gt;
+                &lt;td&gt;{$v[&#39;id&#39;]}&lt;/td&gt;
+            &lt;/tr&gt;
+            {/eq}
+            {/volist}
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;table class=&quot;table table-hover bg-info&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;ID&lt;/th&gt;
+                &lt;th&gt;NAME&lt;/th&gt;
+                &lt;th&gt;ACTION&lt;/th&gt;
+            &lt;/tr&gt;
+            {volist name=&quot;list&quot; key=&quot;k&quot; id=&quot;v&quot; mod=&quot;2&quot;}
+            {eq name=&quot;mod&quot; value=&quot;1&quot;}
+            &lt;tr&gt;
+                &lt;td&gt;{$v[&#39;id&#39;]}&lt;/td&gt;
+            &lt;/tr&gt;
+            {/eq}
+            {/volist}
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p>读取表单提交过来的参数</p>
+<p>1.<strong>request-&gt;post()</strong> </p>
+<p>2.input(‘post.’)</p>
+<h4 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h4><pre><code>&lt;input type=&quot;hidden&quot; name=&quot;method&quot; value=&quot;PUT&quot;&gt;
+</code></pre><p>doedit里</p>
+<pre><code>$p = $request-&gt;put();
+</code></pre><h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><p>生成model </p>
+<p>php think make:model rest/User</p>
+<h6 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h6><pre><code>halt($user-&gt;pass);//D:\wamp\www\s84\tp5\thinkphp\library\think\Debug.php:193:string &#39;e10adc3949ba59abbe56e057f20f883e&#39; (length=32)
+</code></pre><p>添加数据时,过滤非法字段</p>
+<p>反正写入的记录数</p>
+<pre><code>$result = $user-&gt;allowField(true)-&gt;save();
+$user-&gt;id;// 拿到自增ID
+</code></pre><pre><code>        $p = $request-&gt;post();
+        $user = new UserModel($p);
+        $user-&gt;pass = md5($p[&#39;pass&#39;]);
+//        var_dump($user);
+//        halt($user-&gt;pass);
+        // 添加数据,并过滤非法字段
+        // 返回写入数据
+        $result = $user-&gt;allowField(true)-&gt;save();
+//        echo $user-&gt;id;
+        if ($result) {
+            return $this-&gt;success(&#39;安排好了&#39;,&#39;rest/user/index&#39;);
+        } else {
+            return $this-&gt;error(&#39;添加失败&#39;,&#39;rest/user/index&#39;);
+
+        }
+</code></pre><h6 id="盐值加密"><a href="#盐值加密" class="headerlink" title="盐值加密"></a>盐值加密</h6><pre><code>return password_hash($pass,PASSWORD_DEFAULT);
+</code></pre><p>验证密码</p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><pre><code>class User extends Validate;
+{
+    Protected $rule = [
+        &#39;name&#39;=&gt;[&#39;require&#39;,&#39;min&#39;=&gt;2,&#39;max&#39;=&gt;20],
+        &#39;sex&#39; =&gt;[&#39;in&#39;=&gt;&#39;0,1,2&#39;],
+        &#39;age&#39; =&gt;[&#39;number&#39;,&#39;between&#39;=&gt;&#39;1,120&#39;],
+        &#39;tel&#39;=&gt;[&#39;require&#39;,&#39;regex&#39;=&gt;&#39;/^1[012]\d{9}&amp;/&#39;]
+    ];
+}
+</code></pre><p>替换系统自带提示</p>
+<pre><code>    protected $message =[
+        &#39;name.require&#39; =&gt;&#39;你是不是忘了用户名额&#39;;
+        &#39;name.min&#39; =&gt;&#39;你太短了&#39;;
+    ];
+}
+</code></pre><h2 id="查-1"><a href="#查-1" class="headerlink" title="查"></a>查</h2><h4 id="快速查询"><a href="#快速查询" class="headerlink" title="快速查询"></a>快速查询</h4><h5 id="where"><a href="#where" class="headerlink" title="where"></a>where</h5><pre><code>$row = Db::name(&#39;user&#39;)
+     -&gt;where(&#39;id&#39;,5)
+     -&gt;find();
+
+$row = Db::name(&#39;user&#39;)
+    -&gt;where(&#39;id&#39;,&#39;&lt;=&#39;,5)
+    -&gt;select();
+</code></pre><p>and,like</p>
+<pre><code>$row = Db::name(&#39;user&#39;)
+    -&gt;where(&#39;age&#39;,&#39;&lt;=&#39;,20)
+    -&gt;where(&#39;name&#39;,&#39;like&#39;,&#39;%许%&#39;)
+    -&gt;select();
+</code></pre><p>or</p>
+<pre><code>$row = Db::name(&#39;user&#39;)
+    -&gt;where(&#39;sex&#39;,&#39;0&#39;)
+    -&gt;whereOr(&#39;province&#39;,&#39;上海&#39;)
+    -&gt;select();
+var_dump($row);
+</code></pre><h4 id="批量查询"><a href="#批量查询" class="headerlink" title="批量查询"></a>批量查询</h4><pre><code>$row = Db::name(&#39;user&#39;)
+     -&gt;where([
+         &#39;id&#39;=&gt;[&#39;between&#39;,&#39;10,20&#39;],
+         &#39;sex&#39; =&gt; [&#39;eq&#39;,0]
+     ])-&gt;select();
+
+$row = Db::name(&#39;user&#39;)
+    -&gt;where(&#39;sex&#39;,1)
+    -&gt;where(&#39;id&#39;,[&#39;between&#39;,&#39;1,3&#39;],[&#39;in&#39;,[6, 66, 666]],&#39;or&#39;)
+    -&gt;select();
+</code></pre><h4 id="区间查询"><a href="#区间查询" class="headerlink" title="区间查询"></a>区间查询</h4><pre><code>  $row = Db::name(&#39;user&#39;)
+            -&gt;where(&#39;id&#39;, [&#39;&gt;&#39;, 2], [&#39;&lt;&#39;, 15])
+            -&gt;select();
+</code></pre><h4 id="多表联查"><a href="#多表联查" class="headerlink" title="多表联查"></a>多表联查</h4><pre><code>1). 手动多表
+$row = Db::field([&#39;u.name&#39;=&gt;&#39;un&#39;,&#39;l.name&#39;=&gt;&#39;ln&#39;])
+    -&gt;table([&#39;hc_user&#39;=&gt; &#39;u&#39;, &#39;hc_lover&#39;=&gt;&#39;l&#39;])
+    -&gt;where(&#39;u.id = l.user_id&#39;)
+    -&gt;select();
+
+//            2). JOIN
+$row = Db::table(&#39;hc_user&#39;)
+    -&gt;alias(&#39;u&#39;)
+    -&gt;field([&#39;u.name&#39;=&gt;&#39;uname&#39;,&#39;l.name&#39;=&gt;&#39;lname&#39;])
+    -&gt;join(&#39;hc_lover l&#39;, &#39;u.id = l.user_id&#39;)
+    -&gt;order(&#39;uname&#39;, &#39;DESC&#39;)
+    -&gt;select();
+
+//            3). 视图
+$row = Db::view(&#39;hc_user&#39;, [&#39;name&#39;=&gt;&#39;uname&#39;])
+    -&gt;view(&#39;hc_lover&#39;, [&#39;name&#39;=&gt;&#39;lname&#39;],&#39;hc_user.id = hc_lover.user_id&#39;)
+    -&gt;select();
+</code></pre><h2 id="通过url传递id"><a href="#通过url传递id" class="headerlink" title="通过url传递id"></a>通过url传递id</h2><p><code>&lt;a href=&quot;{:url(&#39;rest/user/updateNovel&#39;,[&#39;id&#39;=&gt;$v[&#39;id&#39;]])}&quot; class=&quot;btn btn-xs</code></p>
+<p><code>btn-primary&quot; style=&quot;color:#000&quot;&gt;</code></p>
+<p>$id = Request::instance()-&gt;param();</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <!-- <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDNnull"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDNnull"></li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/php/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                php基础(初学时的笔记)</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/hexo-init/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/banner/coding.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                hexo</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon.jpg" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 红狼<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2020</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i>  Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/lh-xuyong/CDN/img/mk/wx_icon2.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘その红狼</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://github.com/lh-xuyong" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="https://space.bilibili.com/20164078/" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-leaf faa-wrench" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="260651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>

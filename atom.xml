@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-07-27T14:49:02.350Z</updated>
+  <updated>2021-02-07T06:48:39.194Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="/cicken_breast/"/>
+    <id>/cicken_breast/</id>
+    <published>2020-08-12T07:28:21.638Z</published>
+    <updated>2021-02-07T06:48:39.194Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;title: 鸡胸肉&lt;br&gt;comment: true&lt;/p&gt;
+&lt;h1 id=&quot;date-2020-04-19T19-11-42-08-00&quot;&gt;&lt;a href=&quot;#date-2020-04-19T19-11-42-08-00&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>php基础(初学时的笔记)</title>
+    <link href="/php/"/>
+    <id>/php/</id>
+    <published>2020-08-06T01:09:44.588Z</published>
+    <updated>2020-08-12T07:31:28.448Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h2&gt;&lt;h6 id=&quot;1-注意点&quot;&gt;&lt;a href=&quot;#1-注意点&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>TP5.0的重新学习</title>
-    <link href="/title/"/>
-    <id>/title/</id>
+    <link href="/TP5.0%E7%9A%84%E9%87%8D%E6%96%B0%E5%AD%A6%E4%B9%A0/"/>
+    <id>/TP5.0的重新学习/</id>
     <published>2020-05-09T08:11:14.087Z</published>
-    <updated>2020-07-27T14:49:02.350Z</updated>
+    <updated>2020-08-12T07:20:45.888Z</updated>
     
     <summary type="html">
     
@@ -39,30 +87,32 @@
     
     </summary>
     
-      <category term="生活" scheme="/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
   
   <entry>
-    <title>Hexo-Theme-Sakura</title>
-    <link href="/title/"/>
-    <id>/title/</id>
-    <published>2018-12-12T14:16:01.000Z</published>
-    <updated>2020-07-27T14:34:28.655Z</updated>
+    <title>hexo</title>
+    <link href="/hexo-init/"/>
+    <id>/hexo-init/</id>
+    <published>2020-04-19T03:11:42.000Z</published>
+    <updated>2020-08-12T07:20:28.742Z</updated>
     
     <summary type="html">
     
-      hexo-sakura主题使用教程
+      &lt;h2 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;安装&lt;code&gt;hexo&lt;/code&gt;&lt;pre&gt;&lt;code&gt;需要先安装npm,git,配置好npm的淘宝镜像
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;生成&lt;code&gt;hexo&lt;/code&gt;项目&lt;pre&gt;&lt;code&gt;hexo init &amp;lt;folder&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="/tags/web/"/>
-    
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="hexo" scheme="/tags/hexo/"/>
     
   </entry>
   
